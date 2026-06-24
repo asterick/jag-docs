@@ -175,7 +175,6 @@ Titles may use Red Book audio as in-game music:
 - [CD-ROM Subsystem Overview](overview.md)
 - [CD-ROM BIOS API](bios-api.md) — `CD_read`, `CD_getoc`, `CD_initm`
 - [Programming Procedures & Guidelines](programming-guide.md)
-- [CD-ROM Development Tools](tools.md) — the Track Creator builds these headers for you
 
 <!-- nav:bottom -->
 ---

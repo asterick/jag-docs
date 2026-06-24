@@ -10,6 +10,8 @@ The Jaguar address space, memory banks, and the complete hardware register list.
 > *Software Reference Manual — Tom & Jerry* (V10), pp. 9–20 (memory controller,
 > internal map); *Technical Overview* (V10), p. 9. © Atari Corp. 1995.
 
+**On this page:** [System memory layout](#system-memory-layout) · [Do-not-touch registers](#do-not-touch-registers) · [Register list](#register-list) — by group: [system/video](#system-set-up--video-registers-tom) · [GPU](#gpu-registers-tom) · [Blitter](#blitter-registers-tom) · [Jerry clocks/timers/serial](#jerry--clocks-timers-serial) · [Joystick](#joystick-registers-jerry) · [DSP](#dsp-registers-jerry)
+
 ## System memory layout
 
 | Region | Address | Notes |

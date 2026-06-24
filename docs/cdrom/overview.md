@@ -110,7 +110,6 @@ out, and the Atari header/tailer and partition-marker conventions.
 - [Disc & Data Format](data-format.md) — sessions, tracks, partition markers, headers
 - [Programming Procedures & Guidelines](programming-guide.md) — boot, read, error handling
 - [CD-ROM Hardware](hardware.md)
-- [CD-ROM Development Tools](tools.md) — emulator, authoring tool, mastering
 - [System Architecture Overview](../architecture/overview.md)
 
 <!-- nav:bottom -->

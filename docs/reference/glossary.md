@@ -8,6 +8,8 @@ Hardware, chip, and CD-ROM terms used across this reference. CD-specific media
 terms (sectors, sessions, subcodes, etc.) are defined in the
 [CD-ROM Overview glossary](../cdrom/overview.md#glossary-of-cd-rom-terms).
 
+**On this page:** [Chips & processors](#chips--processors) · [Graphics & display](#graphics--display) · [Memory & system](#memory--system) · [Development hardware & tools](#development-hardware--tools) · [Addresses worth memorising](#addresses-worth-memorising)
+
 ## Chips & processors
 
 | Term | Meaning |

@@ -47,7 +47,7 @@ Two revisions exist and they affect which BIOS you can run:
 | **Butch 1** | CD BIOS rev 2 only | older development CD systems |
 | **Butch 2** | rev 2 **or** rev 4 | CD system in a modified production-level case |
 
-See [Debugging with the CD BIOS](bios-api.md#debugging-with-the-cd-bios).
+See [Calling convention](bios-api.md#calling-convention) for how the BIOS revision is selected.
 
 ## Data path
 
@@ -55,7 +55,7 @@ See [Debugging with the CD BIOS](bios-api.md#debugging-with-the-cd-bios).
 
 - **GPU path** (the `CD_init` family): the BIOS installs a GPU ISR that runs off
   the redirected Jerry I²S interrupt. Tight latency budget (~54 µs usable at
-  double speed) — see [the latency rule](programming-guide.md#the-latency-rule).
+  double speed) — see [the latency rule](programming-guide.md#reading-data-reliably).
 - **DSP path** (optional): your own DSP I²S handler with `CD_jeri` and
   `SMODE = $14`; subject to rare unreported data errors, so checksum critical
   data.
@@ -78,12 +78,6 @@ in the [Memory Map / Register List](../architecture/memory-map.md) and
   / `.png`) shows the cartridge/expansion port the CD module attaches to; see
   [Video & System Clocks, Timing → ports](../architecture/video-clocks-timing.md).
 
-## CD-ROM emulator hardware
-
-For development without burning discs, the Falcon030-based emulator substitutes a
-SCSI hard drive for the CD mechanism. Its setup, cabling, and caveats are covered
-in [CD-ROM Development Tools → Emulator](tools.md#falcon030-cd-rom-emulator--authoring-tool).
-
 ## See also
 
 - [CD-ROM Subsystem Overview](overview.md)
@@ -95,7 +89,7 @@ in [CD-ROM Development Tools → Emulator](tools.md#falcon030-cd-rom-emulator--a
 <!-- nav:bottom -->
 ---
 
-◀ **Prev:** [CD-ROM Development Tools](tools.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Sample Programs](../examples/sample-programs.md) ▶
+◀ **Prev:** [CD-ROM Programming Procedures & Guidelines](programming-guide.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Sample Programs](../examples/sample-programs.md) ▶
 
 **Jump to:** [Architecture](../architecture/overview.md) · [Memory Map](../architecture/memory-map.md) · [Registers](../reference/register-list.md) · [Instructions](../reference/risc-instruction-set.md) · [Glossary](../reference/glossary.md) · [CD-ROM](overview.md)
 <!-- /nav:bottom -->

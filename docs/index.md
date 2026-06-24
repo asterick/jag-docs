@@ -48,7 +48,6 @@ and **Jerry** (sound/I-O) — plus a Motorola 68000 acting as system manager.
 - [CD-ROM BIOS API](cdrom/bios-api.md) — the calls your code uses to talk to the drive
 - [Disc & Data Format](cdrom/data-format.md) — sessions, tracks, frames, partition markers, audio
 - [Programming Procedures & Guidelines](cdrom/programming-guide.md) — boot, read, error handling, do's & don'ts
-- [CD-ROM Development Tools](cdrom/tools.md) — emulator, authoring tool, Track Creator, mastering
 - [CD-ROM Hardware](cdrom/hardware.md) — drive module, schematic, connections
 
 ## Programming examples

@@ -38,6 +38,14 @@ important than another. Document each thoroughly:
   hardware. Main source: `sources/CD-ROM.pdf` (**scanned**, see OCR note below),
   plus `sources/Schematics/Jaguar CD ROM.pdf` and `sources/Other Documents/Jag CD testpro4.pdf`.
 
+> **Assume a toolchain-agnostic dev environment.** Document the hardware and the
+> CD BIOS at the platform level only. Content tied to the official Atari dev kit
+> is **invalid** for users on other toolchains and is excluded: the CD-ROM
+> emulator, the Authoring Tool, the Track Creator, mastering-software workflows,
+> and the Atari debugger workflow (`CDBIOS??.DB` soft-loads, `rdbjag`/`wdb`,
+> `load`/`read`/`aread` scripts). Keep only what any toolchain needs — the BIOS
+> calls, the on-disc format, and programming guidance.
+
 **Excluded — do not document or redistribute** (third-party/copyright IP, or
 toolchain-tied rather than hardware): the toolchain (`Madmac`, `ALN`, `Tools`,
 `Debugger`), the libraries (`librarys` — 3D/JPEG/networking/music), the licensed

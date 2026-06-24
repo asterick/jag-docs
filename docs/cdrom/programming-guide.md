@@ -138,12 +138,11 @@ Disc-switch decision flow (from the manual's flowchart):
 - [CD-ROM BIOS API](bios-api.md) — full call reference
 - [Disc & Data Format](data-format.md) — headers, partition markers, boot track
 - [CD-ROM Subsystem Overview](overview.md)
-- [CD-ROM Development Tools](tools.md) — emulator & authoring for testing this
 
 <!-- nav:bottom -->
 ---
 
-◀ **Prev:** [Disc & Data Format](data-format.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [CD-ROM Development Tools](tools.md) ▶
+◀ **Prev:** [Disc & Data Format](data-format.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [CD-ROM Hardware](hardware.md) ▶
 
 **Jump to:** [Architecture](../architecture/overview.md) · [Memory Map](../architecture/memory-map.md) · [Registers](../reference/register-list.md) · [Instructions](../reference/risc-instruction-set.md) · [Glossary](../reference/glossary.md) · [CD-ROM](overview.md)
 <!-- /nav:bottom -->

@@ -27,7 +27,7 @@ original Atari documentation.
 
 | PDF | Pages | Status | Used by |
 |-----|------:|--------|---------|
-| `sources/CD-ROM.pdf` | 39 | **Scanned** | all of [docs/cdrom/](../cdrom/overview.md) — [overview](../cdrom/overview.md), [bios-api](../cdrom/bios-api.md), [data-format](../cdrom/data-format.md), [programming-guide](../cdrom/programming-guide.md), [tools](../cdrom/tools.md), [hardware](../cdrom/hardware.md) |
+| `sources/CD-ROM.pdf` | 39 | **Scanned** | all of [docs/cdrom/](../cdrom/overview.md) — [overview](../cdrom/overview.md), [bios-api](../cdrom/bios-api.md), [data-format](../cdrom/data-format.md), [programming-guide](../cdrom/programming-guide.md), [hardware](../cdrom/hardware.md) |
 | `sources/Schematics/Jaguar CD ROM.pdf` | 7 | Schematic | [cdrom/hardware](../cdrom/hardware.md) |
 | `sources/Other Documents/Jag CD testpro4.pdf` | 23 | Text | [cdrom/hardware](../cdrom/hardware.md) (manufacturing test spec) |
 

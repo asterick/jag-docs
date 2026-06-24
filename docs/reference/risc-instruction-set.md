@@ -8,6 +8,8 @@ The Jaguar's two RISC processors — the GPU (Tom) and the DSP (Jerry) — share
 
 > **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 89–106. © Atari Corp. 1995.
 
+**On this page:** [Instruction encoding](#instruction-encoding) · [Flags](#flags) · [Register usage](#register-usage) · [Instruction set](#instruction-set) · [Writing fast GPU/DSP programs](#writing-fast-gpu-and-dsp-programs) · [Data organisation (endianness)](#data-organisation--big-and-little-endian)
+
 ## Instruction Encoding
 
 GPU and DSP instructions are all sixteen bits, laid out as follows:
