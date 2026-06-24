@@ -1,0 +1,23 @@
+title: Atari Jaguar Developer Reference
+description: >-
+  A cross-linked developer reference for the Atari Jaguar — the Tom & Jerry core
+  system and the CD-ROM subsystem.
+theme: minima
+url: "https://asterick.github.io"
+baseurl: "/jag-docs"
+
+# Pages without YAML front matter still get the theme's chrome.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Default GitHub Pages plugins (listed explicitly): render markdown without
+# front matter, and rewrite relative .md links to their built .html pages.
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-relative-links
+
+exclude:
+  - _extract/

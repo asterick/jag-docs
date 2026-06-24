@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 326" role="img" aria-label="Tom/Jerry register region">
+  <rect x="0.5" y="0.5" width="419" height="325" rx="8" fill="#fcfcfe" stroke="#d0d7de"/>
+  <text x="255.0" y="32" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">Tom / Jerry register region</text>
+  <rect x="130" y="256" width="250" height="40" rx="0" fill="#fde68a" stroke="#334155" stroke-width="1.5"/>
+  <text x="255.0" y="281.0" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Bootstrap ROM</text>
+  <text x="122" y="300" text-anchor="end" font-size="11" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="normal">$000000</text>
+  <rect x="130" y="216" width="250" height="40" rx="0" fill="#ddd6fe" stroke="#334155" stroke-width="1.5"/>
+  <text x="255.0" y="241.0" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Internal Registers</text>
+  <text x="122" y="260" text-anchor="end" font-size="11" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="normal">$100000</text>
+  <rect x="130" y="176" width="250" height="40" rx="0" fill="#ffedd5" stroke="#334155" stroke-width="1.5"/>
+  <text x="255.0" y="201.0" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Jerry</text>
+  <text x="122" y="220" text-anchor="end" font-size="11" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="normal">$110000</text>
+  <rect x="130" y="136" width="250" height="40" rx="0" fill="#ffedd5" stroke="#334155" stroke-width="1.5"/>
+  <text x="255.0" y="161.0" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Joysticks &amp; GPIO0-5</text>
+  <text x="122" y="180" text-anchor="end" font-size="11" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="normal">$114000</text>
+  <rect x="130" y="96" width="250" height="40" rx="0" fill="#ffedd5" stroke="#334155" stroke-width="1.5"/>
+  <text x="255.0" y="121.0" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Jerry DSP</text>
+  <text x="122" y="140" text-anchor="end" font-size="11" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="normal">$118000</text>
+  <rect x="130" y="56" width="250" height="40" rx="0" fill="#fde68a" stroke="#334155" stroke-width="1.5"/>
+  <text x="255.0" y="81.0" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Bootstrap ROM</text>
+  <text x="122" y="100" text-anchor="end" font-size="11" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="normal">$120000</text>
+  <text x="122" y="61" text-anchor="end" font-size="11" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="normal">$1FFFFF</text>
+</svg>

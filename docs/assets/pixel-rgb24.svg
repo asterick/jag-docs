@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 816 112" role="img" aria-label="RGB24 pixel  ·  X = unused">
+  <rect x="0.5" y="0.5" width="815" height="111" rx="8" fill="#fcfcfe" stroke="#d0d7de"/>
+  <text x="408.0" y="28" text-anchor="middle" font-size="15" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">RGB24 pixel  ·  X = unused</text>
+  <text x="24" y="50" text-anchor="start" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif" font-weight="normal">bit 31</text>
+  <text x="792" y="50" text-anchor="end" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif" font-weight="normal">bit 0</text>
+  <rect x="24" y="58" width="192" height="34" rx="0" fill="#dcfce7" stroke="#334155" stroke-width="1.5"/>
+  <text x="120.0" y="80" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="700">G</text>
+  <text x="120.0" y="108" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif" font-weight="normal">8 bits</text>
+  <line x1="48" y1="58" x2="48" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="72" y1="58" x2="72" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="96" y1="58" x2="96" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="120" y1="58" x2="120" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="144" y1="58" x2="144" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="168" y1="58" x2="168" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="192" y1="58" x2="192" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <rect x="216" y="58" width="192" height="34" rx="0" fill="#dbeafe" stroke="#334155" stroke-width="1.5"/>
+  <text x="312.0" y="80" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="700">R</text>
+  <text x="312.0" y="108" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif" font-weight="normal">8 bits</text>
+  <line x1="240" y1="58" x2="240" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="264" y1="58" x2="264" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="288" y1="58" x2="288" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="312" y1="58" x2="312" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="336" y1="58" x2="336" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="360" y1="58" x2="360" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="384" y1="58" x2="384" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <rect x="408" y="58" width="192" height="34" rx="0" fill="#e5e7eb" stroke="#334155" stroke-width="1.5"/>
+  <text x="504.0" y="80" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="700">X</text>
+  <text x="504.0" y="108" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif" font-weight="normal">8 bits</text>
+  <line x1="432" y1="58" x2="432" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="456" y1="58" x2="456" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="480" y1="58" x2="480" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="504" y1="58" x2="504" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="528" y1="58" x2="528" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="552" y1="58" x2="552" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="576" y1="58" x2="576" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <rect x="600" y="58" width="192" height="34" rx="0" fill="#bfdbfe" stroke="#334155" stroke-width="1.5"/>
+  <text x="696.0" y="80" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="700">B</text>
+  <text x="696.0" y="108" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif" font-weight="normal">8 bits</text>
+  <line x1="624" y1="58" x2="624" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="648" y1="58" x2="648" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="672" y1="58" x2="672" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="696" y1="58" x2="696" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="720" y1="58" x2="720" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="744" y1="58" x2="744" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+  <line x1="768" y1="58" x2="768" y2="92" stroke="#94a3b8" stroke-width="0.5"/>
+</svg>

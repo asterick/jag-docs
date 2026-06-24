@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" role="img" aria-label="Blitter phrase-mode STEP adjustment">
+  <rect x="0.5" y="0.5" width="719" height="299" rx="8" fill="#fcfcfe" stroke="#d0d7de"/>
+  <text x="360" y="30" text-anchor="middle" font-size="15" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">STEP in phrase mode</text>
+  <text x="360" y="50" text-anchor="middle" font-size="12" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">The Blitter always advances to the end of a phrase, so STEP ≠ blit width.</text>
+
+  <!-- Source row: 4 phrases, data abcdefgh spanning -->
+  <text x="40" y="98" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Source</text>
+  <g font-family="Consolas, ui-monospace, monospace" font-size="13" font-weight="700">
+    <rect x="140" y="76" width="40" height="36" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="180" y="76" width="40" height="36" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="220" y="76" width="40" height="36" fill="#fde68a" stroke="#94a3b8"/><text x="240" y="100" text-anchor="middle">a</text>
+    <rect x="260" y="76" width="40" height="36" fill="#fde68a" stroke="#94a3b8"/><text x="280" y="100" text-anchor="middle">b</text>
+    <rect x="300" y="76" width="40" height="36" fill="#fde68a" stroke="#94a3b8"/><text x="320" y="100" text-anchor="middle">c</text>
+    <rect x="340" y="76" width="40" height="36" fill="#fde68a" stroke="#94a3b8"/><text x="360" y="100" text-anchor="middle">d</text>
+    <rect x="380" y="76" width="40" height="36" fill="#fde68a" stroke="#94a3b8"/><text x="400" y="100" text-anchor="middle">e</text>
+    <rect x="420" y="76" width="40" height="36" fill="#fde68a" stroke="#94a3b8"/><text x="440" y="100" text-anchor="middle">f</text>
+    <rect x="460" y="76" width="40" height="36" fill="#fde68a" stroke="#94a3b8"/><text x="480" y="100" text-anchor="middle">g</text>
+    <rect x="500" y="76" width="40" height="36" fill="#fde68a" stroke="#94a3b8"/><text x="520" y="100" text-anchor="middle">h</text>
+    <rect x="540" y="76" width="40" height="36" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="580" y="76" width="40" height="36" fill="#f1f5f9" stroke="#94a3b8"/>
+  </g>
+  <!-- phrase boundaries every 4 cells -->
+  <line x1="140" y1="70" x2="140" y2="118" stroke="#334155" stroke-width="2.5"/>
+  <line x1="300" y1="70" x2="300" y2="118" stroke="#334155" stroke-width="2.5"/>
+  <line x1="460" y1="70" x2="460" y2="118" stroke="#334155" stroke-width="2.5"/>
+  <line x1="620" y1="70" x2="620" y2="118" stroke="#334155" stroke-width="2.5"/>
+
+  <!-- Destination row -->
+  <text x="40" y="170" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Destination</text>
+  <g font-family="Consolas, ui-monospace, monospace" font-size="13" font-weight="700">
+    <rect x="140" y="148" width="40" height="36" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="180" y="148" width="40" height="36" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="220" y="148" width="40" height="36" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="260" y="148" width="40" height="36" fill="#bbf7d0" stroke="#94a3b8"/><text x="280" y="172" text-anchor="middle">A</text>
+    <rect x="300" y="148" width="40" height="36" fill="#bbf7d0" stroke="#94a3b8"/><text x="320" y="172" text-anchor="middle">B</text>
+    <rect x="340" y="148" width="40" height="36" fill="#bbf7d0" stroke="#94a3b8"/><text x="360" y="172" text-anchor="middle">C</text>
+    <rect x="380" y="148" width="40" height="36" fill="#bbf7d0" stroke="#94a3b8"/><text x="400" y="172" text-anchor="middle">D</text>
+    <rect x="420" y="148" width="40" height="36" fill="#bbf7d0" stroke="#94a3b8"/><text x="440" y="172" text-anchor="middle">E</text>
+    <rect x="460" y="148" width="40" height="36" fill="#bbf7d0" stroke="#94a3b8"/><text x="480" y="172" text-anchor="middle">F</text>
+    <rect x="500" y="148" width="40" height="36" fill="#bbf7d0" stroke="#94a3b8"/><text x="520" y="172" text-anchor="middle">G</text>
+    <rect x="540" y="148" width="40" height="36" fill="#bbf7d0" stroke="#94a3b8"/><text x="560" y="172" text-anchor="middle">H</text>
+    <rect x="580" y="148" width="40" height="36" fill="#f1f5f9" stroke="#94a3b8"/>
+  </g>
+  <line x1="140" y1="142" x2="140" y2="190" stroke="#334155" stroke-width="2.5"/>
+  <line x1="300" y1="142" x2="300" y2="190" stroke="#334155" stroke-width="2.5"/>
+  <line x1="460" y1="142" x2="460" y2="190" stroke="#334155" stroke-width="2.5"/>
+  <line x1="620" y1="142" x2="620" y2="190" stroke="#334155" stroke-width="2.5"/>
+
+  <text x="360" y="232" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif">STEP runs from the end of the third phrase back to the start of the data:</text>
+  <text x="360" y="256" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="700">source STEP = −10   ·   destination STEP = −9</text>
+  <text x="360" y="280" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">If SRCENX is set, subtract one more phrase from the source STEP.</text>
+</svg>

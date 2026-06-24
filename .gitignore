@@ -1,0 +1,12 @@
+# Extraction / scratch workspace (rendered scans, raw transcriptions) — not for
+# publication. May contain page renders of excluded copyright documents.
+_extract/
+
+# Jekyll build output (if built locally)
+docs/_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

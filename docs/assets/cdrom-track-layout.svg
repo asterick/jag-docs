@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-label="CD-ROM boot track and data track layout">
+  <rect x="0.5" y="0.5" width="759" height="429" rx="8" fill="#fcfcfe" stroke="#d0d7de"/>
+
+  <!-- ===== Boot track (first track of Session #1) ===== -->
+  <text x="200" y="34" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">First track of Session #1 (boot track)</text>
+
+  <rect x="40" y="56" width="320" height="56" fill="#c7d2fe" stroke="#334155" stroke-width="1.5"/>
+  <text x="200" y="79" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Boot Track Header</text>
+  <text x="200" y="97" text-anchor="middle" font-size="11" fill="#475569" font-family="Consolas, ui-monospace, monospace">ATRI×16 (64B) + "…HEADER ATRI "</text>
+
+  <rect x="40" y="112" width="320" height="40" fill="#fde68a" stroke="#334155" stroke-width="1.5"/>
+  <text x="200" y="137" text-anchor="middle" font-size="11" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="600">load address · code length (2 longwords)</text>
+
+  <rect x="40" y="152" width="320" height="50" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+  <text x="200" y="182" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Boot Code  (max 64K, loaded by ROM)</text>
+
+  <rect x="40" y="202" width="320" height="44" fill="#f8fafc" stroke="#334155" stroke-width="1.5"/>
+  <text x="200" y="229" text-anchor="middle" font-size="12" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">Other Code / Data  (optional, you load)</text>
+
+  <rect x="40" y="246" width="320" height="56" fill="#c7d2fe" stroke="#334155" stroke-width="1.5"/>
+  <text x="200" y="269" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Boot Track Tailer</text>
+  <text x="200" y="287" text-anchor="middle" font-size="11" fill="#475569" font-family="Consolas, ui-monospace, monospace">"…TAILER ATRI " + ATRI×16 (64B)</text>
+
+  <!-- ===== Second track ===== -->
+  <text x="560" y="34" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">Second track of Session #1</text>
+
+  <rect x="400" y="56" width="320" height="56" fill="#c7d2fe" stroke="#334155" stroke-width="1.5"/>
+  <text x="560" y="79" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Track Header</text>
+  <text x="560" y="97" text-anchor="middle" font-size="11" fill="#475569" font-family="Consolas, ui-monospace, monospace">ATRI×16 + "…HEADER ATRI!"</text>
+
+  <rect x="400" y="112" width="320" height="52" fill="#dbeafe" stroke="#334155" stroke-width="1.5"/>
+  <text x="560" y="135" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Program Data / Code  (~1 MB)</text>
+  <text x="560" y="152" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">must be long-aligned</text>
+
+  <rect x="400" y="164" width="320" height="44" fill="#bbf7d0" stroke="#334155" stroke-width="1.5"/>
+  <text x="560" y="184" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Partition marker  (e.g. GAME×16)</text>
+  <text x="560" y="200" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">64 bytes, long-aligned</text>
+
+  <rect x="400" y="208" width="320" height="38" fill="#dbeafe" stroke="#334155" stroke-width="1.5"/>
+  <text x="560" y="232" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">More Program Data / Code</text>
+
+  <rect x="400" y="246" width="320" height="56" fill="#c7d2fe" stroke="#334155" stroke-width="1.5"/>
+  <text x="560" y="269" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Track Tailer</text>
+  <text x="560" y="287" text-anchor="middle" font-size="11" fill="#475569" font-family="Consolas, ui-monospace, monospace">"…TAILER ATRI!" + ATRI×16</text>
+
+  <!-- legend -->
+  <rect x="40" y="340" width="22" height="16" fill="#c7d2fe" stroke="#334155" stroke-width="1.2"/>
+  <text x="70" y="353" font-size="12" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">Atari header / tailer (16× ATRI + 32-byte string)</text>
+  <rect x="40" y="366" width="22" height="16" fill="#bbf7d0" stroke="#334155" stroke-width="1.2"/>
+  <text x="70" y="379" font-size="12" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">partition marker (16 identical longwords)</text>
+  <rect x="430" y="340" width="22" height="16" fill="#fde68a" stroke="#334155" stroke-width="1.2"/>
+  <text x="460" y="353" font-size="12" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">boot load address + size (boot track only)</text>
+  <rect x="430" y="366" width="22" height="16" fill="#dbeafe" stroke="#334155" stroke-width="1.2"/>
+  <text x="460" y="379" font-size="12" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">your program code / data</text>
+  <text x="380" y="408" text-anchor="middle" font-size="11" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif">No data precedes a header or follows a tailer. The header byte increments per track (space, !, ", …).</text>
+</svg>

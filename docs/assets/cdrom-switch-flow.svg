@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" role="img" aria-label="CD_switch disc-swap flowchart">
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect x="0.5" y="0.5" width="759" height="699" rx="8" fill="#fcfcfe" stroke="#d0d7de"/>
+  <text x="300" y="30" text-anchor="middle" font-size="15" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">Disc-swap procedure (CD_switch)</text>
+
+  <rect x="190" y="46" width="220" height="40" rx="20" fill="#e5e7eb" stroke="#334155" stroke-width="1.5"/>
+  <text x="300" y="71" text-anchor="middle" font-size="14" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">START</text>
+
+  <rect x="170" y="110" width="260" height="44" rx="6" fill="#dcfce7" stroke="#334155" stroke-width="1.5"/>
+  <text x="300" y="137" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="600">CD_stop (wait for completion)</text>
+
+  <rect x="170" y="178" width="260" height="44" rx="6" fill="#f1f5f9" stroke="#334155" stroke-width="1.5"/>
+  <text x="300" y="205" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif">Display "insert disc" graphic</text>
+
+  <rect x="170" y="246" width="260" height="44" rx="6" fill="#dcfce7" stroke="#334155" stroke-width="1.5"/>
+  <text x="300" y="273" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Consolas, ui-monospace, monospace" font-weight="600">CD_switch (wait)</text>
+
+  <rect x="170" y="314" width="260" height="44" rx="6" fill="#ffedd5" stroke="#334155" stroke-width="1.5"/>
+  <text x="300" y="335" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">CD-BIOS: wait for lid</text>
+  <text x="300" y="351" text-anchor="middle" font-size="12" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">open, then close</text>
+
+  <polygon points="300,380 396,422 300,464 204,422" fill="#fef9c3" stroke="#334155" stroke-width="1.5"/>
+  <text x="300" y="427" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">CD inserted?</text>
+
+  <rect x="170" y="490" width="260" height="44" rx="6" fill="#ffedd5" stroke="#334155" stroke-width="1.5"/>
+  <text x="300" y="517" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Read TOC to $2C00</text>
+
+  <rect x="170" y="558" width="260" height="44" rx="6" fill="#ede9fe" stroke="#334155" stroke-width="1.5"/>
+  <text x="300" y="585" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Parse TOC at $2C00 (your code)</text>
+
+  <line x1="300" y1="86"  x2="300" y2="109" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="300" y1="154" x2="300" y2="177" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="300" y1="222" x2="300" y2="245" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="300" y1="290" x2="300" y2="313" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="300" y1="358" x2="300" y2="379" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="300" y1="464" x2="300" y2="489" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="312" y="481" text-anchor="start" font-size="12" fill="#16a34a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">yes</text>
+  <line x1="300" y1="534" x2="300" y2="557" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <line x1="204" y1="422" x2="120" y2="422" stroke="#475569" stroke-width="1.6"/>
+  <line x1="120" y1="422" x2="120" y2="336" stroke="#475569" stroke-width="1.6"/>
+  <line x1="120" y1="336" x2="169" y2="336" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <text x="162" y="412" text-anchor="middle" font-size="12" fill="#dc2626" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">no — keep waiting</text>
+
+  <!-- branch distribution from Parse TOC -->
+  <line x1="430" y1="580" x2="452" y2="580" stroke="#475569" stroke-width="1.6"/>
+  <line x1="452" y1="122" x2="452" y2="580" stroke="#475569" stroke-width="1.6"/>
+  <text x="452" y="610" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">branch on TOC type</text>
+
+  <rect x="486" y="100" width="250" height="44" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.3"/>
+  <text x="611" y="121" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Multi-session, wrong disc</text>
+  <text x="611" y="137" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">→ prompt for correct disc</text>
+  <line x1="452" y1="122" x2="484" y2="122" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <rect x="486" y="300" width="250" height="44" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.3"/>
+  <text x="611" y="321" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Requested multi-session disc</text>
+  <text x="611" y="337" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">→ load new code / data</text>
+  <line x1="452" y1="322" x2="484" y2="322" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <rect x="486" y="496" width="250" height="58" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.3"/>
+  <text x="611" y="517" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Single session — audio?</text>
+  <text x="611" y="533" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">yes → pick track &amp; play</text>
+  <text x="611" y="547" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">no → handle as appropriate</text>
+  <line x1="452" y1="525" x2="484" y2="525" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+</svg>

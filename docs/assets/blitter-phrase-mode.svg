@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-label="Blitter phrase-mode alignment and SRCENX">
+  <rect x="0.5" y="0.5" width="719" height="319" rx="8" fill="#fcfcfe" stroke="#d0d7de"/>
+  <text x="360" y="30" text-anchor="middle" font-size="15" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">Phrase-mode alignment — when SRCENX is needed</text>
+  <text x="360" y="50" text-anchor="middle" font-size="12" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">Each phrase = 64 bits = 4 pixels at 16 bpp. Heavy lines are phrase boundaries.</text>
+
+  <!-- SOURCE -->
+  <text x="40" y="98" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Source</text>
+  <!-- phrase 1: . . a b -->
+  <g font-family="Consolas, ui-monospace, monospace" font-size="15" font-weight="700">
+    <rect x="140" y="76" width="44" height="40" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="184" y="76" width="44" height="40" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="228" y="76" width="44" height="40" fill="#fde68a" stroke="#94a3b8"/><text x="250" y="103" text-anchor="middle" fill="#0f172a">a</text>
+    <rect x="272" y="76" width="44" height="40" fill="#fde68a" stroke="#94a3b8"/><text x="294" y="103" text-anchor="middle" fill="#0f172a">b</text>
+    <!-- phrase 2: c d . . -->
+    <rect x="316" y="76" width="44" height="40" fill="#fde68a" stroke="#94a3b8"/><text x="338" y="103" text-anchor="middle" fill="#0f172a">c</text>
+    <rect x="360" y="76" width="44" height="40" fill="#fde68a" stroke="#94a3b8"/><text x="382" y="103" text-anchor="middle" fill="#0f172a">d</text>
+    <rect x="404" y="76" width="44" height="40" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="448" y="76" width="44" height="40" fill="#f1f5f9" stroke="#94a3b8"/>
+  </g>
+  <!-- phrase boundaries (heavy) -->
+  <line x1="140" y1="70" x2="140" y2="122" stroke="#334155" stroke-width="2.5"/>
+  <line x1="316" y1="70" x2="316" y2="122" stroke="#334155" stroke-width="2.5"/>
+  <line x1="492" y1="70" x2="492" y2="122" stroke="#334155" stroke-width="2.5"/>
+  <text x="228" y="138" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">phrase 1</text>
+  <text x="404" y="138" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">phrase 2</text>
+
+  <!-- DESTINATION -->
+  <text x="40" y="208" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Destination</text>
+  <g font-family="Consolas, ui-monospace, monospace" font-size="15" font-weight="700">
+    <rect x="140" y="186" width="44" height="40" fill="#bbf7d0" stroke="#94a3b8"/><text x="162" y="213" text-anchor="middle" fill="#0f172a">A</text>
+    <rect x="184" y="186" width="44" height="40" fill="#bbf7d0" stroke="#94a3b8"/><text x="206" y="213" text-anchor="middle" fill="#0f172a">B</text>
+    <rect x="228" y="186" width="44" height="40" fill="#bbf7d0" stroke="#94a3b8"/><text x="250" y="213" text-anchor="middle" fill="#0f172a">C</text>
+    <rect x="272" y="186" width="44" height="40" fill="#bbf7d0" stroke="#94a3b8"/><text x="294" y="213" text-anchor="middle" fill="#0f172a">D</text>
+    <rect x="316" y="186" width="44" height="40" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="360" y="186" width="44" height="40" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="404" y="186" width="44" height="40" fill="#f1f5f9" stroke="#94a3b8"/>
+    <rect x="448" y="186" width="44" height="40" fill="#f1f5f9" stroke="#94a3b8"/>
+  </g>
+  <line x1="140" y1="180" x2="140" y2="232" stroke="#334155" stroke-width="2.5"/>
+  <line x1="316" y1="180" x2="316" y2="232" stroke="#334155" stroke-width="2.5"/>
+  <line x1="492" y1="180" x2="492" y2="232" stroke="#334155" stroke-width="2.5"/>
+  <text x="228" y="248" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">phrase 1</text>
+
+  <text x="360" y="282" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif">The first destination write (A B C D) needs source pixels a, b, c and d,</text>
+  <text x="360" y="300" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif">which span two source phrases — so set SRCENX to force the extra source read.</text>
+</svg>

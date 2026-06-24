@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 672 200" role="img" aria-label="Pixel byte ordering within a 64-bit phrase">
+  <rect x="0.5" y="0.5" width="671" height="199" rx="8" fill="#fcfcfe" stroke="#d0d7de"/>
+  <text x="336" y="28" text-anchor="middle" font-size="15" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">Pixel byte order within a 64-bit phrase</text>
+  <text x="24" y="60" font-size="13" fill="#475569" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Little-endian — left-most pixel = least significant</text>
+  <text x="24" y="92" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">left</text>
+  <rect x="24" y="70" width="78" height="34" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="63.0" y="92" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">0..7</text>
+  <rect x="102" y="70" width="78" height="34" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="141.0" y="92" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">8..15</text>
+  <rect x="180" y="70" width="78" height="34" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="219.0" y="92" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">16..23</text>
+  <rect x="258" y="70" width="78" height="34" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="297.0" y="92" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">24..31</text>
+  <rect x="336" y="70" width="78" height="34" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="375.0" y="92" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">32..39</text>
+  <rect x="414" y="70" width="78" height="34" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="453.0" y="92" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">40..47</text>
+  <rect x="492" y="70" width="78" height="34" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="531.0" y="92" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">48..55</text>
+  <rect x="570" y="70" width="78" height="34" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="609.0" y="92" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">56..63</text>
+  <text x="648" y="92" text-anchor="end" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">right</text>
+  <text x="24" y="138" font-size="13" fill="#475569" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Big-endian — left-most pixel = most significant</text>
+  <text x="24" y="170" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">left</text>
+  <rect x="24" y="148" width="78" height="34" fill="#ffedd5" stroke="#94a3b8" stroke-width="1"/>
+  <text x="63.0" y="170" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">63..56</text>
+  <rect x="102" y="148" width="78" height="34" fill="#ffedd5" stroke="#94a3b8" stroke-width="1"/>
+  <text x="141.0" y="170" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">55..48</text>
+  <rect x="180" y="148" width="78" height="34" fill="#ffedd5" stroke="#94a3b8" stroke-width="1"/>
+  <text x="219.0" y="170" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">47..40</text>
+  <rect x="258" y="148" width="78" height="34" fill="#ffedd5" stroke="#94a3b8" stroke-width="1"/>
+  <text x="297.0" y="170" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">39..32</text>
+  <rect x="336" y="148" width="78" height="34" fill="#ffedd5" stroke="#94a3b8" stroke-width="1"/>
+  <text x="375.0" y="170" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">31..24</text>
+  <rect x="414" y="148" width="78" height="34" fill="#ffedd5" stroke="#94a3b8" stroke-width="1"/>
+  <text x="453.0" y="170" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">23..16</text>
+  <rect x="492" y="148" width="78" height="34" fill="#ffedd5" stroke="#94a3b8" stroke-width="1"/>
+  <text x="531.0" y="170" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">15..8</text>
+  <rect x="570" y="148" width="78" height="34" fill="#ffedd5" stroke="#94a3b8" stroke-width="1"/>
+  <text x="609.0" y="170" text-anchor="middle" font-size="12" fill="#0f172a" font-family="Consolas, ui-monospace, monospace">7..0</text>
+  <text x="648" y="170" text-anchor="end" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">right</text>
+</svg>

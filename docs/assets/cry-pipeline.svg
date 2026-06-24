@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" role="img" aria-label="CRY to RGB conversion pipeline">
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect x="0.5" y="0.5" width="719" height="279" rx="8" fill="#fcfcfe" stroke="#d0d7de"/>
+  <text x="360" y="30" text-anchor="middle" font-size="15" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">CRY → 24-bit RGB conversion</text>
+
+  <!-- input -->
+  <rect x="24" y="118" width="150" height="48" rx="6" fill="#c7d2fe" stroke="#334155" stroke-width="1.5"/>
+  <text x="99" y="140" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">8-bit C·R</text>
+  <text x="99" y="157" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">colour value</text>
+
+  <!-- three LUTs -->
+  <rect x="250" y="56"  width="170" height="40" rx="6" fill="#fecaca" stroke="#334155" stroke-width="1.5"/>
+  <text x="335" y="81" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Red modifier LUT</text>
+  <rect x="250" y="122" width="170" height="40" rx="6" fill="#bbf7d0" stroke="#334155" stroke-width="1.5"/>
+  <text x="335" y="147" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Green modifier LUT</text>
+  <rect x="250" y="188" width="170" height="40" rx="6" fill="#bfdbfe" stroke="#334155" stroke-width="1.5"/>
+  <text x="335" y="213" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">Blue modifier LUT</text>
+
+  <line x1="174" y1="142" x2="210" y2="142" stroke="#475569" stroke-width="1.6"/>
+  <line x1="210" y1="76"  x2="248" y2="76"  stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="210" y1="142" x2="248" y2="142" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="210" y1="208" x2="248" y2="208" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="210" y1="76"  x2="210" y2="208" stroke="#475569" stroke-width="1.6"/>
+
+  <!-- multiplier -->
+  <circle cx="490" cy="142" r="22" fill="#fde68a" stroke="#334155" stroke-width="1.5"/>
+  <text x="490" y="149" text-anchor="middle" font-size="20" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="700">×</text>
+  <line x1="420" y1="76"  x2="474" y2="130" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="420" y1="142" x2="466" y2="142" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="420" y1="208" x2="474" y2="154" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- intensity input from below -->
+  <text x="490" y="240" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">8-bit intensity (Y)</text>
+  <line x1="490" y1="222" x2="490" y2="166" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- output -->
+  <rect x="560" y="118" width="136" height="48" rx="6" fill="#e5e7eb" stroke="#334155" stroke-width="1.5"/>
+  <text x="628" y="140" text-anchor="middle" font-size="13" fill="#0f172a" font-family="Segoe UI, system-ui, sans-serif" font-weight="600">24-bit RGB</text>
+  <text x="628" y="157" text-anchor="middle" font-size="11" fill="#475569" font-family="Segoe UI, system-ui, sans-serif">to display</text>
+  <line x1="512" y1="142" x2="558" y2="142" stroke="#475569" stroke-width="1.6" marker-end="url(#arr)"/>
+</svg>
