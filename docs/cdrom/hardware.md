@@ -8,8 +8,8 @@ The Jaguar CD-ROM drive module: its place in the system, the Butch interface
 chip, the data path into Jerry, and the available schematics.
 
 > **Source:** *Jaguar CD-ROM* developer manual (scanned), © Atari Corp. 1995
-> (drive specs, Butch chip, data path); `sources/Schematics/Jaguar CD ROM.pdf` and
-> `sources/Other Documents/Jag CD testpro4.pdf` (schematic / test spec). The 1995 manual
+> (drive specs, Butch chip, data path); [sources/Schematics/Jaguar CD ROM.pdf](../sources/Schematics/Jaguar%20CD%20ROM.pdf) and
+> [sources/Other Documents/Jag CD testpro4.pdf](../sources/Other%20Documents/Jag%20CD%20testpro4.pdf) (schematic / test spec). The 1995 manual
 > documents the drive only as far as is needed for software development — direct
 > hardware access is **not** supported (use the [CD BIOS](bios-api.md)).
 
@@ -27,7 +27,7 @@ provides a double-speed CD mechanism. Key specs (see
 | Block size | 2352 bytes (588 longs) |
 | Uncorrectable error rate | < 1 in 10¹¹ (all errors flagged) |
 
-The 1994 *Jaguar CD-ROM Drive Module Test Specification* (`sources/Other Documents/Jag CD testpro4.pdf`)
+The 1994 *Jaguar CD-ROM Drive Module Test Specification* ([sources/Other Documents/Jag CD testpro4.pdf](../sources/Other%20Documents/Jag%20CD%20testpro4.pdf))
 is a manufacturing document (in-circuit test, static burn-in, PCBA functional
 test, diagnostics) rather than a programming reference — useful only for
 hardware/repair work.
@@ -69,13 +69,13 @@ in the [Memory Map / Register List](../architecture/memory-map.md) and
 
 ## Schematics
 
-- **`sources/Schematics/Jaguar CD ROM.pdf`** — the CD-ROM unit schematic
+- **[sources/Schematics/Jaguar CD ROM.pdf](../sources/Schematics/Jaguar%20CD%20ROM.pdf)** — the CD-ROM unit schematic
   (`JAGCDROM.SCH`, Atari Corporation). It is a multi-sheet schematic referencing
   sub-sheets `DROPOUT.SCH`, `SERVO.SCH`, etc., covering the RF/servo/laser front
   end and the digital interface. The PDF carries the net/title-block data but is
   a drawing, not prose — open it directly for pin-level detail.
-- The main **Jaguar console schematic** (`sources/Schematics/Jaguar Schemaic (Clear).pdf`
-  / `.png`) shows the cartridge/expansion port the CD module attaches to; see
+- The main **Jaguar console schematic** ([sources/Schematics/Jaguar Schemaic (Clear).pdf](../sources/Schematics/Jaguar%20Schemaic%20%28Clear%29.pdf)
+   / [console schematic PNG](../sources/Schematics/Jaguar%20schematics%20%28Clear%29.png)) shows the cartridge/expansion port the CD module attaches to; see
   [Video & System Clocks, Timing → ports](../architecture/video-clocks-timing.md).
 
 ## See also

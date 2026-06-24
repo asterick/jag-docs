@@ -25,6 +25,12 @@ in-page "Home" links and Jekyll's index both target `index.md`). The repo-root
 `https://asterick.github.io/jag-docs/`. The `_extract/` scratch folder is
 git-ignored and excluded from the build.
 
+The source PDFs live under **`docs/sources/`** so they are published and
+directly linkable; the folder has an index at `docs/sources/index.md`. In the
+docs, reference a source file with a real link (URL-encode spaces/parentheses,
+e.g. `Other%20Documents/...%20%28Atari%20Original%29.pdf`) rather than a
+monospace label, and link the folder itself to `docs/sources/index.md`.
+
 ## Scope and priorities
 
 These subsystems are all in scope and carry **equal weight** — none is more
@@ -35,8 +41,8 @@ important than another. Document each thoroughly:
   controllers. Sources: `TechRef_V10`, `SoftRef_V10`, `TechOver_V10`,
   and the older `TechRef V8`, `Midsummer Tech Ref V6` for cross-checking.
 - **CD-ROM subsystem** — BIOS API, data/session format, programming guidelines,
-  hardware. Main source: `sources/CD-ROM.pdf` (**scanned**, see OCR note below),
-  plus `sources/Schematics/Jaguar CD ROM.pdf` and `sources/Other Documents/Jag CD testpro4.pdf`.
+  hardware. Main source: `docs/sources/CD-ROM.pdf` (**scanned**, see OCR note below),
+  plus `docs/sources/Schematics/Jaguar CD ROM.pdf` and `docs/sources/Other Documents/Jag CD testpro4.pdf`.
 
 > **Assume a toolchain-agnostic dev environment.** Document the hardware and the
 > CD BIOS at the platform level only. Content tied to the official Atari dev kit
@@ -51,7 +57,7 @@ toolchain-tied rather than hardware): the toolchain (`Madmac`, `ALN`, `Tools`,
 `Debugger`), the libraries (`librarys` — 3D/JPEG/networking/music), the licensed
 `Cinepak` codec and `QSound` audio module, and the toolchain-dependent
 `GStarted`/`Getting Started` setup guide. These are catalogued under "Excluded"
-in [the source index](docs/reference/source-documents.md) but never transcribed.
+in [the source index](docs/sources/index.md) but never transcribed.
 
 Candidate hardware/programming topics still open (toolchain-independent):
 `Workshop` (worked examples), `Appendix` (hardware appendices), `VModem` (Voice
@@ -85,14 +91,14 @@ presents images visually for transcription. Scans here are clean and legible.
 
 Re-extract text from a PDF:
 ```bash
-/c/Python314/python -c "import fitz; d=fitz.open('sources/TechRef_V10.pdf'); \
+/c/Python314/python -c "import fitz; d=fitz.open('docs/sources/TechRef_V10.pdf'); \
 open('_extract/text/TechRef_V10.txt','w',encoding='utf-8').write( \
 ''.join(f'\n===== PAGE {i} =====\n'+p.get_text() for i,p in enumerate(d,1)))"
 ```
 
 Render a scanned page to PNG for transcription:
 ```bash
-/c/Python314/python -c "import fitz; d=fitz.open('sources/CD-ROM.pdf'); \
+/c/Python314/python -c "import fitz; d=fitz.open('docs/sources/CD-ROM.pdf'); \
 d[0].get_pixmap(dpi=150).save('_extract/img/CDROM_p01.png')"
 ```
 

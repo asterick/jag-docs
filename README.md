@@ -11,7 +11,7 @@ documentation and the community "Version 10" restorations.
 ## Repository layout
 
 - [`docs/`](docs/) — the documentation, published with GitHub Pages (start at [`docs/index.md`](docs/index.md))
-- [`sources/`](sources/) — the original source PDFs the reference is built from
+- [`docs/sources/`](docs/sources/index.md) — the original source PDFs (see the [source index](docs/sources/index.md) for descriptions and notes)
 - `CLAUDE.md` — notes for maintaining the reference
 
 ---

@@ -59,13 +59,13 @@ The following drawings are available under `sources/Schematics/`. Wire colours i
 
 | Drawing | Source file(s) | Notes |
 |---|---|---|
-| Jaguar console | `sources/Schematics/Jaguar Schemaic (Clear).pdf`, `sources/Schematics/Jaguar schematics (Clear).png` | Clear version of the console schematic (PDF and PNG). |
-| CD unit | `sources/Schematics/Jaguar CD ROM.pdf` | Jaguar CD-ROM peripheral schematic. |
-| Standard controller | `sources/Schematics/Jaguar Standard Controller.pdf` | Controller-ID diode D21 shown for reference only (standard joypad reads C2/C3 high). |
-| Pro controller | `sources/Schematics/Jaguar Pro Controller.pdf` | Additional buttons are simply wired in parallel with their standard equivalents. |
-| Rotary "Tempest" controller | `sources/Schematics/Jaguar Rotary Controller.pdf` | Diode D21 (C3 in the matrix) shown for reference, indicating how the rotary controller is identified. |
-| Team Tap (4-player adaptor) | `sources/Schematics/Jaguar Team Tap.pdf` | Diode D25 identifies the Team Tap by pulling J1 of socket 3 (C1 in the matrix) low; C1 is high for all other sockets/controllers. |
-| Cartridge pinout | `sources/Schematics/jagcart.gif` | Cartridge connector pinout image. |
+| Jaguar console | [sources/Schematics/Jaguar Schemaic (Clear).pdf](../sources/Schematics/Jaguar%20Schemaic%20%28Clear%29.pdf), [sources/Schematics/Jaguar schematics (Clear).png](../sources/Schematics/Jaguar%20schematics%20%28Clear%29.png) | Clear version of the console schematic (PDF and PNG). |
+| CD unit | [sources/Schematics/Jaguar CD ROM.pdf](../sources/Schematics/Jaguar%20CD%20ROM.pdf) | Jaguar CD-ROM peripheral schematic. |
+| Standard controller | [sources/Schematics/Jaguar Standard Controller.pdf](../sources/Schematics/Jaguar%20Standard%20Controller.pdf) | Controller-ID diode D21 shown for reference only (standard joypad reads C2/C3 high). |
+| Pro controller | [sources/Schematics/Jaguar Pro Controller.pdf](../sources/Schematics/Jaguar%20Pro%20Controller.pdf) | Additional buttons are simply wired in parallel with their standard equivalents. |
+| Rotary "Tempest" controller | [sources/Schematics/Jaguar Rotary Controller.pdf](../sources/Schematics/Jaguar%20Rotary%20Controller.pdf) | Diode D21 (C3 in the matrix) shown for reference, indicating how the rotary controller is identified. |
+| Team Tap (4-player adaptor) | [sources/Schematics/Jaguar Team Tap.pdf](../sources/Schematics/Jaguar%20Team%20Tap.pdf) | Diode D25 identifies the Team Tap by pulling J1 of socket 3 (C1 in the matrix) low; C1 is high for all other sockets/controllers. |
+| Cartridge pinout | [sources/Schematics/jagcart.gif](../sources/Schematics/jagcart.gif) | Cartridge connector pinout image. |
 
 ## Cartridge parts
 
