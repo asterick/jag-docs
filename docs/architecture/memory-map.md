@@ -16,11 +16,12 @@ The Jaguar address space, memory banks, and the complete hardware register list.
 |--------|---------|-------|
 | Main DRAM | `$000000`–`$1FFFFF` | Single 2 MB bank, 64 bits wide |
 | *(reserved by debugger/stub)* | `$000000`–`$003FFF` | Lower 16 KB — **do not use** below `$4000` in dev environment |
-| Cartridge / ROMulator / ROM | `$800000`+ | Treated as 32-bit; cartridge programs start at **`$802000`** |
+| Cartridge / ROMulator / ROM | `$800000`–`$DFFFFF` | Up to 6 MB; treated as 32-bit; cartridge programs start at **`$802000`** |
 | *(reserved security code)* | `$800000`–`$801FFF` | First 16 KB of ROM space reserved |
-| Tom internal registers | `$F00000`+ | Video/OP/GPU/Blitter; see below |
-| GPU/DSP internal SRAM & regs | `$F00000`+ | 32-bit access only, long-word aligned |
-| Jerry registers | `$F10000`+ | Clocks, timers, serial, DSP |
+| Tom registers & internal space | `$F00000`–`$F0FFFF` | Video / OP / GPU / Blitter; see below |
+| GPU internal SRAM | `$F03000`–`$F03FFF` | 4 KB; 32-bit access only, long-word aligned |
+| Jerry registers & internal space | `$F10000`–`$F1FFFF` | Clocks, timers, serial, joystick, DSP |
+| DSP internal SRAM | `$F1B000`–`$F1CFFF` | 8 KB; 32-bit access only, long-word aligned |
 
 Key rules (see [Architecture Overview](overview.md#memory-and-the-data-path)):
 - Main RAM is **64 bits wide**; GPU/DSP/Blitter internal registers are **32 bits
