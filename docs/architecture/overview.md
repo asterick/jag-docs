@@ -9,7 +9,8 @@ games machine. Beyond a general-purpose CPU, it provides **five processing
 elements** spread across two custom ASICs.
 
 > **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 6–10;
-> *Technical Overview* (V10), pp. 3, 9. Originally © Atari Corp. 1995.
+> *Technical Overview* (V10), pp. 3, 9; *Appendix* (Atari original, 26 April
+> 1995), Appendices A & B. Originally © Atari Corp. 1995.
 
 ## The two custom chips
 
@@ -72,6 +73,32 @@ internal SRAM live higher in the map (GPU/DSP RAM from `$00F00000`).
 > **not** `clr.l` (which is unreliable there — a documented hardware bug).
 
 Full details: [Memory Map / Register List](memory-map.md).
+
+## Bus bandwidth and performance
+
+All five processors share the single 64-bit bus, so **memory bandwidth — not raw
+clock speed — is usually the limiting factor.** Atari's own programming
+guidelines reduce to a few rules:
+
+- **ROM is slow — up to ~10× slower than DRAM.** Do not run 68000 code, build or
+  read an [object list](../tom/object-processor.md#programming-the-object-list),
+  or display bitmap data directly from ROM. Copy code and data into RAM first; an
+  object list run from ROM may slow dramatically or fail outright.
+- **Keep the 68000 off the bus.** It is the system manager, not the performance
+  path. When idle, halt it with `STOP` so the Object Processor, Blitter, GPU, and
+  DSP get the bus. For time-critical 68000 routines (e.g. a vertical-blank
+  handler), copy them to RAM and execute there so instruction fetches don't hog
+  the bus. See [GPU → Performance notes](../tom/gpu.md#performance-notes-community).
+- **Move memory with the Blitter,** not the 68000/GPU/DSP, and use the Blitter in
+  **phrase mode** wherever possible — it is much faster. You can start a blit and
+  keep computing on the GPU or DSP until it completes.
+- **Run the GPU and DSP concurrently;** offload as much as possible from the
+  68000 onto them.
+- **Minimize interrupt-handler time** — optimize all interrupt code to the
+  absolute minimum, since it steals bus cycles from everything else.
+
+> **Source:** *Appendix* (Atari original, 26 April 1995), Appendix A and Appendix
+> B ("Programming Tips & General Procedures").
 
 ## Two color resolutions
 

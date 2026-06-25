@@ -61,13 +61,13 @@ The "Version 10" PDFs are community restorations (© Stephen Moss, 2021) of the 
 |------|------|---------|
 | [VModem.pdf](VModem.pdf) | Scanned | [peripherals/voice-modem](../peripherals/voice-modem.md) |
 | [Samples.pdf](Samples.pdf) | Scanned | [examples/sample-programs](../examples/sample-programs.md) (copyright-library samples excluded) |
+| [Appendix.pdf](Appendix.pdf) | Scanned | [overview](../architecture/overview.md), [object-processor](../tom/object-processor.md), [gpu](../tom/gpu.md), [blitter](../tom/blitter.md), [dsp](../jerry/dsp.md), [audio](../jerry/audio.md) — hardware FAQ & programming tips only (dev-system/toolchain, UI standards, and production guidelines excluded) |
 
 ## Not yet written (deferred)
 
 | File | Type | Topic |
 |------|------|-------|
 | [Workshop.pdf](Workshop.pdf) | Scanned | Object-processor / Blitter worked-example tutorials. |
-| [Appendix.pdf](Appendix.pdf) | Scanned | Developer FAQ — mostly dev-system/toolchain support; only a few hardware items. |
 
 <!-- nav:bottom -->
 ---

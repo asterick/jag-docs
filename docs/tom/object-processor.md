@@ -6,7 +6,7 @@
 
 Tom's Object Processor combines frame-store and sprite-based video architectures, building display lines by executing a list of objects that write pixels into line buffers.
 
-> **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 8–29. © Atari Corp. 1995.
+> **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 8–29; *Appendix* (Atari original, 26 April 1995), Appendices A & B. © Atari Corp. 1995.
 
 ## Overview
 
@@ -364,6 +364,19 @@ Stops object processing and interrupts the host.
 | 0-2 | TYPE | Stop object is type four. |
 | 3 | INT FLAG | When set, CPU stop-object interrupts are enabled. |
 | 4-63 | DATA | For the CPU interrupt service routine. Memory-mapped, usable as data or as a pointer to additional parameters. |
+
+## Programming the object list
+
+Practical rules for building and maintaining a working object list:
+
+- **Begin every list with two branch objects.** Unless the list is a single STOP object, the first two entries must be branch objects that clip processing to the active display: one branches to a STOP object when `VC < a_vde` (below the bottom of active video) and the other when `VC > a_vdb` (above the top), where `a_vde`/`a_vdb` come from the video-initialization values. These two objects keep the hardware happy and must always be present.
+- **To turn the display off, never stop the Object Processor while it is running** — that is unreliable. Instead point the object-list pointer at a **single STOP object**. Re-enabling is then just a matter of restoring the list pointer.
+- **Gate a GPU object (type 2) with branch objects.** A GPU object has **no YPOS field** (bits 0–2 are the type, bits 3–63 are ISR data); on its own it would interrupt the GPU on *every* scanline. Precede it with branch objects so it is reached only on the scanline(s) you intend.
+- **Reinitialize the fields the OP rewrites each frame.** After a frame the Object Processor has modified **`HEIGHT` and `DATA`** of bitmap and scaled-bitmap objects (and **`REMAINDER`** of scaled objects); a minimal per-frame update routine must restore these. *(Leaving them un-restored is occasionally useful: lay frames out as a vertical strip and set `HEIGHT` to the strip height, and the OP will walk through the frames on its own — terminate it with a branch object once the intended scanlines are done.)*
+- **Update only what changed** — do not rebuild the entire list every vertical blank; rewrite just the fields of the objects that moved.
+- **Keep the object list (and bitmap data) in RAM, not ROM.** ROM bus access is much slower than DRAM (see [System Architecture Overview → bus bandwidth](../architecture/overview.md#bus-bandwidth-and-performance)); a list processed directly from ROM slows dramatically and may not function at all, and displaying bitmaps from ROM starves the rest of the system of bandwidth. Build the list in RAM (or copy it there) before use.
+
+> **Source:** *Appendix* (Atari original, 26 April 1995), Appendix A ("About hardware features") and Appendix B ("Programming Tips & General Procedures").
 
 ## Description of the Object Processor / Pixel Path
 

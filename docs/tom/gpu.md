@@ -6,7 +6,7 @@
 
 The Jaguar's fast pipelined RISC co-processor inside Tom, used for 3D modeling, shading, animation, and image decompression, with 4 KB of local RAM at `$F03000`.
 
-> **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 34–55. © Atari Corp. 1995.
+> **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 34–55; *Appendix* (Atari original, 26 April 1995), Appendix B. © Atari Corp. 1995.
 
 ## Graphics Processor Subsystem
 
@@ -331,6 +331,10 @@ The GPU can be interrupted by **five sources**. Interrupts force a call to an ad
 - Primary register **R31** is the interrupt stack pointer.
 - Primary register **R30** is corrupted when instruction flow is transferred to the interrupt service routine.
 - Neither register should be used for any other purpose when interrupts are enabled.
+
+> **Initialize the interrupt stack pointer.** After a console reset the GPU and DSP interrupt stack pointers (R31) are in an **undefined state** — always initialize R31 before enabling interrupts. *(Source: Appendix B — Programming Tips & General Procedures.)*
+
+> **A RISC processor only services interrupts while it is running.** For GPU or DSP interrupts to be handled, that processor must be executing — a stopped processor handles nothing. If you have no other work for it but still need its interrupts, leave a **small loop in internal RAM that polls a semaphore** until told to shut down; because the semaphore lives in internal RAM this consumes no bus bandwidth. **Do not** use a one-instruction (single-line) tight loop for this. *(Source: Appendix B — Programming Tips & General Procedures.)*
 
 Interrupt allocation:
 

@@ -6,7 +6,7 @@
 
 The DSP is Jerry's RISC processor — a sound-optimized variant of Tom's GPU with 8 KB of internal RAM, a wave-table ROM, extended-precision multiply/accumulate, circular-buffer addressing, and full bus-master access to the system.
 
-> **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 82–88. © Atari Corp. 1995.
+> **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 82–88; *Appendix* (Atari original, 26 April 1995), Appendix A. © Atari Corp. 1995.
 
 ## Overview
 
@@ -155,6 +155,8 @@ Determines where, in local RAM, the matrix is held.
 | Bits | Equates | Description |
 |------|---------|-------------|
 | 2–11 | —       | Matrix address. |
+
+> **`MMULT` usage.** A matrix held in RAM is **word-packed**, exactly as in the registers. `MMULT` was designed for algorithms that operate on word-packed structures such as the 8×8 matrices of a discrete cosine transform — it is **not intended for general-purpose matrix math**; for that, an explicit `IMULTN` / `IMACN` / `RESMAC` sequence is preferable. Note also that the matrix address reaches only the **first 4 KB of DSP RAM** (see [Hardware Bugs → DSP matrix multiplies](../architecture/hardware-bugs.md#gpu--dsp-bugs)). *(Source: Appendix A — Frequently Asked Questions About Jaguar.)*
 
 ### D_END — DSP Data Organization Register (`$F1A10C`, WO)
 

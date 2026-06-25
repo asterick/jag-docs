@@ -6,7 +6,7 @@
 
 Jerry produces stereo 16-bit audio by streaming DSP-generated samples to a synchronous (I²S) serial DAC interface, clocked by programmable timers and frequency dividers.
 
-> **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 75–78; *Technical Reference Manual* (V10), p. 31. © Atari Corp. 1995.
+> **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 75–78; *Technical Reference Manual* (V10), p. 31; *Appendix* (Atari original, 26 April 1995), Appendix A. © Atari Corp. 1995.
 
 ## Overview
 
@@ -23,6 +23,8 @@ Among Jerry's audio-related functions are:
 - A synchronous serial interface and baud-rate generator (I²S).
 
 Sound is produced by the DSP writing samples to the transmit DAC registers; the synchronous serial interface shifts them out at the rate set by `SCLK` and the word strobe. Timer 1 is conventionally used to generate the **sample-rate** interrupt that drives synthesis, and Timer 2 to generate a **music-tempo** interrupt.
+
+> **Warning: the PWM DACs are not usable on the production console.** Although Jerry contains a stereo PWM DAC, **its outputs are not connected on the retail Jaguar** — do not use them. Drive audio through the **I²S** synchronous serial interface instead. *(Source: Appendix A — Frequently Asked Questions About Jaguar, "About hardware features.")*
 
 > **Audio muted after reset.** The audio mute function allows non-audio serial data to be transmitted by Jerry without making a horrible noise on the audio outputs. When serial peripherals are connected to the DSP port and in use, audio should be muted by writing zero to **bit 8 of the [`JOYSTICK`](../controllers/controllers.md#joystick--f14000-readwrite) register (`$F14000`)**. Audio output is therefore enabled via bit 8 of [`JOYSTICK`](../controllers/controllers.md#joystick--f14000-readwrite).
 

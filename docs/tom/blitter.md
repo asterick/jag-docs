@@ -6,7 +6,7 @@
 
 The Blitter (bit block processor) is a hardware engine in Tom for painting and moving blocks of pixels at memory-bandwidth speed, supporting copies, fills, line drawing, rotation/scaling, polygon fills, Gouraud shading and Z-buffering.
 
-> **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 56–74; *Technical Overview* (V10), pp. 10–12. © Atari Corp. 1995.
+> **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 56–74; *Technical Overview* (V10), pp. 10–12; *Appendix* (Atari original, 26 April 1995), Appendix B. © Atari Corp. 1995.
 
 ## What is the Blitter?
 
@@ -156,7 +156,7 @@ All address registers are 32 bits unless otherwise indicated. All data registers
 
 **A1_CLIP** ($F02208): width is an unsigned 15-bit value in the low word, height an unsigned 15-bit value in the high word (top bit of each word ignored). The window origin (0,0) is always the top-left corner; clipping occurs when pointer values are negative or ≥ these values.
 
-> If A1_CLIP X is not on a phrase boundary, clipping occurs on the right side even if the CLIP_A1 bit is not set — this applies to the destination even if DSTA2 is set. To avoid this, set A1_CLIP to 0 if not clipping, and when using DSTA2 ensure the source is an even phrase width.
+> If A1_CLIP X is not on a phrase boundary, clipping occurs on the right side even if the CLIP_A1 bit is not set — this applies to the destination even if DSTA2 is set. As a defensive rule, **always set `A1_CLIP` to 0 before *every* blit**, even when you are not enabling clipping (`CLIP_A1` clear); and when using DSTA2 ensure the source is an even phrase width. *(Source: Appendix B — Programming Tips & General Procedures.)*
 
 > **Step note (phrase mode):** When calculating the step value for phrase-mode blits, the X pointer is left pointing at the start of the first phrase not written by the blit.
 

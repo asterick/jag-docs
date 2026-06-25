@@ -10,18 +10,18 @@ files themselves — descriptions, notes, and downloads — see the
 
 | Documentation page | Built from |
 |--------------------|------------|
-| [System Architecture Overview](../architecture/overview.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 6–10; *Technical Overview* (V10), pp. 3, 9 |
+| [System Architecture Overview](../architecture/overview.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 6–10; *Technical Overview* (V10), pp. 3, 9; *Appendix* (Atari original, 26 April 1995), Appendices A & B |
 | [Memory Map / Register List](../architecture/memory-map.md) | *Technical Reference Manual* (V10), pp. 5–7 (register list); *Software Reference Manual — Tom & Jerry* (V10), pp. 9–20 (memory controller, internal map); *Technical Overview* (V10), p. 9 |
 | [Video & System Clocks, Timing](../architecture/video-clocks-timing.md) | *Technical Reference Manual* (V10), pp. 8–14 |
 | [Hardware Bugs & Warnings](../architecture/hardware-bugs.md) | *Hardware Bugs & Warnings* (Atari original, 26 April 1995); cross-checked against the *Technical Reference* and *Software Reference* (V10) |
 | [Cartridges, EEPROM Saves & ROM Building](../architecture/cartridges.md) | *Technical Reference Manual* (V10), pp. 32–34 (Cartridges and NVRAM, Burning Your Own Cartridge EPROMs, EPROMs/EEPROMs for Making Cartridges) |
 | [Connectors, Pinouts & Power](../architecture/connectors-power.md) | *Technical Reference Manual* (V10) appendixes; the Jaguar schematics |
-| [Object Processor (Tom)](../tom/object-processor.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 8–29 |
-| [Graphics Processor (GPU)](../tom/gpu.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 34–55 |
-| [Blitter (Tom)](../tom/blitter.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 56–74; *Technical Overview* (V10), pp. 10–12 |
+| [Object Processor (Tom)](../tom/object-processor.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 8–29; *Appendix* (Atari original, 26 April 1995), Appendices A & B |
+| [Graphics Processor (GPU)](../tom/gpu.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 34–55; *Appendix* (Atari original, 26 April 1995), Appendix B |
+| [Blitter (Tom)](../tom/blitter.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 56–74; *Technical Overview* (V10), pp. 10–12; *Appendix* (Atari original, 26 April 1995), Appendix B |
 | [CRY Color & Color Mapping](../tom/color-cry.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 30–33 |
-| [Digital Sound Processor (DSP)](../jerry/dsp.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 82–88 |
-| [Audio Subsystem & Synthesis](../jerry/audio.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 75–78; *Technical Reference Manual* (V10), p. 31 |
+| [Digital Sound Processor (DSP)](../jerry/dsp.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 82–88; *Appendix* (Atari original, 26 April 1995), Appendix A |
+| [Audio Subsystem & Synthesis](../jerry/audio.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 75–78; *Technical Reference Manual* (V10), p. 31; *Appendix* (Atari original, 26 April 1995), Appendix A |
 | [Serial I/O — ComLynx, MIDI, Synchronous Serial](../jerry/serial-io.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 78–82 |
 | [Controllers & Controller Ports](../controllers/controllers.md) | *Technical Reference Manual* (V10), pp. 15–30 |
 | [Jaguar Voice Modem](../peripherals/voice-modem.md) | *The Jaguar Voice Modem* (scanned) |
