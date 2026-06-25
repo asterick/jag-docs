@@ -90,7 +90,7 @@ terms (sectors, sessions, subcodes, etc.) are defined in the
 <!-- nav:bottom -->
 ---
 
-◀ **Prev:** [RISC Instruction Set (GPU/DSP)](risc-instruction-set.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Source Documents](../sources/index.md) ▶
+◀ **Prev:** [RISC Instruction Set (GPU/DSP)](risc-instruction-set.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Source Provenance](source-documents.md) ▶
 
 **Jump to:** [Architecture](../architecture/overview.md) · [Memory Map](../architecture/memory-map.md) · [Registers](register-list.md) · [Instructions](risc-instruction-set.md) · [CD-ROM](../cdrom/overview.md)
 <!-- /nav:bottom -->

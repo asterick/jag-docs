@@ -6,7 +6,7 @@
 
 A hardware-reference hub for the Atari Jaguar's power supply, connector pinouts, and schematic drawings — covering the power-brick specification, console and CD-unit current consumption, and an index of the available schematics, with links to the full pinout tables documented elsewhere.
 
-> **Source:** *Technical Reference Manual* (V10) appendixes; `sources/Schematics/`. © Atari Corp. 1995.
+> **Source:** *Technical Reference Manual* (V10) appendixes; the Jaguar schematics. © Atari Corp. 1995.
 
 ## Power supply
 

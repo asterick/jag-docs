@@ -86,7 +86,7 @@ These were removed because they are third-party/copyright IP or tied to a specif
 <!-- nav:bottom -->
 ---
 
-◀ **Prev:** [Glossary](../reference/glossary.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Home](../index.md) ▶
+◀ **Prev:** [Source Provenance](../reference/source-documents.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Home](../index.md) ▶
 
 **Jump to:** [Architecture](../architecture/overview.md) · [Memory Map](../architecture/memory-map.md) · [Registers](../reference/register-list.md) · [Instructions](../reference/risc-instruction-set.md) · [Glossary](../reference/glossary.md) · [CD-ROM](../cdrom/overview.md)
 <!-- /nav:bottom -->

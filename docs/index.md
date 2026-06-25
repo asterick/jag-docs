@@ -59,7 +59,11 @@ and **Jerry** (sound/I-O) — plus a Motorola 68000 acting as system manager.
 - [Complete Register List](reference/register-list.md)
 - [RISC Instruction Set (GPU/DSP)](reference/risc-instruction-set.md)
 - [Glossary](reference/glossary.md)
-- [Source Documents](sources/index.md) — the original source files, with descriptions, notes, and links
+- [Source Provenance](reference/source-documents.md) — which source each page is built from
+
+## Source files
+
+- [Source files index](sources/index.md) — the original PDFs, with descriptions, notes, and download links
 
 ---
 
