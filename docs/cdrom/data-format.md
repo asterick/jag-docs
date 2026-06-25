@@ -143,7 +143,7 @@ TOC to find the first track of Session #1 and offset from there.
 A **partition marker** is a **64-byte block of 16 repetitions of the same
 longword**, long-aligned relative to the start of the track. They tag the start
 of data blocks so the read logic (and Atari's authentication) can locate data
-despite the [inexact read behaviour](overview.md#how-it-differs-from-other-cd-systems).
+despite the [inexact read behavior](overview.md#how-it-differs-from-other-cd-systems).
 
 - The track header/tailer `ATRI` blocks are themselves markers.
 - **Do not** use `ATRI`, `0x00000000`, or `0xFFFFFFFF` as a partition-marker

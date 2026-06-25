@@ -31,7 +31,7 @@ and **Jerry** (sound/I-O) — plus a Motorola 68000 acting as system manager.
 - [Object Processor](tom/object-processor.md) — the display list engine (sprite + framebuffer hybrid)
 - [Graphics Processor (GPU)](tom/gpu.md) — the RISC graphics co-processor
 - [Blitter](tom/blitter.md) — block move/fill, line draw, Gouraud shading, Z-buffer
-- [CRY Colour & Colour Mapping](tom/color-cry.md) — the CRY colour model and RGB modes
+- [CRY Color & Color Mapping](tom/color-cry.md) — the CRY color model and RGB modes
 
 ### Jerry — sound & I/O
 - [Digital Sound Processor (DSP)](jerry/dsp.md) — the RISC sound co-processor

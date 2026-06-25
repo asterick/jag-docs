@@ -13,14 +13,14 @@ see the per-subsystem docs linked below.
 > `JAGUAR.INC`. © Atari Corp. 1995.
 
 Legend: **RW** read/write · **WO** write-only · **RO** read-only ·
-⚠️ boot-configured, do not modify.
+<sup>⚠</sup> boot-configured, do not modify.
 
 ## Sorted by address
 
 | Address | Equate | Register | Mode | Subsystem |
 |---------|--------|----------|------|-----------|
-| `$F00000` | MEMCON1 ⚠️ | Memory Control 1 | RW | [Tom/system](../architecture/memory-map.md) |
-| `$F00002` | MEMCON2 ⚠️ | Memory Control 2 | RW | Tom/system |
+| `$F00000` | MEMCON1<sup>⚠</sup> | Memory Control 1 | RW | [Tom/system](../architecture/memory-map.md) |
+| `$F00002` | MEMCON2<sup>⚠</sup> | Memory Control 2 | RW | Tom/system |
 | `$F00004` | HC | Horizontal Count | RW | [Video](../architecture/video-clocks-timing.md) |
 | `$F00006` | VC | Vertical Count | RW | Video |
 | `$F00008` | LPH | Horizontal Light Pen | RO | Video |
@@ -29,36 +29,36 @@ Legend: **RW** read/write · **WO** write-only · **RO** read-only ·
 | `$F00020` | OLP | Object List Pointer | WO | Object Processor |
 | `$F00026` | OBF | Object Processor Flag | WO | Object Processor |
 | `$F00028` | VMODE | Video Mode | WO | Video |
-| `$F0002A` | BORD1 | Border Colour (R&G) | WO | Video |
-| `$F0002C` | BORD2 | Border Colour (B) | WO | Video |
-| `$F0002E` | HP ⚠️ | Horizontal Period | WO | Video |
-| `$F00030` | HBB ⚠️ | Horizontal Blanking Begin | WO | Video |
-| `$F00032` | HBE ⚠️ | Horizontal Blanking End | WO | Video |
-| `$F00034` | HS ⚠️ | Horizontal Sync | WO | Video |
-| `$F00036` | HVS ⚠️ | Horizontal Vertical Sync | WO | Video |
+| `$F0002A` | BORD1 | Border Color (R&G) | WO | Video |
+| `$F0002C` | BORD2 | Border Color (B) | WO | Video |
+| `$F0002E` | HP<sup>⚠</sup> | Horizontal Period | WO | Video |
+| `$F00030` | HBB<sup>⚠</sup> | Horizontal Blanking Begin | WO | Video |
+| `$F00032` | HBE<sup>⚠</sup> | Horizontal Blanking End | WO | Video |
+| `$F00034` | HS<sup>⚠</sup> | Horizontal Sync | WO | Video |
+| `$F00036` | HVS<sup>⚠</sup> | Horizontal Vertical Sync | WO | Video |
 | `$F00038` | HDB1 | Horizontal Display Begin 1 | WO | Video |
 | `$F0003A` | HDB2 | Horizontal Display Begin 2 | WO | Video |
 | `$F0003C` | HDE | Horizontal Display End | WO | Video |
-| `$F0003E` | VP ⚠️ | Vertical Period | WO | Video |
-| `$F00040` | VBB ⚠️ | Vertical Blanking Begin | WO | Video |
-| `$F00042` | VBE ⚠️ | Vertical Blanking End | WO | Video |
-| `$F00044` | VS ⚠️ | Vertical Sync | WO | Video |
+| `$F0003E` | VP<sup>⚠</sup> | Vertical Period | WO | Video |
+| `$F00040` | VBB<sup>⚠</sup> | Vertical Blanking Begin | WO | Video |
+| `$F00042` | VBE<sup>⚠</sup> | Vertical Blanking End | WO | Video |
+| `$F00044` | VS<sup>⚠</sup> | Vertical Sync | WO | Video |
 | `$F00046` | VDB | Vertical Display Begin | WO | Video |
 | `$F00048` | VDE | Vertical Display End | WO | Video |
-| `$F0004A` | VEB | Vertical Equalisation Begin | WO | Video |
-| `$F0004C` | VEE ⚠️ | Vertical Equalisation End | WO | Video |
+| `$F0004A` | VEB | Vertical Equalization Begin | WO | Video |
+| `$F0004C` | VEE<sup>⚠</sup> | Vertical Equalization End | WO | Video |
 | `$F0004E` | VI | Vertical Interrupt | WO | Video |
 | `$F00050`–`52` | PIT[0-1] | Programmable Interrupt Timer | WO | Video |
-| `$F00054` | HEQ ⚠️ | Horizontal Equalisation End | WO | Video |
-| `$F00058` | BG | Background Colour | WO | Video |
+| `$F00054` | HEQ<sup>⚠</sup> | Horizontal Equalization End | WO | Video |
+| `$F00058` | BG | Background Color | WO | Video |
 | `$F000E0` | INT1 | CPU Interrupt Control | RW | Object Processor |
 | `$F000E2` | INT2 | CPU Interrupt Resume | WO | Object Processor |
-| `$F00400`–`7FE` | CLUT | Colour Look-Up Table | RW | [CRY/colour](../tom/color-cry.md) |
+| `$F00400`–`7FE` | CLUT | Color Look-Up Table | RW | [CRY/color](../tom/color-cry.md) |
 | `$F00800`–`1D9E` | LBUF | Line Buffer | RW | Object Processor |
 | `$F02100` | G_FLAGS | GPU Flags | RW | [GPU](../tom/gpu.md) |
 | `$F02104` | G_MTXC | Matrix Control | WO | GPU |
 | `$F02108` | G_MTXA | Matrix Address | WO | GPU |
-| `$F0210C` | G_END | Data Organisation | WO | GPU |
+| `$F0210C` | G_END | Data Organization | WO | GPU |
 | `$F02110` | G_PC | GPU Program Counter | RW | GPU |
 | `$F02114` | G_CTRL | GPU Control/Status | RW | GPU |
 | `$F02118` | G_HIDATA | GPU High Data | RW | GPU |
@@ -101,20 +101,20 @@ Legend: **RW** read/write · **WO** write-only · **RO** read-only ·
 | `$F10002` | JPIT2 | Timer 1 Divider | WO | Audio/Jerry |
 | `$F10004` | JPIT3 | Timer 2 Pre-scaler | WO | Audio/Jerry |
 | `$F10006` | JPIT4 | Timer 2 Divider | WO | Audio/Jerry |
-| `$F10010` | CLK1 ⚠️ | Processor clock divider | WO | Jerry |
-| `$F10012` | CLK2 ⚠️ | Video clock divider | WO | Jerry |
-| `$F10014` | CLK3 ⚠️ | Chroma clock divider | WO | Jerry |
+| `$F10010` | CLK1<sup>⚠</sup> | Processor clock divider | WO | Jerry |
+| `$F10012` | CLK2<sup>⚠</sup> | Video clock divider | WO | Jerry |
+| `$F10014` | CLK3<sup>⚠</sup> | Chroma clock divider | WO | Jerry |
 | `$F10020` | J_INT | Interrupt Control | RW | Audio/Jerry |
-| `$F10032` | ASICTRL1 † | Async Serial Control | WO | [Serial I/O](../jerry/serial-io.md) |
-| `$F10032` | ASISTAT1 † | Async Serial Status | RO | Serial I/O |
-| `$F10034` | ASICLK1 † | Async Serial Clock | RW | Serial I/O |
-| `$F10039` | ASIDATA1 † | Async Serial Data | RW | Serial I/O |
+| `$F10032` | ASICTRL1<sup>†</sup> | Async Serial Control | WO | [Serial I/O](../jerry/serial-io.md) |
+| `$F10032` | ASISTAT1<sup>†</sup> | Async Serial Status | RO | Serial I/O |
+| `$F10034` | ASICLK1<sup>†</sup> | Async Serial Clock | RW | Serial I/O |
+| `$F10039` | ASIDATA1<sup>†</sup> | Async Serial Data | RW | Serial I/O |
 | `$F14000` | JOYSTICK | Joystick Register | RW | [Controllers](../controllers/controllers.md) |
 | `$F14002` | JOYBUTS | Button Register | RW | Controllers |
 | `$F1A100` | D_FLAGS | DSP Flags | RW | [DSP](../jerry/dsp.md) |
 | `$F1A104` | D_MTXC | DSP Matrix Control | WO | DSP |
 | `$F1A108` | D_MTXA | DSP Matrix Address | WO | DSP |
-| `$F1A10C` | D_END | DSP Data Organisation | WO | DSP |
+| `$F1A10C` | D_END | DSP Data Organization | WO | DSP |
 | `$F1A110` | D_PC | DSP Program Counter | RW | DSP |
 | `$F1A114` | D_CTRL | DSP Control/Status | RW | DSP |
 | `$F1A118` | D_MOD | Modulo Instruction Mask | WO | DSP |
@@ -123,10 +123,10 @@ Legend: **RW** read/write · **WO** write-only · **RO** read-only ·
 | `$F1A120` | D_MACHI | MAC High Result Bits | RO | DSP |
 | `$F1A148` | L_I2S / LTXD1 / LRXD1 | Left I²S / transmit / receive | RW | [Audio](../jerry/audio.md) |
 | `$F1A14C` | R_I2S / RTXD1 / RRXD1 | Right I²S / transmit / receive | RW | Audio |
-| `$F1A150` | SCLK / SSTAT1 † | Serial Clock Freq / Status | WO/RO | Audio |
+| `$F1A150` | SCLK / SSTAT1<sup>†</sup> | Serial Clock Freq / Status | WO/RO | Audio |
 | `$F1A154` | SMODE | Serial Mode | WO | Audio |
 
-† Caveat: these async-serial / status registers are **not** in the latest
+<sup>†</sup> Caveat: these async-serial / status registers are **not** in the latest
 `JAGUAR.INC` (1995-02-16) and presumably should not be used (UART bug). Prefer
 `L_I2S`/`R_I2S` over the L/R TXD/RXD aliases. See
 [memory-map notes](../architecture/memory-map.md#jerry--clocks-timers-serial).

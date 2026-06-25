@@ -37,7 +37,7 @@ These subsystems are all in scope and carry **equal weight** — none is more
 important than another. Document each thoroughly:
 
 - **Atari Jaguar core system** — Tom (object/video processor, GPU, Blitter, CRY
-  colour), Jerry (DSP, audio synth, serial I/O), memory map, video timing,
+  color), Jerry (DSP, audio synth, serial I/O), memory map, video timing,
   controllers. Sources: `TechRef_V10`, `SoftRef_V10`, `TechOver_V10`,
   and the older `TechRef V8`, `Midsummer Tech Ref V6` for cross-checking.
 - **CD-ROM subsystem** — BIOS API, data/session format, programming guidelines,
@@ -141,6 +141,38 @@ snippets in the project history; preview any SVG by rendering to PNG:
   `$XXXXXX` hex style the manuals use.
 - Tables for register lists and bit fields; fenced code for assembly/struct
   layouts.
+
+## Style guide
+
+Apply these consistently across every page (settled during the formatting pass):
+
+- **Spelling: American English.** color (not colour), organization, equalization,
+  analog, center, behavior, initialize, etc. Register/equate names keep their
+  source casing regardless.
+- **Do-not-touch marker:** flag boot-configured / "leave alone" registers with a
+  true superscript glyph — `<sup>⚠</sup>` — appended to the equate, not bold.
+  Each page using it carries a one-line legend, e.g.
+  *"Registers marked <sup>⚠</sup> are boot-configured — do not write unless noted."*
+- **Other footnote markers:** `<sup>†</sup>` (and `<sup>‡</sup>`, etc.) for
+  source-specific caveats, with the matching note below the table.
+- **Per-register field breakdowns use `###`** (H3). The heading text is
+  `EQUATE — Long Name (`$ADDR`, RW)`. Category dividers inside a register page
+  (Address / Control / Data Registers, etc.) are **bold labels**, not headings,
+  so they don't pollute the anchor list.
+- **Callouts use a bold label + colon** inside a blockquote:
+  `> **Warning:** …`, `> **Source:** …`, `> **Community work-around:** …`.
+- **Register cross-linking:** an inline-code equate (`` `D_FLAGS` ``) mentioned in
+  prose links to its field breakdown anchor when one exists, otherwise to its
+  group anchor on the memory map. The register-reference pages
+  (`reference/register-list.md`, `architecture/memory-map.md`) are *not*
+  cross-linked (they are the targets).
+- **Addresses:** absolute fixed ranges only — `$F02000`–`$F07FFF`, never
+  `$F02000+` or `$XXXX+`.
+- **Large reference pages** (registers, BIOS calls, instruction set) open with an
+  "On this page" / "Calls" linked table of contents.
+- **Navigation** is generated: `<!-- nav:top -->` breadcrumb and
+  `<!-- nav:bottom -->` prev/next + Jump-to block, driven by the reading-order
+  list and group map. Don't hand-edit nav blocks; regenerate them.
 
 ## Don'ts
 

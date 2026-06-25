@@ -56,7 +56,7 @@ The pointer and increment of A1, in both X and Y, have 16-bit integer parts and 
 
 ### Windows and address ranges
 
-A window is a rectangle of pixels stored in memory as a linear array of packed phrases, described by a base register and a width/height in pixels. Flags describe pixel size, physical layout, and pointer-update behaviour. The maximum allowed window height is 4096. If no outer loop is used, the window width is irrelevant and the maximum sized blit is 32767 pixels.
+A window is a rectangle of pixels stored in memory as a linear array of packed phrases, described by a base register and a width/height in pixels. Flags describe pixel size, physical layout, and pointer-update behavior. The maximum allowed window height is 4096. If no outer loop is used, the window width is irrelevant and the maximum sized blit is 32767 pixels.
 
 The X and Y pointers are 16-bit values, but:
 
@@ -117,12 +117,12 @@ Three data comparators are available:
 
 - **Bit comparator** — for bit-to-pixel expansion. Selects a bit (or group of bits) from the source data register using a counter cleared every time the inner loop is entered; the bit controls whether a pixel is written. It can only produce a mask over an entire phrase in 8-bit pixel mode.
 - **Z comparator** — in 16-bit pixel mode, compares the 16-bit unsigned integer Z of the on-screen pixel (destination Z) with the Z about to be written (source Z), preventing the write if the on-screen pixel has higher priority.
-- **Data comparator** — provides block copies with transparent colours, and assists flood fill via searches. Compares pixel values in 8- or 16-bit pixel modes. Normally compares source data with pattern data, but may compare destination data with pattern data (**CMPDST**).
+- **Data comparator** — provides block copies with transparent colors, and assists flood fill via searches. Compares pixel values in 8- or 16-bit pixel modes. Normally compares source data with pattern data, but may compare destination data with pattern data (**CMPDST**).
 
 The comparators achieve three effects:
 
 1. When painting pixels one at a time, a comparator output can inhibit the write of a pixel, leaving the previous value unchanged.
-2. When painting a phrase at a time, the comparator outputs can force the destination data to be written back (unchanged if previously read, or a background colour if not).
+2. When painting a phrase at a time, the comparator outputs can force the destination data to be written back (unchanged if previously read, or a background color if not).
 3. The Blitter action can be stopped altogether (collision detection, searching, etc.).
 
 ## Bus Interface
@@ -135,7 +135,7 @@ The Blitter accesses memory through the 64-bit co-processor bus, cycling it at a
 
 All address registers are 32 bits unless otherwise indicated. All data registers are 64 bits unless otherwise noted. Data registers may only be written while the Blitter is idle.
 
-### Address Registers
+**Address Registers**
 
 | Equate | Address | Access | Description |
 |--------|---------|--------|-------------|
@@ -160,7 +160,7 @@ All address registers are 32 bits unless otherwise indicated. All data registers
 
 > **Step note (phrase mode):** When calculating the step value for phrase-mode blits, the X pointer is left pointing at the start of the first phrase not written by the blit.
 
-#### A1_FLAGS ($F02204, WO)
+### A1_FLAGS ($F02204, WO)
 
 | Bits | Equate(s) | Name | Description |
 |------|-----------|------|-------------|
@@ -177,7 +177,7 @@ All address registers are 32 bits unless otherwise indicated. All data registers
 
 > **Y-add bug:** The A2 Y-add control bit is ignored. The A1 Y-add control bit affects both address generators. However, if the Y sign bits are set in either address, the corresponding add control bit must be set for the number to be negative. Either do not use this function, or use it on both address generators.
 
-#### A2_FLAGS ($F02228, WO)
+### A2_FLAGS ($F02228, WO)
 
 | Bits | Name | Description |
 |------|------|-------------|
@@ -192,7 +192,7 @@ All address registers are 32 bits unless otherwise indicated. All data registers
 | 19 | X Sign | With X add-pixel-size mode, subtract pixel size. Should not be set with other modes. |
 | 20 | Y sign | Makes Y add-one mode into Y subtract-one. |
 
-### Control Registers
+**Control Registers**
 
 | Equate | Address | Access | Description |
 |--------|---------|--------|-------------|
@@ -202,7 +202,7 @@ All address registers are 32 bits unless otherwise indicated. All data registers
 
 **B_COUNT:** Low word = inner-loop iteration count (reloaded on each inner-loop entry); high word = outer-loop iteration count (loaded directly). Both accept values 1–65536, encoded as 0–65535.
 
-#### B_CMD — Command Register ($F02238, WO)
+### B_CMD — Command Register ($F02238, WO)
 
 Bits 0–5 enable corresponding memory cycles within the inner loop. Destination write cycles are always performed (subject to comparator control); all other cycle types are optional.
 
@@ -232,7 +232,7 @@ Bits 0–5 enable corresponding memory cycles within the inner loop. Destination
 | 21-24 | — | Logic Function Unit output = Boolean OR of the minterms:<br>Bit 0 - NOT source AND NOT destination<br>Bit 1 - NOT source AND destination<br>Bit 2 - source AND NOT destination<br>Bit 3 - source AND destination |
 | 25 | CMPDST | Make pixel-value comparator compare destination data with pattern data (rather than source data with pattern data). |
 | 26 | BCOMPEN | Enable write inhibit from the bit comparator. Works pixel-by-pixel in any size, but over whole phrases only on 8-bit pixels. In pixel mode the write does not occur unless BKGWREN is set; in phrase mode destination data is always written when the comparator says the pixel should not be written. |
-| 27 | DCOMPEN | Enable write inhibit from the data comparator. 8- and 16-bit pixel modes only. Same pixel/phrase behaviour as BCOMPEN. |
+| 27 | DCOMPEN | Enable write inhibit from the data comparator. 8- and 16-bit pixel modes only. Same pixel/phrase behavior as BCOMPEN. |
 | 28 | BKGWREN | On write inhibit, still perform the write but write back destination data. Pixel mode only (phrase mode always writes destination data). |
 | 29 | BUSHI | When set, Blitter accesses bus at the higher of its two priorities (higher than the object processor). NOTE: this bit should NOT be set due to a bug in the Jaguar console; set to 0. |
 | 30 | SRCSHADE | Use the IINC register to modify intensity of data read from the source address (lighten/darken). May be used with GOURZ but not GOURD. Source read is modified, so source data should not be selected via the LFU as write data. For flat shading on texture-mapped surfaces. Only works if GOURZ is set (no actual Z data need be written, but GOURZ must be set). |
@@ -269,7 +269,7 @@ The four LFU combinations of particular use (Technical Overview):
 
 A complete listing is given in the system include file `BLIT.INC`.
 
-#### B_CMD — Status Register ($F02238, RO)
+### B_CMD — Status Register ($F02238, RO)
 
 | Bit | State | Description |
 |-----|-------|-------------|
@@ -291,23 +291,23 @@ A complete listing is given in the system include file `BLIT.INC`.
 | 15 | outer A2UPDATE | Diagnostic only. |
 | 16-31 | inner count | Diagnostic only. |
 
-### Data Registers
+**Data Registers**
 
 All data registers are 64-bit unless otherwise noted.
 
 | Equate | Address | Access | Description |
 |--------|---------|--------|-------------|
 | B_SRCD | $F02240 | WO | Source data; also holds the four 16-bit intensity fractional parts (Gouraud) |
-| B_DSTD | $F02248 | WO | Destination data (read to restore unmodified pixels in phrase mode, or used as background/paper colour if not read) |
+| B_DSTD | $F02248 | WO | Destination data (read to restore unmodified pixels in phrase mode, or used as background/paper color if not read) |
 | B_DSTZ | $F02250 | WO | Destination Z; may be used as the data register |
 | B_SRCZ1 | $F02258 | WO | Source Z register 1; also holds the four integer parts of computed Z |
 | B_SRCZ2 | $F02260 | WO | Source Z register 2; also holds the four fractional parts of computed Z |
-| B_PATD | $F02268 | WO | Pattern data; also holds computed intensity integer parts and associated colours |
-| B_IINC | $F02270 | WO | Intensity increment (32-bit; integer + fractional). Top 8 bits modify the colour value — normally leave zero. |
+| B_PATD | $F02268 | WO | Pattern data; also holds computed intensity integer parts and associated colors |
+| B_IINC | $F02270 | WO | Intensity increment (32-bit; integer + fractional). Top 8 bits modify the color value — normally leave zero. |
 | B_ZINC | $F02274 | WO | Z increment (32-bit; integer + fractional) for computed-Z polygon drawing |
 | B_STOP | $F02278 | WO | Collision control register |
 
-#### B_STOP — Collision Control ($F02278, WO)
+### B_STOP — Collision Control ($F02278, WO)
 
 Stops the Blitter when an inner-loop write inhibit occurs. A stop occurs when painting in pixel-by-pixel mode (X add control = 1), BKGWREN is clear, and one of BCOMPEN, DCOMPEN or ZMODE0–2 is set with the matching condition. The operation may then be resumed or aborted.
 
@@ -317,7 +317,7 @@ Stops the Blitter when an inner-loop write inhibit occurs. A stop occurs when pa
 | 1 | ABORT | Write 1 (when stopped) to terminate the current operation and revert to idle. Write 0: no effect. |
 | 2 | STOPEN | Set to enable Blitter collision stops; clear to disable. |
 
-#### Intensity / Z alternate-view registers
+### Intensity / Z alternate-view registers
 
 | Equate | Address | Access | Description |
 |--------|---------|--------|-------------|
@@ -330,7 +330,7 @@ Stops the Blitter when an inner-loop write inhibit occurs. A stop occurs when pa
 | B_Z1 | $F02294 | WO | Z1 register |
 | B_Z0 | $F02298 | WO | Z0 register |
 
-The four **intensity registers** give an alternate view of the computed intensity integer parts (pattern data) and fractional parts (source data), for convenient Gouraud updates. Each is a 24-bit value (8.16-bit number, top 8 bits unused) that modifies the corresponding fields. Colour fields in the pattern data register are unaffected by writes to these registers.
+The four **intensity registers** give an alternate view of the computed intensity integer parts (pattern data) and fractional parts (source data), for convenient Gouraud updates. Each is a 24-bit value (8.16-bit number, top 8 bits unused) that modifies the corresponding fields. Color fields in the pattern data register are unaffected by writes to these registers.
 
 The four **Z registers** are analogous, affecting the computed Z integer (source Z1) and Z fraction (source Z2) registers. They are 32-bit values (16.16-bit numbers).
 
@@ -362,7 +362,7 @@ Clipping (A1 address generator) prevents writes at addresses outside the window 
 
 ### Character Painting
 
-A class of operations requiring **bit-to-pixel expansion** (also background patterns, simple texture fills). The source data is used as a bit mask: set bits paint the corresponding pixel in the selected output form; clear bits either leave the pixel unchanged (if destination data is read) or write a background/paper colour (pre-loaded into the destination data register and not read).
+A class of operations requiring **bit-to-pixel expansion** (also background patterns, simple texture fills). The source data is used as a bit mask: set bits paint the corresponding pixel in the selected output form; clear bits either leave the pixel unchanged (if destination data is read) or write a background/paper color (pre-loaded into the destination data register and not read).
 
 Character painting can be done one pixel at a time in all screen modes, and one phrase at a time in 8- and 16-bit-per-pixel modes. The bit selection counter is reset every time the inner loop is left, so bit-packed data patterns may be up to eight pixels wide.
 
@@ -384,9 +384,9 @@ Gouraud shading models lit curved surfaces represented by polygons: vertex inten
 
 **Gouraud shading and Z mode are only available with 16-bit pixels.** Each blit creates one scan line of polygon, with the GPU re-calculating start, length and gradient parameters per scan line. Four pixels and their Z values can be computed as fast as the memory interface writes them.
 
-The Blitter represents Z and intensity with a 16-bit integer and 16-bit fractional part. The intensity integer also contains the colour value, so intensity is normally prevented from overflowing into colour; **TOPBEN** and **TOPNEN** enable that overflow if desired. There are four 32-bit intensity values and four 32-bit Z values (four pixels in parallel), plus 32-bit Z and intensity increment registers.
+The Blitter represents Z and intensity with a 16-bit integer and 16-bit fractional part. The intensity integer also contains the color value, so intensity is normally prevented from overflowing into color; **TOPBEN** and **TOPNEN** enable that overflow if desired. There are four 32-bit intensity values and four 32-bit Z values (four pixels in parallel), plus 32-bit Z and intensity increment registers.
 
-Per inner-loop pass: the 16-bit fractional intensity increment is added to the fractional parts (source data register); then the 8-bit integer part is added with carry to the integer pixel values (pattern data register). Carry is prevented from propagating from intensity into colour. Z works similarly.
+Per inner-loop pass: the 16-bit fractional intensity increment is added to the fractional parts (source data register); then the 8-bit integer part is added with carry to the integer pixel values (pattern data register). Carry is prevented from propagating from intensity into color. Z works similarly.
 
 Both intensity and Z **saturate** — at their lowest/highest values they clip rather than wrap (e.g. adding one to a Z of `FFFF` gives `FFFF`, not `0000`).
 
@@ -409,11 +409,11 @@ Address registers:
 | A1_PTR_X | 1 | First pixel at address 0,1 |
 | A1_PTR_Y | 0 | |
 
-Data registers (first pixel intensity C7.2833, colour 00; intensity gradient −15.9265; first-pixel Z E7E7.E000, Z gradient −1818.1FFF; left-most pixel is off the strip edge so the gradient is subtracted from it):
+Data registers (first pixel intensity C7.2833, color 00; intensity gradient −15.9265; first-pixel Z E7E7.E000, Z gradient −1818.1FFF; left-most pixel is off the strip edge so the gradient is subtracted from it):
 
 | Register | Value | Meaning |
 |----------|-------|---------|
-| Pattern | 00DC00C700B1009C | Intensity integer parts and colour data |
+| Pattern | 00DC00C700B1009C | Intensity integer parts and color data |
 | Source | FEDCEAC7D6B1C29C | Intensity fractions |
 | Source Z1 | FFFFE7E7CFCFB7B7 | Z integer parts |
 | Source Z2 | FFFFE000C001A002 | Z fractional parts |
@@ -473,12 +473,12 @@ Because the intensity addition saturates and the increment is signed, a few case
 - [Memory Map / Register List](../architecture/memory-map.md)
 - [Graphics Processor (GPU)](gpu.md)
 - [Object Processor](object-processor.md)
-- [CRY Colour & Colour Mapping](color-cry.md)
+- [CRY Color & Color Mapping](color-cry.md)
 
 <!-- nav:bottom -->
 ---
 
-◀ **Prev:** [Graphics Processor (GPU)](gpu.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [CRY Colour & Colour Mapping](color-cry.md) ▶
+◀ **Prev:** [Graphics Processor (GPU)](gpu.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [CRY Color & Color Mapping](color-cry.md) ▶
 
 **Jump to:** [Architecture](../architecture/overview.md) · [Memory Map](../architecture/memory-map.md) · [Registers](../reference/register-list.md) · [Instructions](../reference/risc-instruction-set.md) · [Glossary](../reference/glossary.md) · [CD-ROM](../cdrom/overview.md)
 <!-- /nav:bottom -->

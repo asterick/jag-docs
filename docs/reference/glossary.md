@@ -33,8 +33,8 @@ terms (sectors, sessions, subcodes, etc.) are defined in the
 | **Line buffer** | One of two 360×32-bit RAMs the OP writes a scan line into while the other is displayed. |
 | **Phrase** | 64 bits (8 bytes) — the Jaguar's wide-memory transfer unit. The Blitter's *phrase mode* reads/writes 64 bits at a time. |
 | **Long / longword** | 32 bits (4 bytes). CD data maintains long alignment only. |
-| **CRY** | Cyan-Red-Intensity — a 16-bit colour model that is cheap to Gouraud-shade and near-indistinguishable from 24-bit RGB. See [color-cry](../tom/color-cry.md). |
-| **CLUT** | Colour Look-Up Table at `$F00400`–`$F007FE`; palette for sub-16-bit objects. |
+| **CRY** | Cyan-Red-Intensity — a 16-bit color model that is cheap to Gouraud-shade and near-indistinguishable from 24-bit RGB. See [color-cry](../tom/color-cry.md). |
+| **CLUT** | Color Look-Up Table at `$F00400`–`$F007FE`; palette for sub-16-bit objects. |
 | **Gouraud shading** | Hardware smooth shading across a span; 16-bit-pixel mode only. |
 | **Z-buffer** | Per-pixel depth test the Blitter can apply; 16-bit-pixel mode only. |
 | **SCRENX / SRCENX** | Blitter "source enable extra (read)" — forces an extra phrase read when first-write data isn't in the first read. See [blitter](../tom/blitter.md). |

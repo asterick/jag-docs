@@ -8,7 +8,7 @@ The Jaguar's two RISC processors — the GPU (Tom) and the DSP (Jerry) — share
 
 > **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 89–106. © Atari Corp. 1995.
 
-**On this page:** [Instruction encoding](#instruction-encoding) · [Flags](#flags) · [Register usage](#register-usage) · [Instruction set](#instruction-set) · [Writing fast GPU/DSP programs](#writing-fast-gpu-and-dsp-programs) · [Data organisation (endianness)](#data-organisation--big-and-little-endian)
+**On this page:** [Instruction encoding](#instruction-encoding) · [Flags](#flags) · [Register usage](#register-usage) · [Instruction set](#instruction-set) · [Writing fast GPU/DSP programs](#writing-fast-gpu-and-dsp-programs) · [Data organization (endianness)](#data-organization--big-and-little-endian)
 
 ## Instruction Encoding
 
@@ -92,7 +92,7 @@ The **GPU** and **DSP** columns indicate which processor implements each instruc
 | MULT | ✅ | ✅ | Rn,Rn | 16-bit unsigned integer multiply; 32-bit result = unsigned product of the bottom 16 bits of source and dest, written back to dest. | Z – set if result zero; N – set if bit 31 of result is one; C – not defined | `$10` | C1: source read; C3: dest write |
 | NEG | ✅ | ✅ | Rn | 32-bit two's-complement negate: result = 0 − dest, written back to dest. $80000000 cannot be negated. | Z – set if result zero; N – set if result negative; C – borrow out of subtract | `$08` | C1: source read; C3: dest write |
 | NOP | ✅ | ✅ | — | Do nothing. Leave both operand fields cleared. | ZNC – unaffected | `$39` | none |
-| NORMI | ✅ | ✅ | Rn,Rn | Normalisation integer: gives the amount by which the source (an unsigned integer) should be shifted right to normalise it (value may be negative); also the amount to add to the exponent to account for normalisation. | Z – set if result zero; N – set if result negative; C – not defined | `$38` | C1: source read; C3: dest write |
+| NORMI | ✅ | ✅ | Rn,Rn | Normalization integer: gives the amount by which the source (an unsigned integer) should be shifted right to normalize it (value may be negative); also the amount to add to the exponent to account for normalization. | Z – set if result zero; N – set if result negative; C – not defined | `$38` | C1: source read; C3: dest write |
 | NOT | ✅ | ✅ | Rn | Logical NOT: 32-bit invert; result = $FFFFFFFF XOR dest, written back to dest. *(source prints "NOR" as the mnemonic; described as logical invert / NOT)* | Z – set if result zero; N – set if result negative; C – not defined | `$0C` | C1: dest read; C3: dest write |
 | OR | ✅ | ✅ | Rn,Rn | 32-bit logical OR of source and dest, written back to dest. | Z – set if result zero; N – set if result negative; C – not defined | `$0A` | C1: source & dest read; C3: dest write |
 | PACK | ✅ | ❌ | Rn | **(GPU only)** Pack an unpacked pixel value into a 16-bit CRY pixel: bits 22–25 → 12–15; bits 13–16 → 8–11; bits 0–7 → 0–7. Set reg1 = 0 to differentiate from UNPACK. | ZNC – unaffected | `$3F` | C1: dest read; C3: dest write |
@@ -198,7 +198,7 @@ Interleaved so dependent instructions are spaced apart, the same work incurs no 
 
 Example #1 fails because nothing forces the load to complete before the store. Example #2 works because the load result (`r2`) is required by the `or`, which stalls until the read completes. Example #3 fixes #1 by inserting a dummy `or r2,r2` that forces the read to complete before the store.
 
-## Data Organisation – Big and Little Endian
+## Data Organization – Big and Little Endian
 
 The Jaguar system is intended to be usable in either a little-endian (e.g. Intel 80x86) or big-endian (e.g. 680x0) environment. The difference concerns how the bytes of a larger operand are stored in memory.
 
@@ -214,9 +214,9 @@ The IO bus interface is **16-bit**. Therefore 32-bit data such as addresses is p
 
 The co-processor bus interface is **64-bits wide**, so there is no big/little-endian problem. Graphics-processor programmers should nonetheless always use byte, word, or long-word transfers as appropriate to the operand size, to avoid having to know whether the CPU is big- or little-endian.
 
-### Pixel Organisation
+### Pixel Organization
 
-A side effect of endianness is the organisation of pixels within a phrase (64 bits).
+A side effect of endianness is the organization of pixels within a phrase (64 bits).
 
 **Little-endian:** the left-most pixel is always the least significant; it includes bit 0 — byte 0 in byte-address terms. **Big-endian:** the left-most pixel is always the most significant; it includes bit 63 — byte 0 in byte-address terms.
 

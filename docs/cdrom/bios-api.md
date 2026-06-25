@@ -163,9 +163,9 @@ call clobbers), **Returns**, **Purpose**. "NADA"/"none" = nothing. Many calls se
 - **Purpose:** Transfers data from the CD starting at a time code. **Always returns immediately** — use [`CD_ptr`](#cd_ptr) to track the next write address. If "Just Seek" is set, no data transfers but the CD keeps advancing at the current speed; a [`CD_ack`](#cd_ack) may follow **only** when "Just Seek" is set. The read stops if the buffer pointer exceeds `A1`, even with a circular buffer defined.
 - **See also:** [`CD_uread`](#cd_uread), [error recovery](#error-recovery-for-read-operations-26)
 
-Behaviour by `CD_init` variant in effect:
+Behavior by `CD_init` variant in effect:
 
-| In effect | Behaviour |
+| In effect | Behavior |
 |-----------|-----------|
 | `CD_init` | Reads into the buffer until its end. Request a time code **6 frames before** the data you need; the start-of-data partition marker may be anywhere in the first **31 frames (72,912 bytes)**. |
 | `CD_initf` | Same as `CD_init`, faster. |

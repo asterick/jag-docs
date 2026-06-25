@@ -4,7 +4,7 @@
 
 # Controllers & Controller Ports
 
-Pinouts, the JOYSTICK/JOYBUTS digital-input registers, the standard Joypad matrix, controller identification, and the full range of standard and advanced Jaguar controllers (Tempest rotary, Team Tap 4-player adaptor, 6D, head-mounted tracker, analogue/driving, keyboard/mouse).
+Pinouts, the JOYSTICK/JOYBUTS digital-input registers, the standard Joypad matrix, controller identification, and the full range of standard and advanced Jaguar controllers (Tempest rotary, Team Tap 4-player adaptor, 6D, head-mounted tracker, analog/driving, keyboard/mouse).
 
 > **Source:** *Technical Reference Manual* (V10), pp. 15–30. © Atari Corp. 1995.
 
@@ -15,7 +15,7 @@ The Jaguar console has two controller ports: **Controller port 1 (left)** and **
 - Four bi-directional digital pins (used as outputs to select which row of controller data to read).
 - Six input-only digital pins (split into 4 + 2 button inputs).
 
-> **Note:** Early versions of the Jaguar included an 8-bit ADC on the motherboard. This has been deleted — analogue controllers now require their own ADC chip.
+> **Note:** Early versions of the Jaguar included an 8-bit ADC on the motherboard. This has been deleted — analog controllers now require their own ADC chip.
 
 All `J0`–`J15` and `B0`–`B3` signals are TTL-level digital inputs and outputs.
 
@@ -142,7 +142,7 @@ The basic controller type is specified by the `C2` & `C3` bits returned when you
 | C2 | C3 | Controller Type |
 |----|----|-----------------|
 | 0 | 0 | Reserved |
-| 0 | 1 | Bank Switching (analogue joystick, head-mounted tracker, etc.) |
+| 0 | 1 | Bank Switching (analog joystick, head-mounted tracker, etc.) |
 | 1 | 0 | "Tempest" Rotary |
 | 1 | 1 | "Standard" Jaguar Joypad (or nothing connected) |
 
@@ -171,7 +171,7 @@ Advanced controllers use a bank-switching technique to return more than the 24 b
 | 1 | 1 | 0 | 0 | Reserved (PS Controller) |
 | 1 | 1 | 0 | 1 | Keyboard / Mouse |
 | 1 | 1 | 1 | 0 | 6D Controller |
-| 1 | 1 | 1 | 1 | Analogue Joystick or Driving Controller |
+| 1 | 1 | 1 | 1 | Analog Joystick or Driving Controller |
 
 > **Note:** The specification for identifying controllers was changed on March 31, 1995. The differences are important but fairly minor from an implementation point of view, and do not affect any hardware on the market as of that date.
 
@@ -225,7 +225,7 @@ Because 16 rows of data can be addressed, a four-controller adaptor can connect 
 
 The controller sockets on the adaptor have the 6 inputs wire-OR'd together. The four output lines are an active-low, 4-to-16 de-multiplexed version of the 4 console outputs.
 
-Each socket recognises four unique row codes. **Socket 0 uses the same row codes as a single controller connected directly to a console port.**
+Each socket recognizes four unique row codes. **Socket 0 uses the same row codes as a single controller connected directly to a console port.**
 
 ### Row codes output from the Jaguar
 
@@ -254,11 +254,11 @@ Output code on J3 J2 J1 J0 (Port 1) / J4 J5 J6 J7 (Port 2):
 
 ### 4-Player Adaptor and Advanced Controllers
 
-Originally advanced controllers responded to socket 1 row codes (instead of socket 0), allowing a "pass-through" connector for a standard Joypad. They were then required to change behaviour on detecting a 4-player adaptor, disabling the pass-through and responding to socket 0 row codes.
+Originally advanced controllers responded to socket 1 row codes (instead of socket 0), allowing a "pass-through" connector for a standard Joypad. They were then required to change behavior on detecting a 4-player adaptor, disabling the pass-through and responding to socket 0 row codes.
 
 Due to advancements in microcontroller design this has changed (see *Advanced Controllers*). Advanced controllers are no longer required to check for a 4-player adaptor (indicated by a +5V DC signal on pin 8 of each adaptor socket), though they may still do so if the designer deems it necessary.
 
-Because the 4-player adaptor converts the socket 1–3 row codes to socket 0 row codes, **only a controller read is possible when advanced controllers are connected through a 4-player adaptor.** Software control of advanced features (rumble motors, force feedback, analogue/digital select) will not be possible.
+Because the 4-player adaptor converts the socket 1–3 row codes to socket 0 row codes, **only a controller read is possible when advanced controllers are connected through a 4-player adaptor.** Software control of advanced features (rumble motors, force feedback, analog/digital select) will not be possible.
 
 **Summary — socket / controller positions (Ports 1 & 2 are identical in these respects):**
 
@@ -316,7 +316,7 @@ The JOYSTICK and JOYBUTS registers return the same data in the same bits regardl
 
 ### General Information
 
-All advanced controllers must contain a microcontroller as their interface to the Jaguar. Where analogue values are used, the microcontroller should use its own internal ADC or interface to a separate ADC chip within the controller.
+All advanced controllers must contain a microcontroller as their interface to the Jaguar. Where analog values are used, the microcontroller should use its own internal ADC or interface to a separate ADC chip within the controller.
 
 Advanced controllers must conform to the following:
 
@@ -338,7 +338,7 @@ Most advanced controllers output more than the single 24 bits of the standard Jo
 - Programs must always read an entire bank at once. It is **not** required to read all banks from a single controller in a single pass — you may interleave bank reads across controllers.
 - The rows of each bank must be read **in sequence: Row 0, Row 1, Row 2, Row 3.** The controller relies on this so it can pre-process the next row's data. Reading out of sequence gives undefined results.
 
-Example read order for an analogue joystick:
+Example read order for an analog joystick:
 
 | Bank | Rows read |
 |------|-----------|
@@ -347,7 +347,7 @@ Example read order for an analogue joystick:
 
 You need not know in advance which bank is active. Read all banks into a table, then find Bank 0: bank-switching controllers indicate **Bank 0** by clearing **bit 0 (B0, Port 1)** or **bit 2 (B2, Port 2)** of the JOYBUTS value read from Row 0. The bit is `0` for Bank 0 and `1` for all other banks. Because banks are always read in sequence, once you locate Bank 0 you know where every other bank's data is. (Example: reading 3 banks of a 6D controller into words 0–23; if word 9's bit 0 is clear, Bank 0 is words 8–15, Bank 1 is words 16–23, and Bank 2 is words 0–7.)
 
-**Timing:** There is processing time between rows because the controller's microcontroller must put a new data set on the outputs — normally ~10 µs (worst case ~20 µs) row-to-row within the same bank. Analogue controllers typically require an additional ~200 µs going from one bank to the next (so analogue inputs can be digitised).
+**Timing:** There is processing time between rows because the controller's microcontroller must put a new data set on the outputs — normally ~10 µs (worst case ~20 µs) row-to-row within the same bank. Analog controllers typically require an additional ~200 µs going from one bank to the next (so analog inputs can be digitised).
 
 ### Identifying Connected Controller Read
 
@@ -397,7 +397,7 @@ These support 6 degrees of freedom: Pitch, Yaw, Roll, X, Y and Z. Pitch is Z tor
 | Row 1 | 1 (C1) | 1** | TY4 | TY5 | TY6 | TY7 |
 | Row 0 | 1* | 0** | TX4 | TX5 | TX6 | TX7 |
 
-> \* Bit B0/B2 of row 0 synchronises the bank cycle: always 0 in Bank 0, 1 in all others. Banks cycle Bank 0, Bank 1, Bank 2, Bank 0, …
+> \* Bit B0/B2 of row 0 synchronizes the bank cycle: always 0 in Bank 0, 1 in all others. Banks cycle Bank 0, Bank 1, Bank 2, Bank 0, …
 > \*\* The C3/C2 bits identify the basic controller type. The B1/B3 bits of the **last** bank identify the specific bank-switching controller type.
 
 | Value | Meaning |
@@ -422,7 +422,7 @@ When an advanced controller reads an attached Joypad, it should behave as the Ja
 | Row 1 | 1 (C1) | B | * | 7 | 4 | 1 |
 | Row 0 | 1 (C3) | A | Up | Down | Left | Right |
 
-This prevents Bank 0 synchronisation issues (Pause would otherwise present as a false Bank 0 indicator) when reading the data banks into a table.
+This prevents Bank 0 synchronization issues (Pause would otherwise present as a false Bank 0 indicator) when reading the data banks into a table.
 
 ### Head Mounted Tracker
 
@@ -446,7 +446,7 @@ These devices provide three angular values according to the orientation of the u
 | Row 1 | 1 (C1) | 1** | AY4 | AY5 | AY6 | AY7 |
 | Row 0 | 1* | 1** | AX4 | AX5 | AX6 | AX7 |
 
-> \* Bit B0/B2 of row 0 synchronises the bank cycle: always 0 in Bank 0, 1 in all others. Banks cycle Bank 0, Bank 1, Bank 2, Bank 0, …
+> \* Bit B0/B2 of row 0 synchronizes the bank cycle: always 0 in Bank 0, 1 in all others. Banks cycle Bank 0, Bank 1, Bank 2, Bank 0, …
 > \*\* The C3/C2 bits identify the basic controller type. The B1/B3 bits of the last bank identify the specific bank-switching controller type.
 
 | Value | Meaning |
@@ -457,9 +457,9 @@ These devices provide three angular values according to the orientation of the u
 
 Zero is facing straight ahead. Positive values are tilt left / look left / look up. Values are linear angle values, where +180° = `$7F`, -179° = `$80`.
 
-### Analogue (Joystick and Driving) Controller
+### Analog (Joystick and Driving) Controller
 
-These devices typically require 8 bits of analogue resolution in 2 dimensions (X and Y). Two 100K-ohm linear potentiometers are typically used with +5V across the ends; the centre wiper reads a voltage between 0 and +5.
+These devices typically require 8 bits of analog resolution in 2 dimensions (X and Y). Two 100K-ohm linear potentiometers are typically used with +5V across the ends; the center wiper reads a voltage between 0 and +5.
 
 Reading this voltage requires an ADC. A good solution is an ARM or Microchip microcontroller; e.g. a 16F73 or 18F24K20 has 6 ADC channels and 16 general-purpose digital I/O lines. The four controller row outputs select one of four 6-bit addresses. The two 8-bit ADC values use 16 bits, leaving room for 5 switches and the 3 controller identifier codes.
 
@@ -483,13 +483,13 @@ The example below uses bank switching to support more switches. The bank is swit
 | Row 1 | 1 (C1) | 1** | 1 | 1 | 1 | 1 |
 | Row 0 | 1* | 1** | Up | Down | Left | Right |
 
-> \* Bit B0/B2 of row 0 synchronises the bank cycle: always 0 in Bank 0, 1 in all others. Banks cycle Bank 0, Bank 1, Bank 2, Bank 0, …
+> \* Bit B0/B2 of row 0 synchronizes the bank cycle: always 0 in Bank 0, 1 in all others. Banks cycle Bank 0, Bank 1, Bank 2, Bank 0, …
 > \*\* The C2/C3 bits identify the basic controller type. The B1/B3 bits of the last bank identify the specific bank-switching controller type.
 
 | Signal | "Stick" Controller | "Driving" Controller |
 |--------|--------------------|----------------------|
-| X (7:0) | Roll — Right = positive delta from centre; Left = negative delta | Steering — Right = positive delta from centre; Left = negative delta |
-| Y (7:0) | Pitch — Forward = positive delta from centre; Backward = negative delta | Accelerator/Brake — Accelerator = positive delta from centre; Brake = negative delta |
+| X (7:0) | Roll — Right = positive delta from center; Left = negative delta | Steering — Right = positive delta from center; Left = negative delta |
+| Y (7:0) | Pitch — Forward = positive delta from center; Backward = negative delta | Accelerator/Brake — Accelerator = positive delta from center; Brake = negative delta |
 | Up    | Hat Switch "Up"    | Gear shift Up |
 | Down  | Hat Switch "Down"  | Gear shift Down |
 | Left  | Hat Switch "Left"  | Spare 1 |
@@ -499,11 +499,11 @@ The example below uses bank switching to support more switches. The bank is swit
 | C | Middle Switch  | Spare 5 |
 | D | Lower Switch   | Spare 6 |
 
-**Calibration:** The range of possible X and Y values is 0–255, but not all controllers use the entire range, and the range used is not predefined. Do not assume fixed values for centre, hard-right, and hard-left positions — analogue devices differ controller to controller, and even day to day as temperature and humidity change. (E.g. one driving controller might return 160 centred / 245 hard right / 75 hard left, while another of the same type returns 150 / 240 / 55.)
+**Calibration:** The range of possible X and Y values is 0–255, but not all controllers use the entire range, and the range used is not predefined. Do not assume fixed values for center, hard-right, and hard-left positions — analog devices differ controller to controller, and even day to day as temperature and humidity change. (E.g. one driving controller might return 160 centered / 245 hard right / 75 hard left, while another of the same type returns 150 / 240 / 55.)
 
 Provide a calibration routine that asks the user to move the controller to certain positions to read the values there; offer this as an option on your controller configuration screen, ideally also allowing recalibration while paused mid-game. Storing the current calibration values into the cartridge EEPROM lets the user avoid recalibrating each session.
 
-**Timing:** Analogue controllers require processing time from when the row code is written until the read-back data is valid — normally ~10 µs (worst case ~20 µs) row-to-row within the same bank (this delay applies to all bank-switching controllers), and ~200 µs between banks. Handle this with a small delay loop that uses the bus as little as possible (avoid memory access), or by writing the row code on one timer/GPU interrupt and reading the value on a later interrupt. Avoid wasting CPU time and bus bandwidth just waiting on the controllers when other work could be done.
+**Timing:** Analog controllers require processing time from when the row code is written until the read-back data is valid — normally ~10 µs (worst case ~20 µs) row-to-row within the same bank (this delay applies to all bank-switching controllers), and ~200 µs between banks. Handle this with a small delay loop that uses the bus as little as possible (avoid memory access), or by writing the row code on one timer/GPU interrupt and reading the value on a later interrupt. Avoid wasting CPU time and bus bandwidth just waiting on the controllers when other work could be done.
 
 > **Note:** The ~10/20/200 µs figures were arrived at using a prototype Dual Shock controller interface comprising a Microchip PIC microcontroller running at 64 MHz. Consequently, all microcontrollers used in advanced controllers should run at 64 MHz or higher for the given timings to be relevant.
 

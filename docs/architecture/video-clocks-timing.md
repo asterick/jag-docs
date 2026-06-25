@@ -19,15 +19,15 @@ In the Jaguar console, the video clock is chosen to allow an inexpensive RF modu
 
 ### Clock Divider Registers — DO NOT TOUCH
 
-The clock dividers live in Jerry and are set up by the BOOTROM (retail console) or the STUBULATOR (development console). **Never write to them.** The settings in `CLK2`, `CLK3` and `HP` in particular must be correct to make the hardware work at all and to prevent dot crawl. The manual is emphatic: *"We really mean it: DON'T TOUCH THIS!"*
+The clock dividers live in Jerry and are set up by the BOOTROM (retail console) or the STUBULATOR (development console). **Never write to them.** The settings in [`CLK2`](memory-map.md#jerry--clocks-timers-serial), [`CLK3`](memory-map.md#jerry--clocks-timers-serial) and [`HP`](memory-map.md#system-set-up--video-registers-tom) in particular must be correct to make the hardware work at all and to prevent dot crawl. The manual is emphatic: *"We really mean it: DON'T TOUCH THIS!"*
 
 | Register | Address | Function |
 |---|---|---|
-| `CLK1` | `$F10010` | Processor clock divider |
-| `CLK2` | `$F10012` | Video clock divider |
-| `CLK3` | `$F10014` | Chroma clock divider (aka CHROMA DIV) |
+| [`CLK1`](memory-map.md#jerry--clocks-timers-serial) | `$F10010` | Processor clock divider |
+| [`CLK2`](memory-map.md#jerry--clocks-timers-serial) | `$F10012` | Video clock divider |
+| [`CLK3`](memory-map.md#jerry--clocks-timers-serial) | `$F10014` | Chroma clock divider (aka CHROMA DIV) |
 
-The [`VMODE`](../tom/object-processor.md#vmode--video-mode-f00028-wo) register and object processor are initialised and started after reset by the bootcode. The only object then in the object list is a stop object, which displays a blank screen and sends the correct video sync signals to the monitor or TV. This also lets the phase-locked loop settle (about a second at start-up). **Do not ever turn video off again** (i.e. by writing zero to [`VMODE`](../tom/object-processor.md#vmode--video-mode-f00028-wo)).
+The [`VMODE`](../tom/object-processor.md#vmode--video-mode-f00028-wo) register and object processor are initialized and started after reset by the bootcode. The only object then in the object list is a stop object, which displays a blank screen and sends the correct video sync signals to the monitor or TV. This also lets the phase-locked loop settle (about a second at start-up). **Do not ever turn video off again** (i.e. by writing zero to [`VMODE`](../tom/object-processor.md#vmode--video-mode-f00028-wo)).
 
 ## Pixel (Dot) Clock and Resolution
 
@@ -55,7 +55,7 @@ Atari recommends overscanning both vertically and horizontally for all Jaguar so
 
 For vertical overscan, use a screen height of **240 lines for NTSC** and **288 lines for PAL**. The guaranteed visible region for crucial game information is **200 lines for NTSC** and **240 lines for PAL**. Using 200 lines of critical video for both systems is an acceptable simplification.
 
-To properly initialise your program (including video) you must use the standard Jaguar Start-up Code described in the Jaguar Libraries section.
+To properly initialize your program (including video) you must use the standard Jaguar Start-up Code described in the Jaguar Libraries section.
 
 ## Programmable Video Timing Registers
 
@@ -63,24 +63,24 @@ These registers define the video raster timing. They are set up at boot and list
 
 | Register | Address | Description |
 |---|---|---|
-| `HP` | `$F0002E` | Horizontal Period |
-| `HBB` | `$F00030` | Horizontal Blanking Begin |
-| `HBE` | `$F00032` | Horizontal Blanking End |
-| `HS` | `$F00034` | Horizontal Sync |
-| `HVS` | `$F00036` | Horizontal Vertical Sync |
+| [`HP`](memory-map.md#system-set-up--video-registers-tom) | `$F0002E` | Horizontal Period |
+| [`HBB`](memory-map.md#system-set-up--video-registers-tom) | `$F00030` | Horizontal Blanking Begin |
+| [`HBE`](memory-map.md#system-set-up--video-registers-tom) | `$F00032` | Horizontal Blanking End |
+| [`HS`](memory-map.md#system-set-up--video-registers-tom) | `$F00034` | Horizontal Sync |
+| [`HVS`](memory-map.md#system-set-up--video-registers-tom) | `$F00036` | Horizontal Vertical Sync |
 | [`HDB1`](memory-map.md#system-set-up--video-registers-tom) | `$F00038` | Horizontal Display Begin 1 |
 | [`HDB2`](memory-map.md#system-set-up--video-registers-tom) | `$F0003A` | Horizontal Display Begin 2 |
 | [`HDE`](memory-map.md#system-set-up--video-registers-tom) | `$F0003C` | Horizontal Display End |
-| `VP` | `$F0003E` | Vertical Period |
-| `VBB` | `$F00040` | Vertical Blanking Begin |
-| `VBE` | `$F00042` | Vertical Blanking End |
-| `VS` | `$F00044` | Vertical Sync |
+| [`VP`](memory-map.md#system-set-up--video-registers-tom) | `$F0003E` | Vertical Period |
+| [`VBB`](memory-map.md#system-set-up--video-registers-tom) | `$F00040` | Vertical Blanking Begin |
+| [`VBE`](memory-map.md#system-set-up--video-registers-tom) | `$F00042` | Vertical Blanking End |
+| [`VS`](memory-map.md#system-set-up--video-registers-tom) | `$F00044` | Vertical Sync |
 | [`VDB`](memory-map.md#system-set-up--video-registers-tom) | `$F00046` | Vertical Display Begin |
 | [`VDE`](memory-map.md#system-set-up--video-registers-tom) | `$F00048` | Vertical Display End |
-| [`VEB`](memory-map.md#system-set-up--video-registers-tom) | `$F0004A` | Vertical Equalisation Begin |
-| `VEE` | `$F0004C` | Vertical Equalisation End |
+| [`VEB`](memory-map.md#system-set-up--video-registers-tom) | `$F0004A` | Vertical Equalization Begin |
+| [`VEE`](memory-map.md#system-set-up--video-registers-tom) | `$F0004C` | Vertical Equalization End |
 | [`VI`](memory-map.md#system-set-up--video-registers-tom) | `$F0004E` | Vertical Interrupt |
-| `HEQ` | `$F00054` | Horizontal Equalisation End |
+| [`HEQ`](memory-map.md#system-set-up--video-registers-tom) | `$F00054` | Horizontal Equalization End |
 
 ## Video Ports
 
@@ -119,7 +119,7 @@ The console has an external video connector supporting Composite video, S-Video,
 | Hsync width | 4.7 µS | 4.76 µS | |
 | Hback porch | 5.7 µS | 4.45 µS | |
 | Hfront porch | 1.65 µS | 1.27 µS | |
-| Equalisation pulse width | 2.35 µS | 2.54 µS | |
+| Equalization pulse width | 2.35 µS | 2.54 µS | |
 | Vertical sync pulse width | 27.3 µS | 29.26 µS | |
 | Vertical lines (interlaced) | 625 | 525 | |
 | Vertical lines (non-interlaced) | 624 | 524 | |

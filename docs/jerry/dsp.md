@@ -4,7 +4,7 @@
 
 # Digital Sound Processor (DSP)
 
-The DSP is Jerry's RISC processor — a sound-optimised variant of Tom's GPU with 8 KB of internal RAM, a wave-table ROM, extended-precision multiply/accumulate, circular-buffer addressing, and full bus-master access to the system.
+The DSP is Jerry's RISC processor — a sound-optimized variant of Tom's GPU with 8 KB of internal RAM, a wave-table ROM, extended-precision multiply/accumulate, circular-buffer addressing, and full bus-master access to the system.
 
 > **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 82–88. © Atari Corp. 1995.
 
@@ -21,7 +21,7 @@ Note that the DSP has only a 16-bit interface to external memory, so its externa
 
 ## How it differs from the GPU
 
-The DSP shares the GPU's programming model, design philosophy, pipe-lining behaviour, load/store operations, program control flow, divide unit, register file, and external CPU access. (Refer to the corresponding sections of the GPU description — see [Graphics Processor (GPU)](../tom/gpu.md).) The DSP adds several optimisations for sound processing:
+The DSP shares the GPU's programming model, design philosophy, pipe-lining behavior, load/store operations, program control flow, divide unit, register file, and external CPU access. (Refer to the corresponding sections of the GPU description — see [Graphics Processor (GPU)](../tom/gpu.md).) The DSP adds several optimizations for sound processing:
 
 - Higher-precision (40-bit) multiply/accumulate operations.
 - Hardware circular buffer management.
@@ -84,7 +84,7 @@ Refer to the GPU's *Divide Unit* section. The DSP exposes the divide-unit contro
 
 ## Interrupts
 
-The DSP has six interrupt sources, allocated as follows (refer to the GPU *Interrupts* section for general behaviour):
+The DSP has six interrupt sources, allocated as follows (refer to the GPU *Interrupts* section for general behavior):
 
 | #  | Interrupt           |
 |----|---------------------|
@@ -112,7 +112,7 @@ Certain peripheral I/O functions are mapped into the internal DSP space for high
 | `D_FLAGS`    | DSP Flags Register                   | `$F1A100` | RW |
 | `D_MTXC`     | DSP Matrix Control Register          | `$F1A104` | WO |
 | `D_MTXA`     | DSP Matrix Address Register          | `$F1A108` | WO |
-| `D_END`      | DSP Data Organisation Register       | `$F1A10C` | WO |
+| `D_END`      | DSP Data Organization Register       | `$F1A10C` | WO |
 | `D_PC`       | DSP Program Counter                  | `$F1A110` | RW |
 | `D_CTRL`     | DSP Control/Status Register          | `$F1A114` | RW |
 | `D_MOD`      | DSP Modulo Instruction Mask          | `$F1A118` | WO |
@@ -156,7 +156,7 @@ Determines where, in local RAM, the matrix is held.
 |------|---------|-------------|
 | 2–11 | —       | Matrix address. |
 
-### D_END — DSP Data Organisation Register (`$F1A10C`, WO)
+### D_END — DSP Data Organization Register (`$F1A10C`, WO)
 
 Controls the physical layout of DSP I/O registers. If its current contents are unknown, the same data should be written to both the low and high 16 bits.
 
@@ -216,7 +216,7 @@ Governs the interface between the CPU and DSP.
 <!-- nav:bottom -->
 ---
 
-◀ **Prev:** [CRY Colour & Colour Mapping](../tom/color-cry.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Audio Subsystem & Synthesis](audio.md) ▶
+◀ **Prev:** [CRY Color & Color Mapping](../tom/color-cry.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Audio Subsystem & Synthesis](audio.md) ▶
 
 **Jump to:** [Architecture](../architecture/overview.md) · [Memory Map](../architecture/memory-map.md) · [Registers](../reference/register-list.md) · [Instructions](../reference/risc-instruction-set.md) · [Glossary](../reference/glossary.md) · [CD-ROM](../cdrom/overview.md)
 <!-- /nav:bottom -->

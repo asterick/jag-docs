@@ -12,23 +12,23 @@ Tom's Object Processor combines frame-store and sprite-based video architectures
 
 The Jaguar video section was designed to drive a PAL/NTSC TV, but its flexible design lets it span a range of display standards from VGA through to WorkStation.
 
-Two colour resolutions are supported: 24-bit and 16-bit. The 24-bit mode is useful for true-colour applications. The 16-bit mode is designed for animation — it consumes less memory, fits better into 64-bit memory, and in the case of CRY (Cyan, Red and intensitY) is simpler to shade and is almost indistinguishable from 24-bit mode.
+Two color resolutions are supported: 24-bit and 16-bit. The 24-bit mode is useful for true-color applications. The 16-bit mode is designed for animation — it consumes less memory, fits better into 64-bit memory, and in the case of CRY (Cyan, Red and intensitY) is simpler to shade and is almost indistinguishable from 24-bit mode.
 
-The Jaguar decouples the pixel frequency from the system clock by using a **line buffer**, so the system clock need not be related to the colour carrier frequency and may be unaffected by gen-locking. There are actually **two line buffers**: one is displayed while the other is prepared by the Object Processor. Each line buffer is a 360 x 32-bit RAM holding physical pixels (16- or 24-bit). The line buffers may be swapped over at the start and in the middle of display lines.
+The Jaguar decouples the pixel frequency from the system clock by using a **line buffer**, so the system clock need not be related to the color carrier frequency and may be unaffected by gen-locking. There are actually **two line buffers**: one is displayed while the other is prepared by the Object Processor. Each line buffer is a 360 x 32-bit RAM holding physical pixels (16- or 24-bit). The line buffers may be swapped over at the start and in the middle of display lines.
 
 In CRY, pixels at the output of the line buffer are converted to 24-bit RGB pixels using a combination of look-up tables and small multipliers. The video timing is completely programmable in units of the video clock.
 
 The Object Processor is simple yet sophisticated. It has scaled and unscaled bit-map objects, branch objects to control its flow, and interrupt objects. It can interrupt the Graphics Processor to perform more complex operations on its behalf (perspective, rotation, branches, palette loads, etc.).
 
-The Object Processor can write into the line buffer at up to **two pixels per clock cycle**. Source data can be 1, 2, 4, 8, 16 or 24 bits per pixel. Except for 24 bits, objects of different colour resolutions can be mixed. Low-resolution objects (1–8 bits) use a palette to obtain a 16-bit physical colour.
+The Object Processor can write into the line buffer at up to **two pixels per clock cycle**. Source data can be 1, 2, 4, 8, 16 or 24 bits per pixel. Except for 24 bits, objects of different color resolutions can be mixed. Low-resolution objects (1–8 bits) use a palette to obtain a 16-bit physical color.
 
-A key feature is that the Object Processor can **modify the existing contents of the line buffer** with another image — useful for shadows, mist or smoke, coloured glass, or the effect of a room lit by a flash lamp. It can also ignore non-pixel data stored alongside pixel data (e.g. a Z buffer placed next to the pixels), which reduces the frequency of DRAM RAS pre-charges.
+A key feature is that the Object Processor can **modify the existing contents of the line buffer** with another image — useful for shadows, mist or smoke, colored glass, or the effect of a room lit by a flash lamp. It can also ignore non-pixel data stored alongside pixel data (e.g. a Z buffer placed next to the pixels), which reduces the frequency of DRAM RAS pre-charges.
 
 ## Object Processor Performance
 
 Each object is described by an **object header**: two phrases for an unscaled object, three phrases for a scaled object. When an image has been processed the modified header is written back to memory.
 
-The Object Processor fetches one phrase (64 bits) of video data at a time. This phrase is expanded into pixels (and written into the line buffer) while the next phrase is fetched. The image data consists of a whole number of phrases; it may need to be padded with transparent pixels (colour zero in 1, 2, 4, 8 & 16-bit modes).
+The Object Processor fetches one phrase (64 bits) of video data at a time. This phrase is expanded into pixels (and written into the line buffer) while the next phrase is fetched. The image data consists of a whole number of phrases; it may need to be padded with transparent pixels (color zero in 1, 2, 4, 8 & 16-bit modes).
 
 The Object Processor writes into the line buffer at one write per system clock tick:
 
@@ -42,7 +42,7 @@ This peak rate may be reduced if memory bandwidth is insufficient. With 64-bit-w
 ### Bus-priority rules (critical)
 
 - The GPU and Blitter **may not be used in high bus priority while the Object Processor is running.** The **DMAEN** bit of [`G_FLAGS`](gpu.md#g_flags--gpu-flags-register-f02100-rw) should be `0`, and the **BUSHI** bit of [`B_CMD`](blitter.md#b_cmd--command-register-f02238-wo) should be `0`.
-- **No bus master may operate at a higher priority than the Object Processor.** If something else gets the bus between the second and third phrases of an object header, the line buffer address can be corrupted, causing horizontal black stripes and possibly other artefacts in the display.
+- **No bus master may operate at a higher priority than the Object Processor.** If something else gets the bus between the second and third phrases of an object header, the line buffer address can be corrupted, causing horizontal black stripes and possibly other artifacts in the display.
 
 Full bus-master priority list (Microprocessor Interface), highest to lowest:
 
@@ -153,31 +153,31 @@ All the above bits are undefined on reset except `BIGEND`, which is set by exter
 | OLP | Object List Pointer | `F00020` | WO | 32-bit pointer to the start of the object list (see below). |
 | OBF | Object Processor Flag | `F00026` | WO | See below. |
 | VMODE | Video Mode | `F00028` | WO | See below. |
-| BORD1 | Border Colour (Red & Green) | `F0002A` | WO | Physical border colour, eight bits per primary. Red is the LSB of BORD1. |
-| BORD2 | Border Colour (Blue) | `F0002C` | WO | Border colour, Blue. |
+| BORD1 | Border Color (Red & Green) | `F0002A` | WO | Physical border color, eight bits per primary. Red is the LSB of BORD1. |
+| BORD2 | Border Color (Blue) | `F0002C` | WO | Border color, Blue. |
 | HP | Horizontal Period | `F0002E` | WO | *Info only.* Ten-bit; period of half a display line in video clock cycles (one tick longer than the value). |
 | HBB | Horizontal Blanking Begin | `F00030` | WO | *Info only.* Eleven-bit; start of horizontal blanking. MSB usually set (blanking starts in 2nd half). |
 | HBE | Horizontal Blanking End | `F00032` | WO | *Info only.* Eleven-bit; end of horizontal blanking. MSB usually clear. |
-| HS | Horizontal Sync | `F00034` | WO | *Info only.* Eleven-bit; width of horizontal sync / equalisation pulses. |
+| HS | Horizontal Sync | `F00034` | WO | *Info only.* Eleven-bit; width of horizontal sync / equalization pulses. |
 | HVS | Horizontal Vertical Sync | `F00036` | WO | *Info only.* Ten-bit; end position of vertical sync pulses. |
 | HDB1 | Horizontal Display Begin 1 | `F00038` | WO | Eleven-bit; where the OP starts on the line (see below). |
 | HDB2 | Horizontal Display Begin 2 | `F0003A` | WO | Eleven-bit; second OP start (mid-line) for twice-per-line operation. |
-| HDE | Horizontal Display End | `F0003C` | WO | Eleven-bit; when the display ends. Border colour or black (if HBB < HDE) shown after. |
+| HDE | Horizontal Display End | `F0003C` | WO | Eleven-bit; when the display ends. Border color or black (if HBB < HDE) shown after. |
 | VP | Vertical Period | `F0003E` | WO | *Info only.* Eleven-bit; half lines per field (one more than the value). Odd count = interlaced. |
 | VBB | Vertical Blanking Begin | `F00040` | WO | *Info only.* Eleven-bit; half line vertical blanking begins. |
 | VBE | Vertical Blanking End | `F00042` | WO | *Info only.* Eleven-bit; half line vertical blanking ends. |
 | VS | Vertical Sync | `F00044` | WO | *Info only.* Eleven-bit; half line vertical sync begins. |
 | VDB | Vertical Display Begin | `F00046` | WO | Eleven-bit; half line on which object processing begins. |
 | VDE | Vertical Display End | `F00048` | WO | Eleven-bit; half line object processing ends. **Due to a Jaguar Console bug, set this to `$FFFF`** to process every line. |
-| VEB | Vertical Equalisation Begin | `F0004A` | WO | *Info only.* Eleven-bit; half line equalisation pulses start. |
-| VEE | Vertical Equalisation End | `F0004C` | WO | *Info only.* Eleven-bit; half line equalisation pulses end. |
+| VEB | Vertical Equalization Begin | `F0004A` | WO | *Info only.* Eleven-bit; half line equalization pulses start. |
+| VEE | Vertical Equalization End | `F0004C` | WO | *Info only.* Eleven-bit; half line equalization pulses end. |
 | VI | Vertical Interrupt | `F0004E` | WO | Eleven-bit; half line on which the VI interrupt is generated. Must be odd if non-interlaced. |
 | PIT[0-1] | Programmable Timer Interrupt | `F00050-52` | WO | Two 16-bit registers; control frequency of interrupts to both CPU and GPU (operate as a pair). |
-| HEQ | Horizontal Equalisation End | `F00054` | WO | *Info only.* Ten-bit; end position of equalisation pulses. |
-| BG | Background Colour | `F00058` | WO | CRY colour to which the line buffer is cleared. |
+| HEQ | Horizontal Equalization End | `F00054` | WO | *Info only.* Ten-bit; end position of equalization pulses. |
+| BG | Background Color | `F00058` | WO | CRY color to which the line buffer is cleared. |
 | INT1 | CPU Interrupt Control Register | `F000E0` | RW | See below. |
 | INT2 | CPU Interrupt Resume Register | `F000E2` | WO | See below. |
-| CLUT | Colour Look-Up Table | `F00400-7FE` | RW | See below. |
+| CLUT | Color Look-Up Table | `F00400-7FE` | RW | See below. |
 | LBUF | Line Buffer | `F00800-0D9E`, `F01000-159E`, `F01800-1D9E` | RW | See below. |
 
 #### OLP — Object List Pointer (`F00020`, WO)
@@ -196,10 +196,10 @@ Bit 0 can be tested by the Object Processor branch instruction: if set, the bran
 | 1-2 | MODE | How line-buffer contents are translated into physical pixels (see below). |
 | 3 | GENLOCK | Not supported in the Jaguar console — always write zero. |
 | 4 | INCEN | Enables encrustation: the LSB of the 16-bit data switches between local and external video sources via an external multiplexer (per-pixel). |
-| 5 | BINC | Selects the local border colour if encrustation is enabled. |
+| 5 | BINC | Selects the local border color if encrustation is enabled. |
 | 6 | CSYNC | Enables composite sync on the vertical sync output. |
-| 7 | BGEN | Clears the line buffer to the background-register colour after displaying it. Effective only in CRY and RGB16 modes. |
-| 8 | VARMOD | Enables variable colour resolution mode. The LSB of each line-buffer word selects the coding of the other 15 bits: clear = CRY pixel; set = bits [1-5] Green, [6-10] Blue, [11-15] Red. Allows an RGB window against a CRY background. |
+| 7 | BGEN | Clears the line buffer to the background-register color after displaying it. Effective only in CRY and RGB16 modes. |
+| 8 | VARMOD | Enables variable color resolution mode. The LSB of each line-buffer word selects the coding of the other 15 bits: clear = CRY pixel; set = bits [1-5] Green, [6-10] Blue, [11-15] Red. Allows an RGB window against a CRY background. |
 | 9-11 | PWIDTH1-8 | Pixel width in video clock cycles; width is one more than the field value. The video time base is programmed in video-clock cycles, not the pixel clock from this divider. Display width should be an integer multiple of the pixel width. |
 | 12-15 | Unused | Write zeroes. |
 
@@ -213,7 +213,7 @@ MODE values (bits 1-2):
 
 ![RGB24 pixel across bits 31..0: 8 bits Green, 8 bits Red, 8 unused bits, 8 bits Blue.](../assets/pixel-rgb24.svg)
 
-- **DIRECT16 (2)** — 16-bit direct. Each 32-bit entry is two 16-bit words output directly onto Red and Green outputs on alternate phases of the video clock, for dot clocks above the video clock; further multiplexing and colour look-up happen off-chip. Blanking and video-active are output on the two LSBs of Blue.
+- **DIRECT16 (2)** — 16-bit direct. Each 32-bit entry is two 16-bit words output directly onto Red and Green outputs on alternate phases of the video clock, for dot clocks above the video clock; further multiplexing and color look-up happen off-chip. Blanking and video-active are output on the two LSBs of Blue.
 
 - **RGB16 (3)** — 16-bit RGB. Each 32-bit entry is two 16-bit RGB pixels. The LSB is normally the LSB of Green; if `VARMOD` is set, this bit is set to mark an RGB16 pixel and only the top five bits set Green.
 
@@ -242,9 +242,9 @@ When written, bits 0–4 enable individual sources and bits 8–12 clear pending
 
 When an interrupt is applied to the CPU, the bus priorities of the GPU and Blitter are reduced so the CPU can service real-time interrupts promptly. Writing any value here restores them — do this at the end of every interrupt service routine. After the write, the Blitter and GPU may restart, and no further CPU instructions execute until the next interrupt occurs or the GPU/Blitter operation completes.
 
-#### CLUT — Colour Look-Up Table (`F00400-7FE`, RW)
+#### CLUT — Color Look-Up Table (`F00400-7FE`, RW)
 
-Translates an 8-bit colour index (from object data of 1, 2, 4 or 8 bits) into a 16-bit physical colour. For throughput there are **two tables**, allowing two pixels at a time into the line buffer. Each table has 256 16-bit entries. `F00400-5FE` reads from **table A**; `F00600-7FE` reads from **table B**. Writing to either range writes both tables. Writes to this region may be unreliable when an object with the 'Release' bit is part of the current object list.
+Translates an 8-bit color index (from object data of 1, 2, 4 or 8 bits) into a 16-bit physical color. For throughput there are **two tables**, allowing two pixels at a time into the line buffer. Each table has 256 16-bit entries. `F00400-5FE` reads from **table A**; `F00600-7FE` reads from **table B**. Writing to either range writes both tables. Writes to this region may be unreliable when an object with the 'Release' bit is part of the current object list.
 
 #### LBUF — Line Buffer (`F00800-0D9E`, `F01000-159E`, `F01800-1D9E`, RW)
 
@@ -289,8 +289,8 @@ Displays an unscaled bit-mapped object. Must be on a **16-byte boundary** in 64-
 | 28-37 | IWIDTH | Image width in phrases (must be non-zero). May be used for clipping. |
 | 38-44 | INDEX | For 1–4 bits/pixel images, the top 7 to 4 bits of the index provide the most significant bits of the palette address. |
 | 45 | REFLECT | Draw the object right to left. |
-| 46 | RMW | Add object to data in the line buffer (values are then signed offsets for intensity and the two colour vectors). See caveat below. |
-| 47 | TRANS | Make logical colour zero transparent. |
+| 46 | RMW | Add object to data in the line buffer (values are then signed offsets for intensity and the two color vectors). See caveat below. |
+| 47 | TRANS | Make logical color zero transparent. |
 | 48 | RELEASE | Forces the OP to release the bus between data fetches (see note below). |
 | 49-54 | FIRSTPIX | First pixel to be displayed (for clipping). LSB is only significant for scaled objects (one pixel at a time); other bits define the first pair of pixels. In 1 bit/pixel all five bits are significant; in 2 bit/pixel only the top four. Writing zeroes displays the whole phrase. |
 | 55-63 | Unused | Write zeroes. |
@@ -308,7 +308,7 @@ DEPTH (bits 12-14):
 
 **RMW caveat:** The last column of pixels of an RMW (Read-Modify-Write) object can be corrupted if it is followed by another bitmap object — on the right side, unless REFLECT is set (then the left side). Work-arounds: pad the data source so the last pixels are all transparent; ensure the next object does not appear on the same scan lines; or place an always-false branch object after the RMW object.
 
-**RELEASE note:** Typically set for low colour-resolution objects (1–8 bits/pixel), where there is time for another bus master to use the bus between data fetches. For high colour-resolution objects the bus should be held (little time between fetches; other masters would likely cause DRAM page faults). The bit may be set in 16-bit scaled bitmap objects. External bus masters, the refresh mechanism, and the GPU DMA mechanism all have higher bus priority and are unaffected by this bit.
+**RELEASE note:** Typically set for low color-resolution objects (1–8 bits/pixel), where there is time for another bus master to use the bus between data fetches. For high color-resolution objects the bus should be held (little time between fetches; other masters would likely cause DRAM page faults). The bit may be set in 16-bit scaled bitmap objects. External bus masters, the refresh mechanism, and the GPU DMA mechanism all have higher bus priority and are unaffected by this bit.
 
 ### SCBITOBJ — Scaled Bit Mapped Object (type 1)
 
@@ -318,7 +318,7 @@ Displays a scaled bit-mapped object. Must be on a **32-byte boundary** in 64-bit
 |------|-------|-------------|
 | 0-7 | HSCALE | Three-bit integer part + five-bit fractional part. Determines how many pixels are written into the line buffer per source pixel. May be as high as 7.1F (`%111.11111`), but a 24-bit scaled object is distorted at any HSCALE other than 1.0 (`%001.00000`). |
 | 8-15 | VSCALE | Three-bit integer + five-bit fractional. Display lines drawn per source line. Equals HSCALE to keep aspect ratio. Setting VSCALE greater than 7.0 (`%111.00000`) will fail. |
-| 16-23 | REMAINDER | Three-bit integer + five-bit fractional. Display lines left from the current source line. Decremented by one per display line; if negative, VSCALE is added until positive, and HEIGHT is decremented each time VSCALE is added. New REMAINDER written back. Initialise to the same value as VSCALE for a perfectly scaled first line. |
+| 16-23 | REMAINDER | Three-bit integer + five-bit fractional. Display lines left from the current source line. Decremented by one per display line; if negative, VSCALE is added until positive, and HEIGHT is decremented each time VSCALE is added. New REMAINDER written back. Initialize to the same value as VSCALE for a perfectly scaled first line. |
 | 24-63 | Unused | Write zeroes. |
 
 ### GPUOBJ — Graphics Processor Object (type 2)
@@ -373,11 +373,11 @@ The **processor bus** is a 64-bit data, 24-bit address multi-master bus; the bus
 
 The **line buffer** bridges two asynchronous parts of the chip: processors/memory on one side, video timing and pixel generators on the other. There are two line buffers — while one is written by the OP, the other is read by the pixel logic. Each is a small 360 x 32 RAM with independent write strobes for the high and low words. Each location holds one 24-bit pixel or two 16-bit pixels.
 
-The OP reads object headers and image data and writes back modified headers. Write-back normally increases the data address by the data width; for scaled objects the data address increases by a multiple of the data width and the vertical remainder is modified. Object data contains physical colours (16/24 bits-per-pixel) or logical colours (1, 2, 4, 8 bits-per-pixel); logical colours are translated to physical via the CLUT.
+The OP reads object headers and image data and writes back modified headers. Write-back normally increases the data address by the data width; for scaled objects the data address increases by a multiple of the data width and the vertical remainder is modified. Object data contains physical colors (16/24 bits-per-pixel) or logical colors (1, 2, 4, 8 bits-per-pixel); logical colors are translated to physical via the CLUT.
 
 ### Object Data Path
 
-The OP fetches data one phrase at a time until the image data for that header is exhausted or the line-buffer address (X coordinate) becomes invalid. Behaviour depends on colour resolution and whether the object is scaled:
+The OP fetches data one phrase at a time until the image data for that header is exhausted or the line-buffer address (X coordinate) becomes invalid. Behavior depends on color resolution and whether the object is scaled:
 
 - **24 bits-per-pixel:** each phrase holds two pixels (16 bits unused per phrase). The multiplexers select each in turn; one 24-bit pixel per clock cycle. CLUT bypassed.
 - **16 bits-per-pixel:** each phrase holds four pixels. Two pixels selected at a time; two pixels into the line buffer per clock cycle. CLUT bypassed.
@@ -391,8 +391,8 @@ This description is complicated by:
 
 - If a pixel pair must be written to an odd location, they are swapped and one pixel delayed.
 - The line-buffer address decrements if the object is reflected.
-- The colour written can instead be added to the previous value.
-- One colour may be transparent and is not written.
+- The color written can instead be added to the previous value.
+- One color may be transparent and is not written.
 - The line buffers also appear as memory to the rest of the system.
 
 ### Pixel Data Path
@@ -400,14 +400,14 @@ This description is complicated by:
 This logic runs from the **video clock** (different from the previous logic). Operation depends on the video mode:
 
 - **24 bits-per-pixel:** line buffer read at the video clock frequency; data latched and presented at the pins as red, green and blue.
-- **CRY:** line buffer read at half the video clock frequency; each read yields two 16-bit CRY values, multiplexed into the CRY-to-RGB conversion during succeeding video clock cycles. The top eight bits specify colour, the low bits specify intensity. The colour value indexes three ROMs holding relative R, G, B amounts; their outputs are multiplied by brightness to get the final 8 bits each of R, G, B.
+- **CRY:** line buffer read at half the video clock frequency; each read yields two 16-bit CRY values, multiplexed into the CRY-to-RGB conversion during succeeding video clock cycles. The top eight bits specify color, the low bits specify intensity. The color value indexes three ROMs holding relative R, G, B amounts; their outputs are multiplied by brightness to get the final 8 bits each of R, G, B.
 - **RGB16:** line buffer read at half the video clock frequency; each read yields two 16-bit RGB values. Bits 0-5 = six MSBs of green, bits 6-10 = five MSBs of blue, bits 11-15 = five MSBs of red; other bits zero.
-- **Direct mode:** a fourth mode for very high pixel rates using external multiplexers and DACs. The line buffer is read at the video clock frequency and the 2:1 multiplexer is driven by the video clock directly. Its output connects directly to the red and green outputs, allowing 16-bit values at twice the maximum video clock frequency — video bandwidth up to four times the video clock. Values are re-synchronised, de-multiplexed and converted to analogue off-chip. Blanking and border signals are output on the blue pins.
+- **Direct mode:** a fourth mode for very high pixel rates using external multiplexers and DACs. The line buffer is read at the video clock frequency and the 2:1 multiplexer is driven by the video clock directly. Its output connects directly to the red and green outputs, allowing 16-bit values at twice the maximum video clock frequency — video bandwidth up to four times the video clock. Values are re-synchronized, de-multiplexed and converted to analog off-chip. Blanking and border signals are output on the blue pins.
 
-In all modes, additional logic sets the output to black during blanking and to the border colour where appropriate. Further complications:
+In all modes, additional logic sets the output to black during blanking and to the border color where appropriate. Further complications:
 
 - In CRY and RGB16 modes the LSB can be sacrificed (treated as zero) to control an external video switch through the incrust output pin.
-- In CRY and RGB16 modes a background colour may be written into the line buffer after it has been read.
+- In CRY and RGB16 modes a background color may be written into the line buffer after it has been read.
 - In CRY and RGB16 modes the LSB may determine whether the mode is CRY or RGB16 — useful for dropping a decompressed RGB picture into a CRY picture without an RGB-to-CRY conversion.
 
 ## Refresh Mechanism
@@ -424,7 +424,7 @@ This guarantees the minimum refresh rate without interrupting the Object Process
 - [Memory Map / Register List](../architecture/memory-map.md)
 - [Graphics Processor (GPU)](gpu.md)
 - [Blitter](blitter.md)
-- [CRY Colour & Colour Mapping](color-cry.md)
+- [CRY Color & Color Mapping](color-cry.md)
 - [Video & System Clocks, Timing](../architecture/video-clocks-timing.md)
 
 <!-- nav:bottom -->

@@ -22,14 +22,14 @@ As shipped, the whole screen is drawn in about 5 seconds. It could be sped up by
 
 **Where it lives** — `\JAGUAR\SOURCE\JAGMAND`.
 
-**Key hardware** — GPU (pixel-by-pixel fractal calculation), a full-screen bitmap object in 320-pixel CRY mode, a 256-entry CRY-mode colour palette, and the vertical-blank interrupt for refreshing the object list. Video mode is set up by the Standard Jaguar Startup Code.
+**Key hardware** — GPU (pixel-by-pixel fractal calculation), a full-screen bitmap object in 320-pixel CRY mode, a 256-entry CRY-mode color palette, and the vertical-blank interrupt for refreshing the object list. Video mode is set up by the Standard Jaguar Startup Code.
 
 **Files**
 
 | Filename | Description |
 | --- | --- |
 | `CALCMAND.S` | The actual Mandelbrot calculation code that runs in the Jaguar GPU. |
-| `CRY.PAL` | Data for a 256-entry CRY-mode colour palette for palette-based objects. |
+| `CRY.PAL` | Data for a 256-entry CRY-mode color palette for palette-based objects. |
 | `JAGMAND.S` | Takes control after the startup code has initialized the system. Creates an object list for the background picture, installs an interrupt handler to refresh the object list, and sets the video mode to 320-pixel CRY mode. Then it clears the memory that will be used for the image, and calls the `Mandle` function (in `MANDLE.S`). |
 | `MAKEFILE` | Used with MAKE to build the executable program file from source code and data files. |
 | `MANDLE.S` | Uses the 68000 to set up the fractal parameters and then calls the GPU to calculate the image. |
@@ -84,7 +84,7 @@ The object-list creation routine `make_list` is almost identical to the routine 
 
 **What they demonstrate** — Very simple Blitter usage. Each program sets up a narrow bitmap object and then draws one shape into it with the Blitter.
 
-> **Warning** *(from the source):* the current versions of these programs are *not* intended as general examples of Jaguar programming. They are simple examples of specific Blitter operations, and they take short cuts to this end. Do not use these examples to obtain startup code or as a shell for creating your own programs.
+> **Warning:** *(from the source):* the current versions of these programs are *not* intended as general examples of Jaguar programming. They are simple examples of specific Blitter operations, and they take short cuts to this end. Do not use these examples to obtain startup code or as a shell for creating your own programs.
 
 | Program | What it draws |
 | --- | --- |
@@ -108,7 +108,7 @@ The object-list creation routine `make_list` is almost identical to the routine 
 | `BLITSKEW.S` | Code for **JagSkew** that calls the Blitter. |
 | `BLITSLNT.S` | Code for **JagSlant** that calls the Blitter. |
 | `CLEARBAR.S` | Routine, in this file, that uses the Blitter to clear the bitmap memory used by the program. |
-| `CRY.PAL` | Data for a 256-entry CRY-mode colour palette for palette-based objects. |
+| `CRY.PAL` | Data for a 256-entry CRY-mode color palette for palette-based objects. |
 | `INTSERV.S` | The interrupt-handling routines used by all the programs. |
 | `JAGLINE.S` | The main program file for **JagBlock**, **JagLine**, **JagShade**, **JagSkew**, **JagSlant**. |
 | `LISTBAR.S` | The routines that set up the object list used by all the programs. |
@@ -121,7 +121,7 @@ The object-list creation routine `make_list` is almost identical to the routine 
 
 `CLEARBAR.S` — a simple subroutine which uses the Blitter to clear the memory used by the bitmap object that displays the picture. It sets up a pattern containing all zeroes, then blits that pattern into the bitmap.
 
-`CRY.PAL` — data for a CRY-mode colour palette, used by objects with 8 bits per pixel or less.
+`CRY.PAL` — data for a CRY-mode color palette, used by objects with 8 bits per pixel or less.
 
 `INTSERV.S` — the routine that installs the vertical-blank interrupt, plus the vertical-blank interrupt service routine (ISR). The ISR simply calls the `Lister` function (in `LISTBAR.S`) which creates the object list.
 
@@ -159,11 +159,11 @@ The object-list creation routine `make_list` is almost identical to the routine 
 
 ## RGB True Color Bitmap Display Example
 
-**What it demonstrates** — How to set the system up for RGB mode instead of CRY mode. It creates a 16-bit true-colour RGB bitmap object, then draws a number of bands of colour into the object. The program uses only the 68000; while it is not exactly fast, it could be done much faster using the GPU and/or Blitter.
+**What it demonstrates** — How to set the system up for RGB mode instead of CRY mode. It creates a 16-bit true-color RGB bitmap object, then draws a number of bands of color into the object. The program uses only the 68000; while it is not exactly fast, it could be done much faster using the GPU and/or Blitter.
 
 **Where it lives** — `\JAGUAR\SOURCE\TESTRGB`.
 
-**Key hardware** — a 16-bit true-colour RGB bitmap object and the video registers set to RGB mode (as opposed to CRY mode).
+**Key hardware** — a 16-bit true-color RGB bitmap object and the video registers set to RGB mode (as opposed to CRY mode).
 
 ---
 
@@ -171,7 +171,7 @@ The object-list creation routine `make_list` is almost identical to the routine 
 
 **What it demonstrates** — How to play back a simple waveform using one of the samples in the DSP waveform ROM. Nothing is shown on screen, but you should hear a tone from your speakers.
 
-> **Warning** *(from the source):* the current version of this program is *not* intended as a general example of Jaguar programming. It is a simple example of a specific DSP operation, and it takes short cuts to this end. Do not use this example to obtain startup code or as a shell for creating your own programs.
+> **Warning:** *(from the source):* the current version of this program is *not* intended as a general example of Jaguar programming. It is a simple example of a specific DSP operation, and it takes short cuts to this end. Do not use this example to obtain startup code or as a shell for creating your own programs.
 
 **Where it lives** — `\JAGUAR\SOURCE\SIMPLE`.
 

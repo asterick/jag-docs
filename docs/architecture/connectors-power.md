@@ -10,14 +10,14 @@ A hardware-reference hub for the Atari Jaguar's power supply, connector pinouts,
 
 ## Power supply
 
-From new, both the Jaguar console and the CD unit are supplied with a power supply unit (PSU) that plugs straight into the wall outlet. The standard "brick" provides an **unregulated 9 V DC at 1.2 A (1200 mA)** through a 2.1 mm DC barrel connector. The polarity is unusual: the **outer barrel is positive** (+, 9 V) and the **inner/centre tip is negative** (−, 0 V).
+From new, both the Jaguar console and the CD unit are supplied with a power supply unit (PSU) that plugs straight into the wall outlet. The standard "brick" provides an **unregulated 9 V DC at 1.2 A (1200 mA)** through a 2.1 mm DC barrel connector. The polarity is unusual: the **outer barrel is positive** (+, 9 V) and the **inner/center tip is negative** (−, 0 V).
 
 | Specification | Value |
 |---|---|
 | Output voltage | 9 V DC (unregulated) |
 | Output current | 1.2 A (1200 mA) |
 | Connector | 2.1 mm DC barrel |
-| Polarity | Outer = positive (+, 9 V); inner/centre tip = negative (−, 0 V) |
+| Polarity | Outer = positive (+, 9 V); inner/center tip = negative (−, 0 V) |
 
 ### Replacement guidance
 
@@ -55,7 +55,7 @@ The standard joypad's internal circuitry (per its schematic) uses two **74HC244*
 
 ## Schematic diagrams
 
-The following drawings are available under `sources/Schematics/`. Wire colours indicated on the controller schematics may not be the same in all controllers.
+The following drawings are available under `sources/Schematics/`. Wire colors indicated on the controller schematics may not be the same in all controllers.
 
 | Drawing | Source file(s) | Notes |
 |---|---|---|
@@ -73,7 +73,7 @@ The following drawings are available under `sources/Schematics/`. Wire colours i
 
 - **PCBs** — new, unpopulated 4 Mb and 6 Mb Jaguar cartridge PCBs can be purchased from Clint Thompson (contact via private message on AtariAge or e-mail `info@riscgames.com`).
 - **Decoupling capacitors** — in addition to the EPROMs, you will need **0.1 µF (100 nF), 16 V multilayer ceramic / ceramic-plate decoupling capacitors** with **0.2" (200 thou / 5 mm) pitch**, purchased separately.
-- **Shells (cases)** — new cases in several colours are available from AtariAge member "Starwander"'s website.
+- **Shells (cases)** — new cases in several colors are available from AtariAge member "Starwander"'s website.
 
 For EPROM/EEPROM part numbers and the chip-byte ordering used when building cartridges, see [Cartridges, EEPROM Saves & ROM Building](cartridges.md).
 

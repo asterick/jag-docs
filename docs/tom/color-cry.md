@@ -1,93 +1,93 @@
 <!-- nav:top -->
-[🏠 Atari Jaguar Developer Reference](../index.md) ▸ Tom — Graphics & Video ▸ **CRY Colour & Colour Mapping**
+[🏠 Atari Jaguar Developer Reference](../index.md) ▸ Tom — Graphics & Video ▸ **CRY Color & Color Mapping**
 <!-- /nav:top -->
 
-# CRY Colour & Colour Mapping
+# CRY Color & Color Mapping
 
-How the Jaguar represents colour: true-colour modes, the 16-bit RGB scheme, and the CRY (Cyan-Red-Intensity) scheme that gives cheap Gouraud shading from 16-bit pixels.
+How the Jaguar represents color: true-color modes, the 16-bit RGB scheme, and the CRY (Cyan-Red-Intensity) scheme that gives cheap Gouraud shading from 16-bit pixels.
 
 > **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 30–33. © Atari Corp. 1995.
 
 ## Introduction
 
-The Jaguar produces video output using **eight digital bits each for red, green and blue**. This gives each output 256 intensity levels, enough for smooth shading from one colour to another. This 24-bit scheme is known as **true-colour**.
+The Jaguar produces video output using **eight digital bits each for red, green and blue**. This gives each output 256 intensity levels, enough for smooth shading from one color to another. This 24-bit scheme is known as **true-color**.
 
-### True-colour mode (24-bit)
+### True-color mode (24-bit)
 
-The Jaguar can display true-colour pixels stored in memory as long words, with 8 bits unused — i.e. **32-bit pixels**. This is **true-colour mode**. The drawbacks:
+The Jaguar can display true-color pixels stored in memory as long words, with 8 bits unused — i.e. **32-bit pixels**. This is **true-color mode**. The drawbacks:
 
 - These 32-bit pixels are large and consume a lot of memory.
 - They consume a lot of memory bandwidth to fetch from RAM for display.
 
-True-colour mode is therefore unattractive for general use — most images do not need its colour range, and it has detrimental effects on performance. It is treated as a special case: when it is used, only true-colour images may be displayed.
+True-color mode is therefore unattractive for general use — most images do not need its color range, and it has detrimental effects on performance. It is treated as a special case: when it is used, only true-color images may be displayed.
 
 ### Normal operation (16-bit)
 
-In normal operation the display system is based on **sixteen-bit pixels**. Images in memory may be stored either as 16-bit pixels, or as **1, 2, 4 or 8-bit logical colours**. Logical colours are used as indices into a **Palette / Colour-Look-Up-Table (CLUT)**, which holds their corresponding 16-bit physical colours.
+In normal operation the display system is based on **sixteen-bit pixels**. Images in memory may be stored either as 16-bit pixels, or as **1, 2, 4 or 8-bit logical colors**. Logical colors are used as indices into a **Palette / Color-Look-Up-Table (CLUT)**, which holds their corresponding 16-bit physical colors.
 
 A 16-bit pixel may be stored as **RGB 5:6:5** (six bits of green, five bits each of red and blue) — but this no longer allows smooth shading. The alternative is the **CRY scheme** (Cyan, Red and Intensity), which still allows smooth intensity shading.
 
 | Mode | Pixel size | Layout | Smooth shading |
 |------|-----------|--------|----------------|
-| True-colour | 32-bit (8 unused) | 8 R : 8 G : 8 B | Yes |
+| True-color | 32-bit (8 unused) | 8 R : 8 G : 8 B | Yes |
 | 16-bit RGB | 16-bit | 5 R : 6 G : 5 B | No |
 | 16-bit CRY | 16-bit | see below | Yes (intensity) |
-| Logical (CLUT) | 1 / 2 / 4 / 8-bit | index into CLUT → 16-bit physical colour | depends on CLUT contents |
+| Logical (CLUT) | 1 / 2 / 4 / 8-bit | index into CLUT → 16-bit physical color | depends on CLUT contents |
 
-## The CRY Colour Scheme
+## The CRY Color Scheme
 
 ### Gouraud Shading Requirements
 
-CRY was derived principally to meet the requirements of **Gouraud shading** — a technique that models the appearance of a lit curved surface from a set of polygons. If the intensity from a light source is calculated per polygon and the whole polygon painted in that colour, the individual polygons making up the surface are clearly visible.
+CRY was derived principally to meet the requirements of **Gouraud shading** — a technique that models the appearance of a lit curved surface from a set of polygons. If the intensity from a light source is calculated per polygon and the whole polygon painted in that color, the individual polygons making up the surface are clearly visible.
 
-Gouraud shading avoids this by calculating the intensity **at each vertex**, then **linearly interpolating along each polygon edge** and hence along each scan line of the display. If only white light sources are concerned, the only variation is **luminous intensity, not colour**. It is therefore attractive to have a colour scheme containing an **intensity vector**, so the Gouraud calculation need only be performed for one value rather than the three values a true-colour scheme would require.
+Gouraud shading avoids this by calculating the intensity **at each vertex**, then **linearly interpolating along each polygon edge** and hence along each scan line of the display. If only white light sources are concerned, the only variation is **luminous intensity, not color**. It is therefore attractive to have a color scheme containing an **intensity vector**, so the Gouraud calculation need only be performed for one value rather than the three values a true-color scheme would require.
 
-There is general agreement that **eight bits is enough** to give smooth intensity shading (and it is a round number), so a scheme was needed that expressed the colour in the remaining eight bits.
+There is general agreement that **eight bits is enough** to give smooth intensity shading (and it is a round number), so a scheme was needed that expressed the color in the remaining eight bits.
 
-### Colour Space
+### Color Space
 
-The colour space is modelled as an **RGB cube**:
+The color space is modelled as an **RGB cube**:
 
 - The lowest vertex represents **black**; the highest represents **white**.
 - The three edges running out from black are the three orthogonal vectors **red, green and blue**. Their sum can describe any point in the cube.
 - The three lower vertices represent fully saturated **red, green and blue**; the three higher ones represent **yellow, cyan and magenta**.
 
-This model is only one of many ways of considering what the human brain "sees", but it has the advantage of modelling the display system used by colour monitors and of being mathematically simple.
+This model is only one of many ways of considering what the human brain "sees", but it has the advantage of modeling the display system used by color monitors and of being mathematically simple.
 
 ### Physical Requirements
 
-The **intensity vector** is the component of the sum of the red, green and blue vectors that lies along the diagonal of the RGB cube from black to white. This is not the "true" intensity (a weighted sum of R, G and B), but it bears a linear relationship to it when the colour is not changed.
+The **intensity vector** is the component of the sum of the red, green and blue vectors that lies along the diagonal of the RGB cube from black to white. This is not the "true" intensity (a weighted sum of R, G and B), but it bears a linear relationship to it when the color is not changed.
 
-The colour value must be encoded in the **remaining eight bits** of the pixel, subject to these requirements:
+The color value must be encoded in the **remaining eight bits** of the pixel, subject to these requirements:
 
-1. All 256 values should represent valid, and different, colours.
-2. The colours should be well spaced out across the colour space.
-3. Colours should be able to be mixed by linearly averaging their colour values.
+1. All 256 values should represent valid, and different, colors.
+2. The colors should be well spaced out across the color space.
+3. Colors should be able to be mixed by linearly averaging their color values.
 4. An intensity value of zero must be black.
 
-Because the colour space without intensity is two-dimensional, two vectors are required to represent a point in it. An **r, θ (polar) scheme was discarded** because it would not meet requirement 2, so a scheme based on **two x, y vectors** was chosen.
+Because the color space without intensity is two-dimensional, two vectors are required to represent a point in it. An **r, θ (polar) scheme was discarded** because it would not meet requirement 2, so a scheme based on **two x, y vectors** was chosen.
 
-To meet requirement 1 the two vectors must describe a point on a **square** area. As no existing colour space model is square when viewed along the intensity axis, a new one was needed. The approach chosen, after considerable experimentation, was to take the **view along the intensity axis of the RGB cube — a hexagon — and distort it into a square**. This does not quite meet requirement 3, but is close to it.
+To meet requirement 1 the two vectors must describe a point on a **square** area. As no existing color space model is square when viewed along the intensity axis, a new one was needed. The approach chosen, after considerable experimentation, was to take the **view along the intensity axis of the RGB cube — a hexagon — and distort it into a square**. This does not quite meet requirement 3, but is close to it.
 
-### CRY Colour Scheme
+### CRY Color Scheme
 
 The chosen scheme defines **256 points on the upper surface of the RGB cube**.
 
-The hexagon (the view looking down onto the RGB cube) is distorted into a square whose **X and Y coordinates are four-bit values**, defining **256 colour levels**. Green was chosen as the primary colour lying in the middle of one face — selected after observing the three possible mappings, and matching the expected result because the human eye is **least able to distinguish shades of green**.
+The hexagon (the view looking down onto the RGB cube) is distorted into a square whose **X and Y coordinates are four-bit values**, defining **256 color levels**. Green was chosen as the primary color lying in the middle of one face — selected after observing the three possible mappings, and matching the expected result because the human eye is **least able to distinguish shades of green**.
 
-In each of the three areas defined on the hexagon/square, one of red, green or blue is at full intensity and the others vary. At the centre (white) all three are at full intensity. The intensity scale for any given colour lies along the line between black and the point on the top surface of the cube defined in the colour table.
+In each of the three areas defined on the hexagon/square, one of red, green or blue is at full intensity and the others vary. At the center (white) all three are at full intensity. The intensity scale for any given color lies along the line between black and the point on the top surface of the cube defined in the color table.
 
-Colours may be **averaged** by taking the average of their eight-bit intensity value and of each of the four-bit X and Y colour components. This will not produce exactly the same colour as the midway point between them in the RGB cube, but will be close to it.
+Colors may be **averaged** by taking the average of their eight-bit intensity value and of each of the four-bit X and Y color components. This will not produce exactly the same color as the midway point between them in the RGB cube, but will be close to it.
 
 #### 16-bit CRY pixel bit allocation
 
 | Field | Bits | Width | Description |
 |-------|------|-------|-------------|
 | Intensity | 15–8 | 8 | Luminous intensity (intensity 0 = black) |
-| Colour X (Cyan) | 7–4 | 4 | X coordinate of the distorted-hexagon square |
-| Colour Y (Red) | 3–0 | 4 | Y coordinate of the distorted-hexagon square |
+| Color X (Cyan) | 7–4 | 4 | X coordinate of the distorted-hexagon square |
+| Color Y (Red) | 3–0 | 4 | Y coordinate of the distorted-hexagon square |
 
-> Note: the manual specifies an 8-bit intensity value plus two 4-bit X/Y colour components (8 + 4 + 4 = 16 bits). The exact bit ordering of the X/Y fields within the low byte is not stated explicitly in this section; the table above reflects the C-R-Y (Cyan / Red / Intensity) naming convention.
+> Note: the manual specifies an 8-bit intensity value plus two 4-bit X/Y color components (8 + 4 + 4 = 16 bits). The exact bit ordering of the X/Y fields within the low byte is not stated explicitly in this section; the table above reflects the C-R-Y (Cyan / Red / Intensity) naming convention.
 
 #### Pros and cons
 
@@ -108,16 +108,16 @@ Colours may be **averaged** by taking the average of their eight-bit intensity v
 The best technique:
 
 1. Calculate the **intensity value**, which is the **largest of red, green and blue**.
-2. From this, calculate the ideal ROM entry for that colour by **scaling the RGB values by `255 / intensity`**.
+2. From this, calculate the ideal ROM entry for that color by **scaling the RGB values by `255 / intensity`**.
 3. Match this to the actual ROM tables to find the **nearest match**.
 
 A quick way of doing this is by a look-up table. It is not necessary for this to have 2²⁴ entries: taking the **top five bits of each of red, green and blue** (rounding where appropriate) and using a **32768-element (2¹⁵) look-up table** is adequate.
 
 ## Physical Implementation
 
-The eight-bit colour value indexes a **look-up table of modifier values** for each of Red, Green and Blue. Each modifier is **multiplied by the intensity value** to give the output drive level for the display (24-bit RGB output).
+The eight-bit color value indexes a **look-up table of modifier values** for each of Red, Green and Blue. Each modifier is **multiplied by the intensity value** to give the output drive level for the display (24-bit RGB output).
 
-![CRY to 24-bit RGB conversion: the 8-bit C·R colour value indexes the Red, Green and Blue modifier look-up tables, whose outputs are multiplied by the 8-bit intensity (Y) value to produce 24-bit RGB for the display.](../assets/cry-pipeline.svg)
+![CRY to 24-bit RGB conversion: the 8-bit C·R color value indexes the Red, Green and Blue modifier look-up tables, whose outputs are multiplied by the 8-bit intensity (Y) value to produce 24-bit RGB for the display.](../assets/cry-pipeline.svg)
 
 The look-up tables below are each a 16 × 16 grid of modifier values, as printed in the manual. Rows are listed top to bottom as they appear in the source; each row contains 16 entries.
 

@@ -19,7 +19,7 @@ files themselves — descriptions, notes, and downloads — see the
 | [Object Processor (Tom)](../tom/object-processor.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 8–29 |
 | [Graphics Processor (GPU)](../tom/gpu.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 34–55 |
 | [Blitter (Tom)](../tom/blitter.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 56–74; *Technical Overview* (V10), pp. 10–12 |
-| [CRY Colour & Colour Mapping](../tom/color-cry.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 30–33 |
+| [CRY Color & Color Mapping](../tom/color-cry.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 30–33 |
 | [Digital Sound Processor (DSP)](../jerry/dsp.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 82–88 |
 | [Audio Subsystem & Synthesis](../jerry/audio.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 75–78; *Technical Reference Manual* (V10), p. 31 |
 | [Serial I/O — ComLynx, MIDI, Synchronous Serial](../jerry/serial-io.md) | *Software Reference Manual — Tom & Jerry* (V10), pp. 78–82 |

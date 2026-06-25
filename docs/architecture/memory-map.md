@@ -51,14 +51,14 @@ Audio is **muted after a power-on reset** — enable it by setting bit 8 of the
 
 Legend: **RW** = read/write, **WO** = write-only, **RO** = read-only.
 Equate names are from `JAGUAR.INC`. Addresses are offsets in the `$F-----` space.
-**Bold** entries are boot-configured — do not modify (see above).
+Registers marked <sup>⚠</sup> are boot-configured — do not modify (see above).
 
 ### System set-up / video registers (Tom)
 
 | Equate | Register | Address | Mode |
 |--------|----------|---------|------|
-| **MEMCON1** | Memory Control Register 1 | `$F00000` | RW |
-| **MEMCON2** | Memory Control Register 2 | `$F00002` | RW |
+| MEMCON1<sup>⚠</sup> | Memory Control Register 1 | `$F00000` | RW |
+| MEMCON2<sup>⚠</sup> | Memory Control Register 2 | `$F00002` | RW |
 | HC | Horizontal Count | `$F00004` | RW |
 | VC | Vertical Count | `$F00006` | RW |
 | LPH | Horizontal Light Pen | `$F00008` | RO |
@@ -67,31 +67,31 @@ Equate names are from `JAGUAR.INC`. Addresses are offsets in the `$F-----` space
 | OLP | Object List Pointer | `$F00020` | WO |
 | OBF | Object Processor Flag | `$F00026` | WO |
 | VMODE | Video Mode | `$F00028` | WO |
-| BORD1 | Border Colour (Red & Green) | `$F0002A` | WO |
-| BORD2 | Border Colour (Blue) | `$F0002C` | WO |
-| **HP** | Horizontal Period | `$F0002E` | WO |
-| **HBB** | Horizontal Blanking Begin | `$F00030` | WO |
-| **HBE** | Horizontal Blanking End | `$F00032` | WO |
-| **HS** | Horizontal Sync | `$F00034` | WO |
-| **HVS** | Horizontal Vertical Sync | `$F00036` | WO |
+| BORD1 | Border Color (Red & Green) | `$F0002A` | WO |
+| BORD2 | Border Color (Blue) | `$F0002C` | WO |
+| HP<sup>⚠</sup> | Horizontal Period | `$F0002E` | WO |
+| HBB<sup>⚠</sup> | Horizontal Blanking Begin | `$F00030` | WO |
+| HBE<sup>⚠</sup> | Horizontal Blanking End | `$F00032` | WO |
+| HS<sup>⚠</sup> | Horizontal Sync | `$F00034` | WO |
+| HVS<sup>⚠</sup> | Horizontal Vertical Sync | `$F00036` | WO |
 | HDB1 | Horizontal Display Begin 1 | `$F00038` | WO |
 | HDB2 | Horizontal Display Begin 2 | `$F0003A` | WO |
 | HDE | Horizontal Display End | `$F0003C` | WO |
-| **VP** | Vertical Period | `$F0003E` | WO |
-| **VBB** | Vertical Blanking Begin | `$F00040` | WO |
-| **VBE** | Vertical Blanking End | `$F00042` | WO |
-| **VS** | Vertical Sync | `$F00044` | WO |
+| VP<sup>⚠</sup> | Vertical Period | `$F0003E` | WO |
+| VBB<sup>⚠</sup> | Vertical Blanking Begin | `$F00040` | WO |
+| VBE<sup>⚠</sup> | Vertical Blanking End | `$F00042` | WO |
+| VS<sup>⚠</sup> | Vertical Sync | `$F00044` | WO |
 | VDB | Vertical Display Begin | `$F00046` | WO |
 | VDE | Vertical Display End | `$F00048` | WO |
-| VEB | Vertical Equalisation Begin | `$F0004A` | WO |
-| **VEE** | Vertical Equalisation End | `$F0004C` | WO |
+| VEB | Vertical Equalization Begin | `$F0004A` | WO |
+| VEE<sup>⚠</sup> | Vertical Equalization End | `$F0004C` | WO |
 | VI | Vertical Interrupt | `$F0004E` | WO |
 | PIT[0-1] | Programmable Interrupt Timer | `$F00050`–`$F00052` | WO |
-| **HEQ** | Horizontal Equalisation End | `$F00054` | WO |
-| BG | Background Colour | `$F00058` | WO |
+| HEQ<sup>⚠</sup> | Horizontal Equalization End | `$F00054` | WO |
+| BG | Background Color | `$F00058` | WO |
 | INT1 | CPU Interrupt Control Register | `$F000E0` | RW |
 | INT2 | CPU Interrupt Resume Register | `$F000E2` | WO |
-| CLUT | Colour Look-Up Table | `$F00400`–`$F007FE` | RW |
+| CLUT | Color Look-Up Table | `$F00400`–`$F007FE` | RW |
 | LBUF | Line Buffer | `$F00800`–`$F01D9E` | RW |
 
 > Note: the V10 source lists both HBB and the next entry as "Horizontal Blanking
@@ -104,7 +104,7 @@ Equate names are from `JAGUAR.INC`. Addresses are offsets in the `$F-----` space
 | G_FLAGS | GPU Flags Register | `$F02100` | RW |
 | G_MTXC | Matrix Control Register | `$F02104` | WO |
 | G_MTXA | Matrix Address Register | `$F02108` | WO |
-| G_END | Data Organisation Register | `$F0210C` | WO |
+| G_END | Data Organization Register | `$F0210C` | WO |
 | G_PC | GPU Program Counter | `$F02110` | RW |
 | G_CTRL | GPU Control/Status Register | `$F02114` | RW |
 | G_HIDATA | GPU High Data Register | `$F02118` | RW |
@@ -162,9 +162,9 @@ See [Blitter](../tom/blitter.md) for register semantics and modes.
 
 | Equate | Register | Address | Mode |
 |--------|----------|---------|------|
-| **CLK1** | Processor clock divider | `$F10010` | WO |
-| **CLK2** | Video clock divider | `$F10012` | WO |
-| **CLK3** | Chroma clock divider | `$F10014` | WO |
+| CLK1<sup>⚠</sup> | Processor clock divider | `$F10010` | WO |
+| CLK2<sup>⚠</sup> | Video clock divider | `$F10012` | WO |
+| CLK3<sup>⚠</sup> | Chroma clock divider | `$F10014` | WO |
 | JPIT1 | Timer 1 Pre-scaler | `$F10000` | WO |
 | JPIT2 | Timer 1 Divider | `$F10002` | WO |
 | JPIT3 | Timer 2 Pre-scaler | `$F10004` | WO |
@@ -208,7 +208,7 @@ on its read state — it is random). See [Controllers](../controllers/controller
 | D_FLAGS | DSP Flags Register | `$F1A100` | RW |
 | D_MTXC | DSP Matrix Control Register | `$F1A104` | WO |
 | D_MTXA | DSP Matrix Address Register | `$F1A108` | WO |
-| D_END | DSP Data Organisation Register | `$F1A10C` | WO |
+| D_END | DSP Data Organization Register | `$F1A10C` | WO |
 | D_PC | DSP Program Counter | `$F1A110` | RW |
 | D_CTRL | DSP Control/Status Register | `$F1A114` | RW |
 | D_MOD | Modulo Instruction Mask | `$F1A118` | WO |

@@ -36,7 +36,7 @@ system manager.
    [Object Processor](../tom/object-processor.md).
 
 3. **Graphics Processor (GPU)** *(in Tom)* — a very fast RISC microprocessor
-   optimised for graphics generation, with 4 KB of fast internal RAM, a parallel
+   optimized for graphics generation, with 4 KB of fast internal RAM, a parallel
    multiplier, a barrel shifter, and a divide unit. Executes in parallel with the
    other units. See [Graphics Processor](../tom/gpu.md).
 
@@ -73,11 +73,11 @@ internal SRAM live higher in the map (GPU/DSP RAM from `$00F00000`).
 
 Full details: [Memory Map / Register List](memory-map.md).
 
-## Two colour resolutions
+## Two color resolutions
 
-Tom supports **24-bit** (true colour) and **16-bit** modes. The 16-bit modes
+Tom supports **24-bit** (true color) and **16-bit** modes. The 16-bit modes
 include **CRY** (Cyan-Red-Intensity), which is cheap to Gouraud-shade and nearly
-indistinguishable from 24-bit. See [CRY Colour & Colour Mapping](../tom/color-cry.md).
+indistinguishable from 24-bit. See [CRY Color & Color Mapping](../tom/color-cry.md).
 
 ## See also
 

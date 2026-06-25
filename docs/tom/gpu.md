@@ -4,7 +4,7 @@
 
 # Graphics Processor (GPU)
 
-The Jaguar's fast pipelined RISC co-processor inside Tom, used for 3D modelling, shading, animation, and image decompression, with 4 KB of local RAM at `$F03000`.
+The Jaguar's fast pipelined RISC co-processor inside Tom, used for 3D modeling, shading, animation, and image decompression, with 4 KB of local RAM at `$F03000`.
 
 > **Source:** *Software Reference Manual — Tom & Jerry* (V10), pp. 34–55. © Atari Corp. 1995.
 
@@ -87,7 +87,7 @@ The GPU addresses them all directly as 32-bit locations in 32-bit internal memor
 
 ## What is the Graphics Processor?
 
-The Graphics Processor (the GPU — Graphics Processor Unit) is a simple, very fast microprocessor. It is intended for performing the functions associated with generating graphics — three-dimensional modelling, shading, fast animation, and unpacking compressed images.
+The Graphics Processor (the GPU — Graphics Processor Unit) is a simple, very fast microprocessor. It is intended for performing the functions associated with generating graphics — three-dimensional modeling, shading, fast animation, and unpacking compressed images.
 
 It corresponds to the accepted notion of a **RISC** (Reduced Instruction Set Computer) processor:
 
@@ -555,7 +555,7 @@ If the Blitter writes into GPU space, **phrase-wide transfers** may be performed
 
 ## Pack and Unpack
 
-The pack and unpack instructions provide a means for **averaging up to 32 CRY pixels**. The **unpack** operation leaves the intensity value unchanged, shifts the lower colour nibble up 5 bits, and the higher colour nibble up 10 bits. The **pack** operation reverses this.
+The pack and unpack instructions provide a means for **averaging up to 32 CRY pixels**. The **unpack** operation leaves the intensity value unchanged, shifts the lower color nibble up 5 bits, and the higher color nibble up 10 bits. The **pack** operation reverses this.
 
 There are five unused bits above each field in an unpacked pixel, allowing up to 32 unpacked pixels to be added together. If a power-of-two number of unpacked pixel values are added, a shift can re-align them prior to packing the average value. The bits that do not contain packed or unpacked pixel data are always set to zero. This is useful for anti-aliasing and scaling effects.
 
@@ -597,7 +597,7 @@ Determines where, in local RAM, the matrix held in memory is.
 |------|-----------|-------------|
 | 2–11 | --- | Matrix address. |
 
-### G_END — Data Organisation Register (`$F0210C`, WO)
+### G_END — Data Organization Register (`$F0210C`, WO)
 
 Controls the physical layout of pixel data and GPU I/O registers. If its current contents are unknown, the same data should be written to both the low and high 16-bits.
 
@@ -660,7 +660,7 @@ the 68000 with `STOP #$2000`** removes that contention and gives roughly a
 **5–10 % boost** to RISC-heavy workloads (e.g. 3D). Atari's Leonard Tramiel:
 *"The interleaving of GPU and 68k code has never, in our experience, gained any
 performance. The best thing that can be done with the 68k for overall system
-performance is to execute a halt instruction."* This is an optimisation, not a
+performance is to execute a halt instruction."* This is an optimization, not a
 requirement — 2D games, ST ports, and the like run fine with the 68000 active.
 
 ### Running GPU code from main RAM
