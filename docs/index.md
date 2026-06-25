@@ -13,8 +13,11 @@ and the **CD-ROM subsystem**.
 
 ## Core system
 
-The Jaguar is a custom chip set built around two ASICs — **Tom** (graphics/video)
-and **Jerry** (sound/I-O) — plus a Motorola 68000 acting as system manager.
+The Jaguar is a custom chip set — two ASICs plus a general-purpose CPU:
+
+- **Tom** — graphics and video: sprite/bitmap display, RISC-accelerated 2D/3D drawing, and the Jaguar's color model.
+- **Jerry** — sound and I/O: RISC-driven audio synthesis and timers, plus the serial and controller interfaces.
+- **Motorola 68000** — the general-purpose CPU and system **manager**; the GPU, DSP, and Blitter carry the performance load.
 
 ### Architecture & memory
 - [System Architecture Overview](architecture/overview.md) — the five processors and how they cooperate
@@ -26,9 +29,7 @@ and **Jerry** (sound/I-O) — plus a Motorola 68000 acting as system manager.
 
 ### CPU — Motorola 68000
 
-The general-purpose CPU at the center of the Jaguar. It acts as the system
-**manager** while the GPU, DSP, and Blitter carry the performance load. The
-programmer's model is documented end-to-end on one page:
+The programmer's model is documented end-to-end on one page:
 
 - [Programmer's Model — overview](cpu/68000.md) — the 68000 in the Jaguar: clock, buses, byte order, memory rules & gotchas
 - [Registers & status register](cpu/68000.md#registers) — data/address registers, the SR, privilege states
