@@ -45,39 +45,39 @@ The Graphics Subsystem address space contains the following locations.
 
 | Address | Equate | Access | Description |
 |---------|--------|--------|-------------|
-| `$F02200` | `A1_BASE` | W | Blitter A1 base |
-| `$F02204` | `A1_FLAGS` | W | Blitter A1 flags |
-| `$F02208` | `A1_CLIP` | W | Blitter A1 clipping size |
-| `$F0220C` | `A1_PIXEL` | RW | Blitter A1 pixel pointer |
-| `$F02210` | `A1_STEP` | W | Blitter A1 step |
-| `$F02214` | `A1_FSTEP` | W | Blitter A1 step fraction |
-| `$F02218` | `A1_FPIXEL` | RW | Blitter A1 pixel pointer fraction |
-| `$F0221C` | `A1_INC` | W | Blitter A1 pixel pointer increment |
-| `$F02220` | `A1_FINC` | W | Blitter A1 pixel pointer increment fraction |
-| `$F02224` | `A2_BASE` | W | Blitter A2 base |
-| `$F02228` | `A2_FLAGS` | W | Blitter A2 flags |
-| `$F0222C` | `A2_MASK` | W | Blitter A2 mask |
-| `$F02230` | `A2_PIXEL` | RW | Blitter A2 pixel pointer |
-| `$F02234` | `A2_STEP` | W | Blitter A2 step |
-| `$F02238` | `B_CMD` | W | Blitter command |
-| `$F0223C` | `B_COUNT` | W | Blitter loop counters |
-| `$F02240` | `B_SRCD` | W | Blitter source data |
-| `$F02248` | `B_DSTD` | W | Blitter destination data |
-| `$F02250` | `B_DSTZ` | W | Blitter destination Z data |
-| `$F02258` | `B_SRCZ1` | W | Blitter source Z data 1 |
-| `$F02260` | `B_SRCZ2` | W | Blitter source Z data 2 |
-| `$F02268` | `B_PATD` | W | Blitter pattern data |
-| `$F02270` | `B_IINC` | W | Blitter intensity increment |
-| `$F02274` | `B_ZINC` | W | Blitter Z increment |
-| `$F02278` | `B_STOP` | W | Blitter collision stop control |
-| `$F0227C` | `B_I3` | W | Blitter intensity register 3 |
-| `$F02280` | `B_I2` | W | Blitter intensity register 2 |
-| `$F02284` | `B_I1` | W | Blitter intensity register 1 |
-| `$F02288` | `B_I0` | W | Blitter intensity register 0 |
-| `$F0228C` | `B_Z3` | W | Blitter Z register 3 |
-| `$F02290` | `B_Z2` | W | Blitter Z register 2 |
-| `$F02294` | `B_Z1` | W | Blitter Z register 1 |
-| `$F02298` | `B_Z0` | W | Blitter Z register 0 |
+| `$F02200` | [`A1_BASE`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter A1 base |
+| `$F02204` | [`A1_FLAGS`](blitter.md#a1_flags-f02204-wo) | W | Blitter A1 flags |
+| `$F02208` | [`A1_CLIP`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter A1 clipping size |
+| `$F0220C` | [`A1_PIXEL`](../architecture/memory-map.md#blitter-registers-tom) | RW | Blitter A1 pixel pointer |
+| `$F02210` | [`A1_STEP`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter A1 step |
+| `$F02214` | [`A1_FSTEP`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter A1 step fraction |
+| `$F02218` | [`A1_FPIXEL`](../architecture/memory-map.md#blitter-registers-tom) | RW | Blitter A1 pixel pointer fraction |
+| `$F0221C` | [`A1_INC`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter A1 pixel pointer increment |
+| `$F02220` | [`A1_FINC`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter A1 pixel pointer increment fraction |
+| `$F02224` | [`A2_BASE`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter A2 base |
+| `$F02228` | [`A2_FLAGS`](blitter.md#a2_flags-f02228-wo) | W | Blitter A2 flags |
+| `$F0222C` | [`A2_MASK`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter A2 mask |
+| `$F02230` | [`A2_PIXEL`](../architecture/memory-map.md#blitter-registers-tom) | RW | Blitter A2 pixel pointer |
+| `$F02234` | [`A2_STEP`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter A2 step |
+| `$F02238` | [`B_CMD`](blitter.md#b_cmd--command-register-f02238-wo) | W | Blitter command |
+| `$F0223C` | [`B_COUNT`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter loop counters |
+| `$F02240` | [`B_SRCD`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter source data |
+| `$F02248` | [`B_DSTD`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter destination data |
+| `$F02250` | [`B_DSTZ`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter destination Z data |
+| `$F02258` | [`B_SRCZ1`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter source Z data 1 |
+| `$F02260` | [`B_SRCZ2`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter source Z data 2 |
+| `$F02268` | [`B_PATD`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter pattern data |
+| `$F02270` | [`B_IINC`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter intensity increment |
+| `$F02274` | [`B_ZINC`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter Z increment |
+| `$F02278` | [`B_STOP`](blitter.md#b_stop--collision-control-f02278-wo) | W | Blitter collision stop control |
+| `$F0227C` | [`B_I3`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter intensity register 3 |
+| `$F02280` | [`B_I2`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter intensity register 2 |
+| `$F02284` | [`B_I1`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter intensity register 1 |
+| `$F02288` | [`B_I0`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter intensity register 0 |
+| `$F0228C` | [`B_Z3`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter Z register 3 |
+| `$F02290` | [`B_Z2`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter Z register 2 |
+| `$F02294` | [`B_Z1`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter Z register 1 |
+| `$F02298` | [`B_Z0`](../architecture/memory-map.md#blitter-registers-tom) | W | Blitter Z register 0 |
 
 These locations may be accessed by all processors **except the GPU** for read or write as appropriate at the above addresses, where they appear to the system as 16-bit memory. As they are all actually 32-bit, transfers should always be performed in pairs, in the order **low address then high address**.
 

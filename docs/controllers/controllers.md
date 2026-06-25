@@ -41,7 +41,7 @@ Connector: DB15 (female on console). The bi-directional pins are always used as 
 | 14 | J8       | J12      | Input-only signal |
 | 15 | —        | —        | Reserved |
 
-**Light gun:** Controller Port 1 also has a light gun input. A TTL rising edge on the `LP` signal (pin 6 of Port 1, shared with `B0`) latches the light pen registers (`LPH` and `LPV`).
+**Light gun:** Controller Port 1 also has a light gun input. A TTL rising edge on the `LP` signal (pin 6 of Port 1, shared with `B0`) latches the light pen registers ([`LPH`](../architecture/memory-map.md#system-set-up--video-registers-tom) and [`LPV`](../architecture/memory-map.md#system-set-up--video-registers-tom)).
 
 ## Register Addressing — Digital Inputs
 

@@ -24,7 +24,7 @@ Among Jerry's audio-related functions are:
 
 Sound is produced by the DSP writing samples to the transmit DAC registers; the synchronous serial interface shifts them out at the rate set by `SCLK` and the word strobe. Timer 1 is conventionally used to generate the **sample-rate** interrupt that drives synthesis, and Timer 2 to generate a **music-tempo** interrupt.
 
-> **Audio muted after reset.** The audio mute function allows non-audio serial data to be transmitted by Jerry without making a horrible noise on the audio outputs. When serial peripherals are connected to the DSP port and in use, audio should be muted by writing zero to **bit 8 of the `JOYSTICK` register (`$F14000`)**. Audio output is therefore enabled via bit 8 of `JOYSTICK`.
+> **Audio muted after reset.** The audio mute function allows non-audio serial data to be transmitted by Jerry without making a horrible noise on the audio outputs. When serial peripherals are connected to the DSP port and in use, audio should be muted by writing zero to **bit 8 of the [`JOYSTICK`](../controllers/controllers.md#joystick--f14000-readwrite) register (`$F14000`)**. Audio output is therefore enabled via bit 8 of [`JOYSTICK`](../controllers/controllers.md#joystick--f14000-readwrite).
 
 ## Frequency Dividers
 
@@ -59,10 +59,10 @@ There are four registers; **read addresses differ from write addresses.** Pre-sc
 
 | Register | Description       | Address   | Access |
 |----------|-------------------|-----------|--------|
-| `JPIT1`  | Timer 1 Pre-scaler | `$F10000` | WO |
-| `JPIT2`  | Timer 1 Divider    | `$F10002` | WO |
-| `JPIT3`  | Timer 2 Pre-scaler | `$F10004` | WO |
-| `JPIT4`  | Timer 2 Divider    | `$F10006` | WO |
+| [`JPIT1`](../architecture/memory-map.md#jerry--clocks-timers-serial)  | Timer 1 Pre-scaler | `$F10000` | WO |
+| [`JPIT2`](../architecture/memory-map.md#jerry--clocks-timers-serial)  | Timer 1 Divider    | `$F10002` | WO |
+| [`JPIT3`](../architecture/memory-map.md#jerry--clocks-timers-serial)  | Timer 2 Pre-scaler | `$F10004` | WO |
+| [`JPIT4`](../architecture/memory-map.md#jerry--clocks-timers-serial)  | Timer 2 Divider    | `$F10006` | WO |
 
 ## Jerry Interrupts
 

@@ -41,7 +41,7 @@ where N is the value written. The generated frequency is further divided by sixt
 | 1   | `PAREN`  | Parity enable. When parity is disabled, the value of the EVEN bit is transmitted in the parity bit time. |
 | 2   | `TXOPOL` | Transmitter output polarity. Writing a 1 makes the `UARTO` output active low. |
 | 3   | `RXIPOL` | Receiver input polarity. Writing a 1 makes `UARTI` an inverting input. |
-| 4   | `TINTEN` | Enable transmitter interrupts. Note that the asynchronous serial interface bit in the Interrupt Control Register (`JINTCTRL`) also needs to be set. |
+| 4   | `TINTEN` | Enable transmitter interrupts. Note that the asynchronous serial interface bit in the Interrupt Control Register ([`JINTCTRL`](../architecture/memory-map.md#jerry--clocks-timers-serial)) also needs to be set. |
 | 5   | `RINTEN` | Enable receiver interrupts. As for `TINTEN`, the asynchronous serial interface bit in the Interrupt Control Register also needs to be set. |
 | 6   | `CLRERR` | Clear error. Writing a 1 clears any parity, framing, or overrun error conditions. |
 | 14  | `TXBRK`  | Transmit break. Setting this bit causes a break level to be transmitted on `UARTO`, forcing the output active. This may be high or low depending on the state of `TXOPOL`. |
@@ -86,15 +86,15 @@ The synchronous serial interface is controlled by seven registers, all within th
 
 | Register | Description                   | Address   | Access |
 |----------|-------------------------------|-----------|--------|
-| `SCLK`   | Serial Clock Frequency         | `$F1A150` | WO |
-| `SMODE`  | Serial Mode                    | `$F1A154` | WO |
+| [`SCLK`](audio.md#sclk--serial-clock-frequency-f1a150-wo)   | Serial Clock Frequency         | `$F1A150` | WO |
+| [`SMODE`](audio.md#smode--serial-mode-f1a154-wo)  | Serial Mode                    | `$F1A154` | WO |
 | `L_DAC` / `LTXD` | Left transmit data    | `$F1A148` | WO |
 | `R_DAC` / `RTXD` | Right transmit data   | `$F1A14C` | WO |
 | `LRXD`   | Left receive data (from I²S)   | `$F1A148` | WO |
 | `RRXD`   | Right receive data (from I²S)  | `$F1A14C` | WO |
 | `SSTAT`  | Serial Status                  | `$F1A150` | RO |
 
-The serial clock frequency is `System Clock / (2 * (N+1))`. `SMODE` bit 0 (`INTERNAL`) enables the clock and word strobe outputs; interrupts can be generated on the rising/falling edge of the word strobe or on the MSB of every word. Full register-level details, including the audio sample path, are documented in [Audio Subsystem & Synthesis](audio.md).
+The serial clock frequency is `System Clock / (2 * (N+1))`. [`SMODE`](audio.md#smode--serial-mode-f1a154-wo) bit 0 (`INTERNAL`) enables the clock and word strobe outputs; interrupts can be generated on the rising/falling edge of the word strobe or on the MSB of every word. Full register-level details, including the audio sample path, are documented in [Audio Subsystem & Synthesis](audio.md).
 
 ## Joystick Interface
 

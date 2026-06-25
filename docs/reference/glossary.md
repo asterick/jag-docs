@@ -47,7 +47,7 @@ terms (sectors, sessions, subcodes, etc.) are defined in the
 | **Scoreboarding** | GPU/DSP pipeline hazard mechanism that stalls on register dependencies. See [gpu](../tom/gpu.md). |
 | **I²S** | Inter-IC Sound serial format used for Jerry's audio output and the CD data path. See [audio](../jerry/audio.md). |
 | **ComLynx** | Asynchronous serial link (shared with the Atari Lynx) on Jerry. See [serial-io](../jerry/serial-io.md). |
-| **NVRAM / EEPROM** | 128-byte serial EEPROM in cartridges for saves/high scores; accessed via `JOYSTICK` bit 0. |
+| **NVRAM / EEPROM** | 128-byte serial EEPROM in cartridges for saves/high scores; accessed via [`JOYSTICK`](../controllers/controllers.md#joystick--f14000-readwrite) bit 0. |
 
 ## Development hardware & tools
 
@@ -74,7 +74,7 @@ terms (sectors, sessions, subcodes, etc.) are defined in the
 | `$F00000`–`$F0FFFF` | Tom register / internal space |
 | `$F03000`–`$F03FFF` | GPU internal RAM (4 KB) |
 | `$F10000`–`$F1FFFF` | Jerry register / internal space |
-| `$F14000` | `JOYSTICK` register |
+| `$F14000` | [`JOYSTICK`](../controllers/controllers.md#joystick--f14000-readwrite) register |
 | `$F1B000`–`$F1CFFF` | DSP internal RAM (8 KB) |
 
 ## See also

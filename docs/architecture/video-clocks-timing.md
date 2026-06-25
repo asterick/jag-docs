@@ -27,11 +27,11 @@ The clock dividers live in Jerry and are set up by the BOOTROM (retail console) 
 | `CLK2` | `$F10012` | Video clock divider |
 | `CLK3` | `$F10014` | Chroma clock divider (aka CHROMA DIV) |
 
-The `VMODE` register and object processor are initialised and started after reset by the bootcode. The only object then in the object list is a stop object, which displays a blank screen and sends the correct video sync signals to the monitor or TV. This also lets the phase-locked loop settle (about a second at start-up). **Do not ever turn video off again** (i.e. by writing zero to `VMODE`).
+The [`VMODE`](../tom/object-processor.md#vmode--video-mode-f00028-wo) register and object processor are initialised and started after reset by the bootcode. The only object then in the object list is a stop object, which displays a blank screen and sends the correct video sync signals to the monitor or TV. This also lets the phase-locked loop settle (about a second at start-up). **Do not ever turn video off again** (i.e. by writing zero to [`VMODE`](../tom/object-processor.md#vmode--video-mode-f00028-wo)).
 
 ## Pixel (Dot) Clock and Resolution
 
-The video system is programmable within the precision of the supplied video clock. From the video clock the system produces the pixel (or dot) clock. The ratio between the video and pixel clock is set by the high-order bits of the `VMODE` register. Pixel counts are the same for NTSC and PAL.
+The video system is programmable within the precision of the supplied video clock. From the video clock the system produces the pixel (or dot) clock. The ratio between the video and pixel clock is set by the high-order bits of the [`VMODE`](../tom/object-processor.md#vmode--video-mode-f00028-wo) register. Pixel counts are the same for NTSC and PAL.
 
 For both PAL and NTSC the "safe" video area is about 40µS wide; the area required to guarantee overscan is about 50µS. These numbers are rough guidelines for artwork and object sizes only — they should **not** be used to calculate values for the video hardware registers.
 
@@ -68,18 +68,18 @@ These registers define the video raster timing. They are set up at boot and list
 | `HBE` | `$F00032` | Horizontal Blanking End |
 | `HS` | `$F00034` | Horizontal Sync |
 | `HVS` | `$F00036` | Horizontal Vertical Sync |
-| `HDB1` | `$F00038` | Horizontal Display Begin 1 |
-| `HDB2` | `$F0003A` | Horizontal Display Begin 2 |
-| `HDE` | `$F0003C` | Horizontal Display End |
+| [`HDB1`](memory-map.md#system-set-up--video-registers-tom) | `$F00038` | Horizontal Display Begin 1 |
+| [`HDB2`](memory-map.md#system-set-up--video-registers-tom) | `$F0003A` | Horizontal Display Begin 2 |
+| [`HDE`](memory-map.md#system-set-up--video-registers-tom) | `$F0003C` | Horizontal Display End |
 | `VP` | `$F0003E` | Vertical Period |
 | `VBB` | `$F00040` | Vertical Blanking Begin |
 | `VBE` | `$F00042` | Vertical Blanking End |
 | `VS` | `$F00044` | Vertical Sync |
-| `VDB` | `$F00046` | Vertical Display Begin |
-| `VDE` | `$F00048` | Vertical Display End |
-| `VEB` | `$F0004A` | Vertical Equalisation Begin |
+| [`VDB`](memory-map.md#system-set-up--video-registers-tom) | `$F00046` | Vertical Display Begin |
+| [`VDE`](memory-map.md#system-set-up--video-registers-tom) | `$F00048` | Vertical Display End |
+| [`VEB`](memory-map.md#system-set-up--video-registers-tom) | `$F0004A` | Vertical Equalisation Begin |
 | `VEE` | `$F0004C` | Vertical Equalisation End |
-| `VI` | `$F0004E` | Vertical Interrupt |
+| [`VI`](memory-map.md#system-set-up--video-registers-tom) | `$F0004E` | Vertical Interrupt |
 | `HEQ` | `$F00054` | Horizontal Equalisation End |
 
 ## Video Ports

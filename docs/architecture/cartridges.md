@@ -35,7 +35,7 @@ other persistent data.
 
 Two cautions:
 
-- **`JOYSTICK` bit 0 is overloaded.** When read, bit 0 of the `JOYSTICK` register
+- **[`JOYSTICK`](../controllers/controllers.md#joystick--f14000-readwrite) bit 0 is overloaded.** When read, bit 0 of the [`JOYSTICK`](../controllers/controllers.md#joystick--f14000-readwrite) register
   (`$F14000`) returns the EEPROM **data-output bit**, not the J0 joystick input.
   J0 has always been used as an output, so this rarely matters — but treat that
   read bit as **random**, not as the J0 level. See
@@ -96,7 +96,7 @@ shown are **not** recommended; similar chips from other makers are untested):
 ## See also
 
 - [Memory Map / Register List](memory-map.md) — `$800000` cartridge space, `$802000` entry point
-- [Controllers & Controller Ports](../controllers/controllers.md) — `JOYSTICK` bit 0 overload
+- [Controllers & Controller Ports](../controllers/controllers.md) — [`JOYSTICK`](../controllers/controllers.md#joystick--f14000-readwrite) bit 0 overload
 - [Serial I/O — ComLynx, MIDI](../jerry/serial-io.md) — GPIO decodes / EEPROM address range
 - [Hardware Bugs & Warnings](hardware-bugs.md)
 - [CD-ROM Subsystem Overview](../cdrom/overview.md) — the other storage medium

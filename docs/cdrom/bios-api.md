@@ -77,7 +77,7 @@ Jerry's I²S interrupt.
 | [`CD_initm`](#cd_initm) | slowest | **yes** | none (non-interrupt) | partition-marker search + circular buffers |
 
 > **Warning:** the CD BIOS GPU code cannot tell which interrupts truly came from
-> Jerry. **Never enable other interrupts in `JINTCTRL`** while any `CD_init`
+> Jerry. **Never enable other interrupts in [`JINTCTRL`](../architecture/memory-map.md#jerry--clocks-timers-serial)** while any `CD_init`
 > handler is active, or they will be mistaken for CD interface interrupts.
 
 **Latency budget:** at double speed these interrupts occur about every **90 µs**;
@@ -88,7 +88,7 @@ offender — prefer doing object-list updates on the GPU, or keep the 68k handle
 tiny.
 
 **Using the DSP instead of the GPU:** install a DSP I²S interrupt handler, call
-`CD_jeri` appropriately, and set `SMODE` to `$14` (Boot ROM default is `$15`,
+`CD_jeri` appropriately, and set [`SMODE`](../jerry/audio.md#smode--serial-mode-f1a154-wo) to `$14` (Boot ROM default is `$15`,
 restore it when done). This needs no `CD_init`. DSP transfers are subject to
 **infrequent unreported data errors** — checksum any data that must be perfect.
 
@@ -303,7 +303,7 @@ Behaviour by `CD_init` variant in effect:
 - [CD-ROM Subsystem Overview](overview.md)
 - [Disc & Data Format](data-format.md) — partition markers, headers, TOC layout
 - [Programming Procedures & Guidelines](programming-guide.md) — boot & read recipes
-- [Memory Map / Register List](../architecture/memory-map.md) — `SMODE`, `JINTCTRL`, I²S
+- [Memory Map / Register List](../architecture/memory-map.md) — [`SMODE`](../jerry/audio.md#smode--serial-mode-f1a154-wo), [`JINTCTRL`](../architecture/memory-map.md#jerry--clocks-timers-serial), I²S
 - [Digital Sound Processor (DSP)](../jerry/dsp.md) and [Audio Subsystem](../jerry/audio.md)
 
 <!-- nav:bottom -->

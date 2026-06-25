@@ -37,7 +37,7 @@ hardware/repair work.
 CD data enters the Jaguar through the **Butch** interface chip, which redirects
 the CD data stream onto **Jerry's I²S serial interrupt**. This is why the
 [CD BIOS](bios-api.md#reading-data-24) loads GPU (or DSP) interrupt code to
-service those interrupts, and why you must not enable unrelated `JINTCTRL`
+service those interrupts, and why you must not enable unrelated [`JINTCTRL`](../architecture/memory-map.md#jerry--clocks-timers-serial)
 interrupts while a read handler is active.
 
 Two revisions exist and they affect which BIOS you can run:
@@ -63,7 +63,7 @@ See [Calling convention](bios-api.md#calling-convention) for how the BIOS revisi
   enters without consuming main system bandwidth (see
   [Audio Subsystem](../jerry/audio.md)).
 
-Relevant registers (`SMODE`, the I²S serial registers, `JINTCTRL`) are documented
+Relevant registers ([`SMODE`](../jerry/audio.md#smode--serial-mode-f1a154-wo), the I²S serial registers, [`JINTCTRL`](../architecture/memory-map.md#jerry--clocks-timers-serial)) are documented
 in the [Memory Map / Register List](../architecture/memory-map.md) and
 [Serial I/O](../jerry/serial-io.md).
 

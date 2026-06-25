@@ -53,18 +53,18 @@ from its own internal RAM.
 > [GPU → Running GPU code from main RAM](../tom/gpu.md#running-gpu-code-from-main-ram).
 
 ### 4. DSP must not run in high bus priority
-Keep the **`DMAEN` bit of `D_FLAGS` = 0**. With it set, an external load/store
+Keep the **`DMAEN` bit of [`D_FLAGS`](../jerry/dsp.md#d_flags--dsp-flags-register-f1a100-rw) = 0**. With it set, an external load/store
 hangs the DSP and needs a reset to recover.
 
 ### 5. GPU/Blitter must not outrank the Object Processor
-While the Object Processor is running, keep the **`DMAEN` bit of `G_FLAGS` = 0**
-and the **`BUSHI` bit of `B_CMD` = 0**. No bus master may run at higher priority
+While the Object Processor is running, keep the **`DMAEN` bit of [`G_FLAGS`](../tom/gpu.md#g_flags--gpu-flags-register-f02100-rw) = 0**
+and the **`BUSHI` bit of [`B_CMD`](../tom/blitter.md#b_cmd--command-register-f02238-wo) = 0**. No bus master may run at higher priority
 than the OP — if something steals the bus between the 2nd and 3rd phrases of an
 object header, the line-buffer address corrupts, giving horizontal black stripes
 and other artifacts. See [Object Processor](../tom/object-processor.md).
 
 ### 6. Don't stop a RISC processor by external write to its control register
-Never stop the GPU/DSP by writing `G_CTRL`/`D_CTRL` from another processor — only
+Never stop the GPU/DSP by writing [`G_CTRL`](../tom/gpu.md#g_ctrl--gpu-controlstatus-register-f02114-rw)/[`D_CTRL`](../jerry/dsp.md#d_ctrl--dsp-controlstatus-register-f1a114-rw) from another processor — only
 the GPU should stop the GPU, only the DSP should stop the DSP. To shut one down,
 set a semaphore and interrupt it so it stops itself.
 
@@ -107,7 +107,7 @@ The DSP matrix register can only address the first 4 KB of DSP RAM; the rest of
 the matrix address is hard-wired to `$F1Bxxx`. See [DSP](../jerry/dsp.md).
 
 ### 11. `G_FLAGS` / `D_FLAGS` write latency
-After writing `G_FLAGS`/`D_FLAGS`, the change may not be visible for two
+After writing [`G_FLAGS`](../tom/gpu.md#g_flags--gpu-flags-register-f02100-rw)/[`D_FLAGS`](../jerry/dsp.md#d_flags--dsp-flags-register-f1a100-rw), the change may not be visible for two
 instructions (pipelining). If you'll use flags set by a `STORE`, or change a bit
 like the register bank, put **two `NOP`s** after the write.
 
@@ -126,9 +126,9 @@ apply it to both generators.
 written, but `GOURZ` must be set.
 
 ### 3. `A1_CLIP` X off a phrase boundary clips the right side
-If `A1_CLIP` X is not on a phrase boundary, right-side clipping occurs even when
+If [`A1_CLIP`](memory-map.md#blitter-registers-tom) X is not on a phrase boundary, right-side clipping occurs even when
 the clip bit is clear (and on the destination even with `DSTA2` set). Set
-`A1_CLIP` to 0 when not clipping, and make the source an even phrase width when
+[`A1_CLIP`](memory-map.md#blitter-registers-tom) to 0 when not clipping, and make the source an even phrase width when
 using `DSTA2`.
 
 ### 4. Unaligned 2-bpp mode is unreliable

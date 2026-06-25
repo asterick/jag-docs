@@ -54,7 +54,7 @@ processor with priority over the GPU may hold the bus longer than that.
 - **Don't build object lists in the 68000 VBL.** Do object-list updates on the
   GPU, or keep the 68k handler tiny.
 - While a `CD_init` handler is active, **don't enable other interrupts in
-  `JINTCTRL`** — they'll be misread as CD interrupts.
+  [`JINTCTRL`](../architecture/memory-map.md#jerry--clocks-timers-serial)** — they'll be misread as CD interrupts.
 
 **DSP read path (alternative).** Install a DSP I²S handler, call `CD_jeri`, set
 `SMODE = $14` (restore the Boot ROM default `$15` when done). No `CD_init`
@@ -129,7 +129,7 @@ Disc-switch decision flow (from the manual's flowchart):
 - Touch the CD hardware directly.
 - Call [`CD_getoc`](bios-api.md#cd_getoc) in shipping code.
 - Use `ATRI`, `0x00000000`, or `0xFFFFFFFF` as a partition marker.
-- Enable extra `JINTCTRL` interrupts while a `CD_init` handler runs.
+- Enable extra [`JINTCTRL`](../architecture/memory-map.md#jerry--clocks-timers-serial) interrupts while a `CD_init` handler runs.
 - Build object lists in the 68000 vertical-blank handler.
 - Put non–Red-Book data in Session #0 (it blocks compatibility encoding).
 
