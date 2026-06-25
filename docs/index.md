@@ -16,9 +16,6 @@ and the **CD-ROM subsystem**.
 The Jaguar is a custom chip set built around two ASICs — **Tom** (graphics/video)
 and **Jerry** (sound/I-O) — plus a Motorola 68000 acting as system manager.
 
-### CPU
-- [Motorola 68000 — Programmer's Model](cpu/68000.md) — registers, addressing modes, instruction set, timings, exceptions
-
 ### Architecture & memory
 - [System Architecture Overview](architecture/overview.md) — the five processors and how they cooperate
 - [Memory Map / Register List](architecture/memory-map.md) — address space, banks, hardware registers
@@ -26,6 +23,20 @@ and **Jerry** (sound/I-O) — plus a Motorola 68000 acting as system manager.
 - [Hardware Bugs & Warnings](architecture/hardware-bugs.md) — known silicon bugs and cautions
 - [Cartridges, EEPROM Saves & ROM Building](architecture/cartridges.md) — cartridge port, on-cart saves, EPROM/EEPROM parts
 - [Connectors, Pinouts & Power](architecture/connectors-power.md) — power supply, current draw, connector/schematic hub
+
+### CPU — Motorola 68000
+
+The general-purpose CPU at the center of the Jaguar. It acts as the system
+**manager** while the GPU, DSP, and Blitter carry the performance load. The
+programmer's model is documented end-to-end on one page:
+
+- [Programmer's Model — overview](cpu/68000.md) — the 68000 in the Jaguar: clock, buses, byte order, memory rules & gotchas
+- [Registers & status register](cpu/68000.md#registers) — data/address registers, the SR, privilege states
+- [Data organization](cpu/68000.md#data-organization) — byte/word/long operands, alignment, big-endian order
+- [Addressing modes](cpu/68000.md#addressing-modes) — the twelve 68000 addressing modes
+- [Instruction set](cpu/68000.md#instruction-set) — the full instruction list with condition-code effects
+- [Instruction timing](cpu/68000.md#instruction-timing) — clock-cycle counts, EA calculation, exception times
+- [Exception processing](cpu/68000.md#exception-processing) — vector table, reset, interrupts, traps
 
 ### Tom — graphics & video
 - [Object Processor](tom/object-processor.md) — the display list engine (sprite + framebuffer hybrid)
