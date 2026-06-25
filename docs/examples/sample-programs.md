@@ -10,7 +10,7 @@ A guide to the example programs shipped with the Jaguar development system, illu
 
 The sample programs are included with the Jaguar Workshop tools. They are not part of the Workshop series itself; each one illustrates a particular technique or method. In most cases the samples are *not* the fastest possible implementation — they trade speed for clarity so the idea is easy to understand. The samples are updated frequently, so each `SOURCE` subdirectory usually contains a `README.TXT` describing late changes; check it. The executables themselves are not always shipped, because each project is meant to be built with the same tools in your developer's kit, which doubles as a sanity check that your installation is correct.
 
-> **Exclusion policy:** This reference deliberately omits samples that are built around third-party or copyright libraries (the 3D graphics library, the BPEG/JAGPEG image codec, the Jaguar Synthesizer / Music Driver, and similar). Their source is *not* reproduced here. Those samples are listed by name only, with a one-line reason, in the [Excluded](#excluded-depend-on-copyright-libraries) section at the end. The sections below cover only samples that exercise the hardware directly or rely on standard, freely redistributable startup/utility code.
+> **Note:** Only samples that exercise the hardware directly — or rely on standard, freely-redistributable startup/utility code — are documented here. Samples built around third-party libraries are omitted.
 
 ---
 
@@ -198,15 +198,6 @@ You can move around the buffer with the **UP/DOWN** keys or faster with **1/7** 
 
 ---
 
-## Excluded (depend on copyright libraries)
-
-These samples are built around third-party / copyright libraries, so their code is not reproduced here.
-
-- **BPEG Decompression Example** (`TESTBPEG`, `\JAGUAR\BPEG`) — demonstrates the BPEG image-compression tools and routine; depends on the copyright BPEG image codec library.
-- **Jaguar Synth Example** (`\JAGUAR\MUSIC\SYNDEMO`, patches in `\JAGUAR\MUSIC\MUSICDRV`) — uses the Jaguar Synthesizer and Jaguar Music Driver to play music; depends on the copyright music driver / synthesizer library.
-- **3D Rendering & Texture Mapping Demo** (`\JAGUAR\3DDEMO`) — uses the Jaguar 3D Graphics routines supplied by Atari; depends on the copyright 3D graphics library.
-
----
 
 ## See also
 

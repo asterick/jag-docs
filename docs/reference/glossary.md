@@ -57,9 +57,6 @@ terms (sectors, sessions, subcodes, etc.) are defined in the
 | **ROMulator / Alpine Board** | Dev board emulating a ROM cartridge with battery-backed SRAM (2–4 MB) at `$800000`, plus host PC link. |
 | **Debugger stub** | Debug ROM code in the dev console; reserves low memory (below `$4000`) and the first `$2000` of ROM space. |
 | **SkunkBoard** | A USB Flash-ROM cartridge for development on a retail console (4 MB or 8 MB). |
-| **MADMAC / SMAC** | Atari's macro assembler (68000 + GPU/DSP). |
-| **ALN / SLN** | The object linker. |
-| **DB / RDBJAG / WDB** | The Atari symbolic debugger and its terminal (RDBJAG) and windowed (WDB) front ends. |
 | **CD BIOS** | The required API layer for all CD access. See [cdrom/bios-api](../cdrom/bios-api.md). |
 | **Partition marker** | A 64-byte block of 16 identical longwords tagging a data block on a Jaguar CD. See [cdrom/data-format](../cdrom/data-format.md#partition-markers). |
 

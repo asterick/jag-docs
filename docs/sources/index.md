@@ -69,20 +69,6 @@ The "Version 10" PDFs are community restorations (© Stephen Moss, 2021) of the 
 | [Workshop.pdf](Workshop.pdf) | Scanned | Object-processor / Blitter worked-example tutorials. |
 | [Appendix.pdf](Appendix.pdf) | Scanned | Developer FAQ — mostly dev-system/toolchain support; only a few hardware items. |
 
-## Excluded (removed, not redistributed)
-
-These were removed because they are third-party/copyright IP or tied to a specific toolchain rather than the hardware, so they are **not** present in this folder:
-
-| Source | Reason |
-|--------|--------|
-| `Madmac.pdf`, `ALN.pdf`, `Tools.pdf`, `Debugger.pdf` | toolchain (assembler / linker / debugger / utilities) |
-| `librarys.pdf` (3D, JPEG, networking, music) | library IP |
-| `Cinepak.pdf` | licensed video codec |
-| `QSound_V10.pdf` (+ "Atari Original" copy) | licensed 3D-audio module |
-| `GStarted_V10.pdf` / `Getting Started_V10.pdf` (+ "Atari Original" copy) | toolchain-dependent setup guide |
-
-> **Samples caveat:** sample programs may be included, but any sample built around a copyright library must be excluded; samples depending only on standard/freely-redistributable code (e.g. C `stdlib`) are fine.
-
 <!-- nav:bottom -->
 ---
 

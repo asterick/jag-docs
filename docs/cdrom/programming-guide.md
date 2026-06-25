@@ -85,7 +85,7 @@ manageable blocks.
 ## Minimizing loading delay
 
 - **Plan ahead:** design so there's time to load new data in the background
-  (the technique the Cinepak demos use for continuous data far larger than DRAM
+  (a background-streaming technique for continuous data far larger than DRAM
   with *no* loading delays).
 - Use [`CD_initm`](bios-api.md#cd_initm)'s circular-buffer
   [`CD_read`](bios-api.md#cd_read) to read continuously with no extra code.

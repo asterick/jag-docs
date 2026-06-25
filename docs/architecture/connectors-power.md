@@ -88,7 +88,7 @@ For EPROM/EEPROM part numbers and the chip-byte ordering used when building cart
 <!-- nav:bottom -->
 ---
 
-◀ **Prev:** [Cartridges, EEPROM Saves & ROM Building](cartridges.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Object Processor (Tom)](../tom/object-processor.md) ▶
+◀ **Prev:** [Cartridges, EEPROM Saves & ROM Building](cartridges.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Motorola 68000 — Programmer's Model](../cpu/68000.md) ▶
 
 **Jump to:** [Architecture](overview.md) · [Memory Map](memory-map.md) · [Registers](../reference/register-list.md) · [Instructions](../reference/risc-instruction-set.md) · [Glossary](../reference/glossary.md) · [CD-ROM](../cdrom/overview.md)
 <!-- /nav:bottom -->

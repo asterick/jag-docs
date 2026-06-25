@@ -430,7 +430,7 @@ This guarantees the minimum refresh rate without interrupting the Object Process
 <!-- nav:bottom -->
 ---
 
-◀ **Prev:** [Connectors, Pinouts & Power](../architecture/connectors-power.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Graphics Processor (GPU)](gpu.md) ▶
+◀ **Prev:** [Motorola 68000 — Programmer's Model](../cpu/68000.md) &nbsp;·&nbsp; 🏠 **[Home](../index.md)** &nbsp;·&nbsp; **Next:** [Graphics Processor (GPU)](gpu.md) ▶
 
 **Jump to:** [Architecture](../architecture/overview.md) · [Memory Map](../architecture/memory-map.md) · [Registers](../reference/register-list.md) · [Instructions](../reference/risc-instruction-set.md) · [Glossary](../reference/glossary.md) · [CD-ROM](../cdrom/overview.md)
 <!-- /nav:bottom -->

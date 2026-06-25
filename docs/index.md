@@ -16,6 +16,9 @@ and the **CD-ROM subsystem**.
 The Jaguar is a custom chip set built around two ASICs — **Tom** (graphics/video)
 and **Jerry** (sound/I-O) — plus a Motorola 68000 acting as system manager.
 
+### CPU
+- [Motorola 68000 — Programmer's Model](cpu/68000.md) — registers, addressing modes, instruction set, timings, exceptions
+
 ### Architecture & memory
 - [System Architecture Overview](architecture/overview.md) — the five processors and how they cooperate
 - [Memory Map / Register List](architecture/memory-map.md) — address space, banks, hardware registers
