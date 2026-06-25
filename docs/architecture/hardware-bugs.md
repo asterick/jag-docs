@@ -47,6 +47,11 @@ where the written value is actually used, the bug does not occur.
 Neither the GPU nor the DSP will reliably execute `jr` or `jump` unless running
 from its own internal RAM.
 
+> **Community work-around:** RISC code *can* be run from main RAM if jumps are
+> aligned and the pipeline is cleared (long-aligned `JUMP` sources, a `MOVEI`
+> before local↔main jumps, two trailing `NOP`s). See
+> [GPU → Running GPU code from main RAM](../tom/gpu.md#running-gpu-code-from-main-ram).
+
 ### 4. DSP must not run in high bus priority
 Keep the **`DMAEN` bit of `D_FLAGS` = 0**. With it set, an external load/store
 hangs the DSP and needs a reset to recover.

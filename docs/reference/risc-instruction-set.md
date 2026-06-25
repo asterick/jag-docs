@@ -131,6 +131,8 @@ The **GPU** and **DSP** columns indicate which processor implements each instruc
 
 To get the most out of the Atari RISC processors, it is important to avoid wait states. Each processor can execute one instruction per tick in ideal circumstances, but poorly arranged code can drop to around half that rate. A well-written program can usually achieve an instruction throughput of around two-thirds of the peak figure. Tuning the innermost loops is worthwhile.
 
+> See also the [GPU performance notes](../tom/gpu.md#performance-notes-community) for community techniques: halting the 68000 (`STOP #$2000`) to free the bus, and running GPU code from main RAM.
+
 Wait states occur either because an instruction would use a system resource (a register or flag) that is not yet valid, or because it would use a piece of hardware still busy from an earlier operation (such as the external memory interface). The chipset makes significant use of pipelining.
 
 **Wait states are incurred when:**

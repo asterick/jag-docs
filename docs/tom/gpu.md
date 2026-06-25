@@ -645,6 +645,47 @@ This 32-bit register contains a value from which the remainder after a division 
 |------|-----------|-------------|
 | 0 | `DIV_OFFSET` | If set, the divide unit performs division of unsigned 16.16 bit numbers; otherwise 32-bit unsigned integer division. |
 
+## Performance notes (community)
+
+> **Community source:** developer findings by Atari Owl (Joe), *The Owl Project* —
+> ["What's this 'Lay off the 68k' and 'GPU in Main' Malarkey?"](https://atariowlproject.blogspot.com/2009/10/atari-jaguar-homebrew-whats-this-lay.html)
+> (21 Oct 2009). These go beyond the original Atari manuals; treat the exact rules
+> as developer-reported and verify against the post.
+
+### Freeing the bus — halt the 68000
+
+The GPU, DSP, Blitter and 68000 share the bus, so a 68000 left spinning (for
+example in a divide loop) steals memory cycles from the RISC engines. **Halting
+the 68000 with `STOP #$2000`** removes that contention and gives roughly a
+**5–10 % boost** to RISC-heavy workloads (e.g. 3D). Atari's Leonard Tramiel:
+*"The interleaving of GPU and 68k code has never, in our experience, gained any
+performance. The best thing that can be done with the 68k for overall system
+performance is to execute a halt instruction."* This is an optimisation, not a
+requirement — 2D games, ST ports, and the like run fine with the 68000 active.
+
+### Running GPU code from main RAM
+
+The GPU normally executes from its 4 KB of local RAM, but it *can* run from main
+DRAM when a program needs more code than local RAM holds. The catch is the
+[`jr`/`jump` reliability bug](../architecture/hardware-bugs.md#3-jr--jump-only-reliable-from-internal-ram) —
+jumps must be aligned and the pipeline cleared. Reported rules:
+
+- A **`JUMP` (absolute) source** must be **long-aligned** (address ending 0/4/8/C);
+  jumps that cross between local and main RAM may need **phrase alignment** (0/8).
+- **Precede** a local↔main jump with a **`MOVEI`** to clear the pipeline (its
+  register may need to differ from the `JUMP` register).
+- A **`JR` (relative) source** has **no** alignment restriction.
+- Jumps to **another page** must be long-aligned; jumps **within a page** must be
+  word-offset from long alignment (ending 2/6/A/E).
+- Follow a `JUMP`/`JR` with **two `NOP`s** (the first may sometimes be a useful
+  single-operand instruction).
+
+Throughput from main RAM is roughly **20–90 % of local-RAM speed** (worse under
+heavy Blitter/bus load or when code straddles pages) — but even at the low end it
+beats the 68000. Keep tight inner loops, especially `LOAD`/`STORE`, in local RAM.
+Rough scale: Atari ST 68000 ≈ 1 MIPS; Jaguar 68000 (13.3 MHz) ≈ 1.65 MIPS;
+GPU ≈ 17–27 MIPS.
+
 ## See also
 
 - [System Architecture Overview](../architecture/overview.md)
