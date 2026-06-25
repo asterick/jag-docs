@@ -1,10 +1,12 @@
 <!-- nav:top -->
-[🏠 Atari Jaguar Developer Reference](../index.md) ▸ Input ▸ **Controllers & Controller Ports**
+[🏠 Atari Jaguar Developer Reference](../index.md) ▸ Jerry — Sound & I/O ▸ **Controllers & Controller Ports**
 <!-- /nav:top -->
 
 # Controllers & Controller Ports
 
 Pinouts, the JOYSTICK/JOYBUTS digital-input registers, the standard Joypad matrix, controller identification, and the full range of standard and advanced Jaguar controllers (Tempest rotary, Team Tap 4-player adaptor, 6D, head-mounted tracker, analog/driving, keyboard/mouse).
+
+Controller I/O is handled by **Jerry**: the `JOYSTICK` (`$F14000`) and `JOYBUTS` (`$F14002`) registers live in Jerry's register space (see [Joystick registers](../architecture/memory-map.md#joystick-registers-jerry)).
 
 > **Source:** *Technical Reference Manual* (V10), pp. 15–30. © Atari Corp. 1995.
 

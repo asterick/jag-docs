@@ -48,9 +48,7 @@ programmer's model is documented end-to-end on one page:
 - [Digital Sound Processor (DSP)](jerry/dsp.md) — the RISC sound co-processor
 - [Audio Subsystem & Synthesis](jerry/audio.md) — sample playback, timers, output
 - [Serial I/O — ComLynx, MIDI, Synchronous Serial](jerry/serial-io.md)
-
-### Input
-- [Controllers & Controller Ports](controllers/controllers.md) — Joypad, rotary, Team Tap, advanced controllers
+- [Controllers & Controller Ports](controllers/controllers.md) — Joypad, rotary, Team Tap, advanced controllers (read via Jerry's `JOYSTICK`/`JOYBUTS` registers)
 
 ## Peripherals
 
